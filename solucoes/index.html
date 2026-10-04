@@ -1,0 +1,274 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Soluções Creative Always">
+<meta property="og:description" content="Todas as nossas soluções de marketing e IA em um só lugar. Abra a demonstração e veja funcionando.">
+<meta property="og:url" content="https://creativealways.com.br/solucoes/">
+<meta property="og:image" content="https://creativealways.com.br/solucoes/og.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Crect width='200' height='200' rx='40' fill='%2315171C'/%3E%3Ccircle cx='100' cy='100' r='56' fill='none' stroke='%23F6F3EE' stroke-width='16' stroke-linecap='round' stroke-dasharray='290 61'/%3E%3Ccircle cx='148' cy='71' r='11' fill='%23E3A23F'/%3E%3C/svg%3E">
+<title>Soluções Creative Always</title>
+<meta name="description" content="Todas as soluções da Creative Always em um só lugar: demonstrações, sites e painéis.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: vitrine em uma coluna — cabeçalho da marca, atalhos por segmento, cartões de solução com os links de demonstração */
+:root{
+  --paper:#F6F3EE; --surface:#FFFFFF; --sunk:#EFEAE1;
+  --ink:#15171C; --muted:#5D5A54; --faint:#8F8A80;
+  --line:rgba(21,23,28,.12); --line-strong:rgba(21,23,28,.22);
+  --gold:#B47A16; --gold-soft:rgba(180,122,22,.12);
+  --wa:#1F7A55;
+  --f-display:"Inter Tight","Helvetica Neue",Arial,sans-serif;
+  --f-body:"Inter",-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+  --f-mono:"JetBrains Mono",ui-monospace,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --paper:#0F1013; --surface:#17181D; --sunk:#1F2027;
+  --ink:#F3F0EA; --muted:#B5B0A6; --faint:#857F74;
+  --line:rgba(243,240,234,.12); --line-strong:rgba(243,240,234,.22);
+  --gold:#E3A23F; --gold-soft:rgba(227,162,63,.14);
+  --wa:#4FC08D; color-scheme:dark;
+}}
+:root[data-theme="dark"]{
+  --paper:#0F1013; --surface:#17181D; --sunk:#1F2027;
+  --ink:#F3F0EA; --muted:#B5B0A6; --faint:#857F74;
+  --line:rgba(243,240,234,.12); --line-strong:rgba(243,240,234,.22);
+  --gold:#E3A23F; --gold-soft:rgba(227,162,63,.14);
+  --wa:#4FC08D; color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:15px;line-height:1.55;-webkit-font-smoothing:antialiased;margin:0}
+.wrap{max-width:1040px;margin:0 auto;padding-inline:16px;padding-block:32px 72px}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+
+header.top{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;margin-bottom:44px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none}
+.brand svg{width:28px;height:28px;color:var(--ink)}
+.brand span{font-family:var(--f-display);font-weight:700;font-size:16px}
+.btn{display:inline-flex;align-items:center;gap:8px;border-radius:8px;padding:10px 14px;font-weight:600;font-size:14px;text-decoration:none;border:1px solid var(--line-strong);background:var(--surface)}
+.btn.wa{background:var(--wa);border-color:var(--wa);color:#fff}
+.btn:hover{border-color:var(--ink)}
+.btn.wa:hover{filter:brightness(1.05)}
+
+.hero{margin-bottom:28px;max-width:720px}
+.eyebrow{font-family:var(--f-mono);font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin-bottom:12px}
+h1{font-family:var(--f-display);font-weight:800;font-size:clamp(30px,5.5vw,48px);line-height:1.05;letter-spacing:-.025em;margin:0 0 14px;text-wrap:balance}
+.lead{color:var(--muted);font-size:17px;margin:0;max-width:60ch}
+
+nav.segs{display:flex;gap:8px;flex-wrap:wrap;margin:28px 0 36px}
+nav.segs a{font-size:13.5px;text-decoration:none;padding:7px 12px;border-radius:99px;border:1px solid var(--line-strong);background:var(--surface);color:var(--muted)}
+nav.segs a:hover{color:var(--ink);border-color:var(--ink)}
+
+section.group{margin-bottom:44px;scroll-margin-top:20px}
+.group-head{display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap;border-bottom:1px solid var(--line);padding-bottom:10px;margin-bottom:16px}
+h2{font-family:var(--f-display);font-weight:700;font-size:22px;letter-spacing:-.01em;margin:0}
+.group-head p{margin:0;color:var(--muted);font-size:14px;max-width:62ch}
+
+.ciclo{display:flex;gap:6px;flex-wrap:wrap;margin:0 0 16px}
+.ciclo span{font-family:var(--f-mono);font-size:11px;padding:4px 9px;border-radius:99px;background:var(--gold-soft);color:var(--gold)}
+
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+@media (max-width:900px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:600px){.grid{grid-template-columns:1fr}}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:20px;display:flex;flex-direction:column;gap:12px;min-width:0}
+.card .tag{font-family:var(--f-mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--faint)}
+.card h3{font-family:var(--f-display);font-weight:700;font-size:19px;margin:0;letter-spacing:-.01em}
+.card h3 small{display:block;font-family:var(--f-body);font-weight:500;font-size:13px;color:var(--muted);letter-spacing:0;margin-top:2px}
+.card p{margin:0;color:var(--muted);font-size:14px}
+.links{display:flex;flex-direction:column;gap:6px;margin-top:auto}
+.links a{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:10px 12px;border-radius:8px;background:var(--sunk);text-decoration:none;font-size:14px;font-weight:500;border:1px solid transparent}
+.links a:hover{border-color:var(--line-strong)}
+.links a .arrow{color:var(--faint)}
+.links .talk{background:transparent;border:1px dashed var(--line-strong)}
+
+footer{margin-top:56px;padding-top:24px;border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;align-items:center;color:var(--muted);font-size:14px}
+footer .note{font-size:12.5px;color:var(--faint);max-width:60ch}
+</style>
+
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <a class="brand" href="https://creativealways.com.br" target="_blank" rel="noopener">
+      <svg viewBox="0 0 200 200" aria-hidden="true"><circle cx="100" cy="100" r="62" fill="none" stroke="currentColor" stroke-width="16" stroke-linecap="round" stroke-dasharray="322.46 67.09"/><circle cx="153.1" cy="68.1" r="12" fill="var(--gold)"/></svg>
+      <span>Creative Always</span>
+    </a>
+    <a class="btn wa" href="https://wa.me/5527988140076?text=Ol%C3%A1%20Rubens!%20Vi%20as%20solu%C3%A7%C3%B5es%20da%20Creative%20Always%20e%20quero%20conversar." target="_blank" rel="noopener">Falar com o Rubens no WhatsApp</a>
+  </header>
+
+  <div class="hero">
+    <div class="eyebrow">Marketing e IA para empresas que crescem</div>
+    <h1>Todas as nossas soluções, prontas para você ver funcionando</h1>
+    <p class="lead">Escolha o seu segmento, abra a demonstração e veja na prática. Cada solução foi desenhada para um tipo de negócio, e todas podem ser adaptadas à sua empresa.</p>
+  </div>
+
+  <nav class="segs" aria-label="Segmentos">
+    <a href="#saude">Saúde</a>
+    <a href="#seguros">Corretoras de seguros</a>
+    <a href="#turismo">Agências de viagem</a>
+    <a href="#juridico">Jurídico e cobrança</a>
+    <a href="#busca">Google e ChatGPT</a>
+    <a href="#empresas">Empresas em geral</a>
+  </nav>
+
+  <section class="group" id="saude">
+    <div class="group-head">
+      <h2>Saúde · Ciclo de Excelência</h2>
+      <p>Uma solução completa para clínicas: o paciente encontra, é atendido na hora, é acompanhado e volta a indicar.</p>
+    </div>
+    <div class="ciclo" aria-label="Etapas do ciclo"><span>Google e site</span><span>Atendimento 24h com IA</span><span>Gestão dos contatos</span><span>Reputação e avaliações</span></div>
+    <div class="grid">
+      <article class="card">
+        <div class="tag">Odontologia</div>
+        <h3>Ciclo Odonto<small>com a SorrIA, atendente de IA</small></h3>
+        <p>Demonstração completa com a clínica fictícia Sorriso Vivo.</p>
+        <div class="links">
+          <a href="https://sorriso-vivo.creativealways.workers.dev" target="_blank" rel="noopener">Site da clínica <span class="arrow">↗</span></a>
+          <a href="https://sorria-backend-production.up.railway.app/demo" target="_blank" rel="noopener">Conversar com a SorrIA <span class="arrow">↗</span></a>
+          <a href="https://sorria-dashboard-production.up.railway.app" target="_blank" rel="noopener">Painel da clínica <span class="arrow">↗</span></a>
+        </div>
+      </article>
+      <article class="card">
+        <div class="tag">Fisioterapia</div>
+        <h3>Ciclo Fisio<small>com a FísIA, atendente de IA</small></h3>
+        <p>Demonstração completa com a clínica fictícia Movimento Vivo.</p>
+        <div class="links">
+          <a href="https://movimento-vivo.creativealways.workers.dev" target="_blank" rel="noopener">Site da clínica <span class="arrow">↗</span></a>
+          <a href="https://sorria-backend-production.up.railway.app/demo/movimento-vivo" target="_blank" rel="noopener">Conversar com a FísIA <span class="arrow">↗</span></a>
+          <a href="https://movimento-vivo-dashboard-production.up.railway.app" target="_blank" rel="noopener">Painel da clínica <span class="arrow">↗</span></a>
+        </div>
+      </article>
+      <article class="card">
+        <div class="tag">Medicina</div>
+        <h3>Ciclo Médico<small>com a MediA, atendente de IA</small></h3>
+        <p>Demonstração completa com a clínica fictícia Saúde Integrada.</p>
+        <div class="links">
+          <a href="https://saude-integrada.creativealways.workers.dev" target="_blank" rel="noopener">Site da clínica <span class="arrow">↗</span></a>
+          <a href="https://sorria-backend-production.up.railway.app/demo/saude-integrada" target="_blank" rel="noopener">Conversar com a MediA <span class="arrow">↗</span></a>
+          <a href="https://saude-integrada-dashboard-production.up.railway.app" target="_blank" rel="noopener">Painel da clínica <span class="arrow">↗</span></a>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="group" id="seguros">
+    <div class="group-head">
+      <h2>Corretoras de seguros</h2>
+      <p>Para corretoras e corretores autônomos.</p>
+    </div>
+    <div class="grid">
+      <article class="card">
+        <div class="tag">Seguros</div>
+        <h3>SeguroFlow<small>Gestão e automação para corretoras</small></h3>
+        <p>Renovações avisadas com antecedência, cobrança com lembretes no WhatsApp, atendimento de sinistro organizado e painel com tudo num lugar só.</p>
+        <div class="links">
+          <a href="https://rubensloss.github.io/seguroflow-crm/" target="_blank" rel="noopener">Conhecer o SeguroFlow <span class="arrow">↗</span></a>
+          <a href="https://rubensloss.github.io/seguroflow-crm/app.html" target="_blank" rel="noopener">Testar o sistema <span class="arrow">↗</span></a>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="group" id="turismo">
+    <div class="group-head">
+      <h2>Agências de viagem</h2>
+      <p>Para agências e consultores de viagem independentes.</p>
+    </div>
+    <div class="grid">
+      <article class="card">
+        <div class="tag">Turismo</div>
+        <h3>Vivant IA<small>Roteiros vivos e painel da agência</small></h3>
+        <p>Em vez do PDF, o cliente recebe um roteiro interativo com fotos, escolha de hotel e aprovação com Pix. A agência acompanha prazos, parcelas e quem sumiu depois do orçamento.</p>
+        <div class="links">
+          <a href="https://rubensloss.github.io/vivant-ia/" target="_blank" rel="noopener">Ver a demonstração <span class="arrow">↗</span></a>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="group" id="juridico">
+    <div class="group-head">
+      <h2>Jurídico e recuperação de crédito</h2>
+      <p>Para escritórios de cobrança, departamentos jurídicos e empresas com carteira de inadimplência.</p>
+    </div>
+    <div class="grid">
+      <article class="card">
+        <div class="tag">Jurídico</div>
+        <h3>RecuperIA<small>Localização de bens e recuperação de crédito</small></h3>
+        <p>Cruza registros públicos para localizar patrimônio, mapeia a blindagem entre empresas e sócios e prepara as peças para o juiz autorizar os bloqueios.</p>
+        <div class="links">
+          <a href="https://rubensloss.github.io/recuperia-enterprise/" target="_blank" rel="noopener">Conhecer o RecuperIA <span class="arrow">↗</span></a>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="group" id="busca">
+    <div class="group-head">
+      <h2>Ser encontrado no Google e no ChatGPT</h2>
+      <p>Para qualquer negócio que depende de ser encontrado por quem pesquisa.</p>
+    </div>
+    <div class="grid">
+      <article class="card">
+        <div class="tag">Busca e IA</div>
+        <h3>GeoPulse<small>Presença nas respostas das IAs</small></h3>
+        <p>Mostra se a sua empresa aparece quando alguém pergunta ao ChatGPT, ao Gemini ou ao Google, e o que fazer para aparecer.</p>
+        <div class="links">
+          <a href="https://rubensloss.github.io/geopulse-engine/" target="_blank" rel="noopener">Conhecer o GeoPulse <span class="arrow">↗</span></a>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="group" id="empresas">
+    <div class="group-head">
+      <h2>Empresas em geral</h2>
+      <p>Para negócios de qualquer segmento que querem usar IA no dia a dia.</p>
+    </div>
+    <div class="grid">
+      <article class="card">
+        <div class="tag">Equipe</div>
+        <h3>ColaborIA<small>Colaboradores de IA para a sua equipe</small></h3>
+        <p>Assistentes de IA para tarefas repetitivas como atendimento, cobrança, relatórios e anúncios, sempre com a aprovação da sua equipe antes de qualquer envio.</p>
+        <div class="links">
+          <a href="https://creativealways.com.br/colaboria/">Conhecer a ColaborIA <span class="arrow">→</span></a>
+          <a class="talk" href="https://wa.me/5527988140076?text=Ol%C3%A1%20Rubens!%20Quero%20conhecer%20a%20ColaborIA." target="_blank" rel="noopener">Pedir uma demonstração <span class="arrow">↗</span></a>
+        </div>
+      </article>
+      <article class="card">
+        <div class="tag">Consultoria</div>
+        <h3>Consultoria em IA<small>Diagnóstico e implantação</small></h3>
+        <p>Mapeamos onde a IA economiza tempo e dinheiro na sua operação e implantamos junto com a sua equipe.</p>
+        <div class="links">
+          <a href="https://creativealways.com.br/consultoria-ia/">Conhecer a Consultoria <span class="arrow">→</span></a>
+          <a class="talk" href="https://wa.me/5527988140076?text=Ol%C3%A1%20Rubens!%20Quero%20saber%20mais%20sobre%20a%20Consultoria%20em%20IA." target="_blank" rel="noopener">Agendar uma conversa <span class="arrow">↗</span></a>
+        </div>
+      </article>
+      <article class="card">
+        <div class="tag">Negócios locais</div>
+        <h3>Ciclo de Excelência Digital<small>Site, Google, atendimento e reputação</small></h3>
+        <p>A mesma solução completa das clínicas, adaptada para comércio e serviços: ser encontrado, atender rápido e ser bem avaliado.</p>
+        <div class="links">
+          <a href="https://creativealways.com.br/ciclo-de-excelencia/">Conhecer o Ciclo de Excelência <span class="arrow">→</span></a>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <footer>
+    <div>
+      <strong>Creative Always</strong> · Rubens Loss · (27) 98814-0076<br>
+      <span class="note">As demonstrações usam empresas e dados fictícios, criados só para mostrar como cada solução funciona.</span>
+    </div>
+    <a class="btn wa" href="https://wa.me/5527988140076?text=Ol%C3%A1%20Rubens!%20Vi%20as%20solu%C3%A7%C3%B5es%20da%20Creative%20Always%20e%20quero%20conversar." target="_blank" rel="noopener">Falar no WhatsApp</a>
+  </footer>
+</div>
+
+</body>
+</html>

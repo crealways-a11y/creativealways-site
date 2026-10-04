@@ -1,0 +1,362 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>ColaborIA · Creative Always</title>
+<meta name="description" content="Colaboradores de IA para a sua equipe: do marketing ao financeiro, aprendem a sua empresa e só agem nas decisões importantes com a sua aprovação.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="ColaborIA · Colaboradores de IA para a sua equipe">
+<meta property="og:description" content="Do marketing ao financeiro, colaboradores de IA que trabalham com a sua aprovação.">
+<meta property="og:url" content="https://creativealways.com.br/colaboria/">
+<meta property="og:image" content="https://creativealways.com.br/colaboria/og.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Crect width='200' height='200' rx='40' fill='%2315171C'/%3E%3Ccircle cx='100' cy='100' r='56' fill='none' stroke='%23F6F3EE' stroke-width='16' stroke-linecap='round' stroke-dasharray='290 61'/%3E%3Ccircle cx='148' cy='71' r='11' fill='%23E3A23F'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: página de produto em coluna única — hero, vazamentos, os 5 pilares em sequência, segmentos, método, trabalhos, FAQ e chamada final */
+:root{
+  --paper:#F6F3EE; --surface:#FFFFFF; --sunk:#EFEAE1;
+  --ink:#15171C; --muted:#5D5A54; --faint:#8F8A80;
+  --line:rgba(21,23,28,.12); --line-strong:rgba(21,23,28,.22);
+  --gold:#B47A16; --gold-soft:rgba(180,122,22,.12);
+  --night:#15171C; --night-text:#F3F0EA; --night-muted:rgba(243,240,234,.66);
+  --wa:#1F7A55;
+  --f-display:"Inter Tight","Helvetica Neue",Arial,sans-serif;
+  --f-body:"Inter",-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+  --f-mono:"JetBrains Mono",ui-monospace,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){:root{
+  --paper:#0F1013; --surface:#17181D; --sunk:#1F2027;
+  --ink:#F3F0EA; --muted:#B5B0A6; --faint:#857F74;
+  --line:rgba(243,240,234,.12); --line-strong:rgba(243,240,234,.22);
+  --gold:#E3A23F; --gold-soft:rgba(227,162,63,.14);
+  --night:#1B1C22; --wa:#2E9A6B; color-scheme:dark;
+}}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+.wrap{max-width:1080px;margin:0 auto;padding-inline:20px}
+
+/* header */
+.site-head{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--paper) 88%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.site-head .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:12px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none}
+.brand svg{width:26px;height:26px;color:var(--ink)}
+.brand span{font-family:var(--f-display);font-weight:700;font-size:16px}
+.site-nav{display:flex;align-items:center;gap:22px;font-size:14.5px}
+@media (max-width:980px){.site-nav{gap:8px}}
+.site-nav a{text-decoration:none;color:var(--muted)}
+.site-nav a:hover,.site-nav a[aria-current]{color:var(--ink)}
+@media (max-width:980px){.site-nav .opt{display:none}}
+.brand span,.site-nav .btn{white-space:nowrap}
+@media (max-width:420px){.brand span{font-size:15px}.site-nav .btn{padding:8px 11px;font-size:13px}}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border-radius:9px;padding:12px 18px;font-weight:600;font-size:15px;text-decoration:none;border:1px solid var(--line-strong);background:var(--surface);color:var(--ink)}
+.btn:hover{border-color:var(--ink)}
+.btn.primary{background:var(--ink);border-color:var(--ink);color:var(--paper)}
+.btn.wa{background:var(--wa);border-color:var(--wa);color:#fff}
+.btn.small{padding:9px 14px;font-size:14px}
+
+/* type */
+.eyebrow{font-family:var(--f-mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--gold)}
+h1,h2,h3{font-family:var(--f-display);letter-spacing:-.02em;text-wrap:balance;margin:0}
+h1{font-weight:800;font-size:clamp(34px,6.2vw,62px);line-height:1.02}
+h2{font-weight:800;font-size:clamp(26px,4vw,40px);line-height:1.08}
+h3{font-weight:700;font-size:19px;letter-spacing:-.01em}
+.lead{font-size:clamp(17px,2vw,19px);color:var(--muted);max-width:60ch;margin:0}
+section{padding-block:clamp(56px,9vw,104px)}
+.sec-head{display:grid;gap:14px;margin-bottom:36px;max-width:760px}
+
+/* hero */
+.hero{padding-block:clamp(48px,8vw,96px) clamp(40px,6vw,72px)}
+.hero .eyebrow{margin-bottom:18px}
+.hero h1{max-width:15ch;margin-bottom:22px}
+.hero .lead{margin-bottom:30px}
+.hero-ctas{display:flex;gap:12px;flex-wrap:wrap}
+.cycle-strip{margin-top:48px;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:0;border:1px solid var(--line);border-radius:14px;background:var(--surface);overflow:hidden}
+.cycle-strip>div{padding:16px 16px 18px;border-right:1px solid var(--line);min-width:0}
+.cycle-strip>div:last-child{border-right:0}
+.cycle-strip .n{font-family:var(--f-mono);font-size:11.5px;color:var(--gold)}
+.cycle-strip .t{font-family:var(--f-display);font-weight:700;font-size:16px;margin-top:4px}
+.cycle-strip .d{font-size:13px;color:var(--muted);margin-top:2px}
+@media (max-width:820px){.cycle-strip{grid-template-columns:1fr 1fr}.cycle-strip>div{border-bottom:1px solid var(--line)}.cycle-strip>div:nth-child(2n){border-right:0}.cycle-strip>div:last-child{grid-column:1/-1;border-bottom:0}}
+
+/* leaks */
+.leaks{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+@media (max-width:900px){.leaks{grid-template-columns:1fr 1fr}}
+@media (max-width:520px){.leaks{grid-template-columns:1fr}}
+.leak{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:20px}
+.leak .q{font-family:var(--f-display);font-weight:700;font-size:18px;line-height:1.25;margin-bottom:8px}
+.leak p{margin:0;color:var(--muted);font-size:14.5px}
+
+/* pillars (dark band) */
+.band{background:var(--night);color:var(--night-text)}
+.band .lead{color:var(--night-muted)}
+.band .eyebrow{color:#E3A23F}
+.pillars{display:flex;flex-direction:column;border-top:1px solid rgba(243,240,234,.14)}
+.pillar{display:grid;grid-template-columns:72px minmax(0,1fr) minmax(0,1.1fr);gap:24px;padding:28px 0;border-bottom:1px solid rgba(243,240,234,.14);align-items:start}
+.pillar .num{font-family:var(--f-mono);font-size:13px;color:#E3A23F;padding-top:6px}
+.pillar h3{font-size:26px;color:var(--night-text)}
+.pillar .why{margin:8px 0 0;color:var(--night-muted);font-size:15px;max-width:44ch}
+.pillar ul{margin:0;padding:0;list-style:none;display:grid;gap:8px}
+.pillar li{display:flex;gap:10px;font-size:15px;color:var(--night-text)}
+.pillar li::before{content:"";flex:0 0 6px;height:6px;margin-top:10px;border-radius:50%;background:#E3A23F}
+.pillar .link{display:inline-block;margin-top:12px;font-size:14px;color:#E3A23F;text-decoration:none}
+.pillar .link:hover{text-decoration:underline}
+@media (max-width:760px){.pillar{grid-template-columns:1fr;gap:10px}.pillar .num{padding-top:0}}
+
+/* segments */
+.segs{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+@media (max-width:900px){.segs{grid-template-columns:1fr 1fr}}
+@media (max-width:520px){.segs{grid-template-columns:1fr}}
+.seg{border:1px solid var(--line);border-radius:12px;padding:20px;background:var(--surface);display:flex;flex-direction:column;gap:8px}
+.seg .tag{font-family:var(--f-mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--faint)}
+.seg p{margin:0;color:var(--muted);font-size:14.5px}
+.seg a{margin-top:auto;font-size:14px;font-weight:600;color:var(--gold);text-decoration:none}
+
+/* steps */
+.steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;counter-reset:s}
+@media (max-width:900px){.steps{grid-template-columns:1fr 1fr;gap:24px 0}}
+@media (max-width:520px){.steps{grid-template-columns:1fr}}
+.step{padding:0 20px 0 0}
+.step .n{font-family:var(--f-display);font-weight:800;font-size:44px;color:var(--gold);line-height:1}
+.step h3{margin:10px 0 6px}
+.step p{margin:0;color:var(--muted);font-size:15px}
+
+/* work */
+.work{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+@media (max-width:640px){.work{grid-template-columns:1fr}}
+.case{border:1px solid var(--line);border-radius:12px;padding:22px;background:var(--surface);display:flex;flex-direction:column;gap:8px}
+.case .tag{font-family:var(--f-mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--faint)}
+.case p{margin:0;color:var(--muted);font-size:14.5px}
+.case a{margin-top:6px;font-weight:600;font-size:14px;text-decoration:none;color:var(--gold)}
+
+/* faq */
+.faq{max-width:780px;border-top:1px solid var(--line)}
+.faq details{border-bottom:1px solid var(--line);padding:18px 0}
+.faq summary{cursor:pointer;font-family:var(--f-display);font-weight:700;font-size:18px;list-style:none;display:flex;justify-content:space-between;gap:16px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";color:var(--gold);font-weight:600}
+.faq details[open] summary::after{content:"–"}
+.faq p{margin:10px 0 0;color:var(--muted);max-width:66ch}
+
+/* final cta */
+.final{background:var(--night);color:var(--night-text);border-radius:20px;padding:clamp(32px,6vw,64px);display:grid;gap:18px;justify-items:start}
+.final p{margin:0;color:var(--night-muted);max-width:56ch;font-size:17px}
+
+footer{padding-block:40px 56px;border-top:1px solid var(--line);margin-top:56px;font-size:14px;color:var(--muted)}
+footer .cols{display:grid;grid-template-columns:2fr 1fr 1fr;gap:28px}
+@media (max-width:700px){footer .cols{grid-template-columns:1fr}}
+footer h4{font-family:var(--f-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--faint);margin:0 0 10px;font-weight:500}
+footer ul{list-style:none;margin:0;padding:0;display:grid;gap:6px}
+footer a{text-decoration:none}
+footer a:hover{color:var(--ink)}
+footer .legal{margin-top:28px;font-size:12.5px;color:var(--faint)}
+
+/* ColaborIA */
+:root{--ca1:#3B82F6;--ca2:#22D3EE;--ca3:#34D399}
+.grad{background:linear-gradient(90deg,var(--ca1),var(--ca2),var(--ca3));-webkit-background-clip:text;background-clip:text;color:transparent}
+.sub-brand{display:flex;align-items:center;gap:12px;margin-bottom:20px}
+.sub-brand span{font-family:var(--f-display);font-weight:800;font-size:28px;letter-spacing:-.02em}
+.sub-brand b{font-weight:800}
+.hero-split{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:48px;align-items:center}
+@media (max-width:860px){.hero-split{grid-template-columns:1fr}}
+.video-card{background:var(--night);border-radius:18px;padding:12px;justify-self:center;width:100%;max-width:340px}
+.video-card video{display:block;width:100%;aspect-ratio:9/16;border-radius:10px;background:#000}
+.video-cap{font-family:var(--f-mono);font-size:11.5px;color:var(--night-muted);text-align:center;padding:10px 0 2px}
+.depts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+@media (max-width:900px){.depts{grid-template-columns:1fr 1fr}}
+@media (max-width:520px){.depts{grid-template-columns:1fr}}
+.dept{border:1px solid rgba(243,240,234,.16);border-radius:12px;padding:20px}
+.dept h3{color:var(--night-text);font-size:18px;margin-bottom:12px}
+.dept ul{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.dept li{display:flex;gap:10px;font-size:15px;color:var(--night-text)}
+.dept li::before{content:"";flex:0 0 7px;height:7px;margin-top:9px;border-radius:50%;background:linear-gradient(135deg,var(--ca1),var(--ca3))}
+.note-dark{color:var(--night-muted);font-size:14px;margin:22px 0 0}
+.plans{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+@media (max-width:820px){.plans{grid-template-columns:1fr}}
+.plan{border:1px solid var(--line);border-radius:14px;padding:24px;background:var(--surface);display:flex;flex-direction:column;gap:10px}
+.plan.featured{border-color:var(--ink);box-shadow:0 0 0 1px var(--ink)}
+.plan .tag{font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--gold)}
+.plan h3{font-size:24px}
+.plan p{margin:0;color:var(--muted);font-size:14.5px}
+.plan ul{margin:6px 0 0;padding-left:18px;font-size:14.5px;display:grid;gap:4px}
+.fine{color:var(--faint);font-size:13.5px;margin:16px 0 0;max-width:70ch}
+
+.mnav{display:none;position:relative}
+.mnav summary{list-style:none;cursor:pointer;font-size:14px;font-weight:600;padding:9px 12px;border:1px solid var(--line-strong);border-radius:9px;background:var(--surface)}
+.mnav summary::-webkit-details-marker{display:none}
+.mnav-panel{position:absolute;right:0;top:calc(100% + 8px);background:var(--surface);border:1px solid var(--line-strong);border-radius:12px;padding:8px;display:grid;min-width:220px;box-shadow:0 12px 30px rgba(0,0,0,.12)}
+.mnav-panel a{padding:10px 12px;border-radius:8px;text-decoration:none;color:var(--ink);font-size:15px}
+.mnav-panel a:hover{background:var(--sunk)}
+@media (max-width:980px){.mnav{display:block}}
+@media (max-width:440px){.xs-hide{display:none}}
+</style>
+</head>
+<body>
+
+<header class="site-head">
+  <div class="wrap">
+    <a class="brand" href="/">
+      <svg viewBox="0 0 200 200" aria-hidden="true"><circle cx="100" cy="100" r="62" fill="none" stroke="currentColor" stroke-width="16" stroke-linecap="round" stroke-dasharray="322.46 67.09"/><circle cx="153.1" cy="68.1" r="12" fill="#E3A23F"/></svg>
+      <span>Creative Always</span>
+    </a>
+    <nav class="site-nav" aria-label="Principal">
+      <a class="opt" href="/ciclo-de-excelencia/">Ciclo de Excelência</a>
+      <a class="opt" href="/colaboria/" aria-current="page">ColaborIA</a>
+      <a class="opt" href="/consultoria-ia/">Consultoria em IA</a>
+      <a class="opt" href="/solucoes/">Todas as soluções</a>
+      <details class="mnav"><summary>Menu</summary><div class="mnav-panel"><a href="/ciclo-de-excelencia/">Ciclo de Excelência</a><a href="/colaboria/">ColaborIA</a><a href="/consultoria-ia/">Consultoria em IA</a><a href="/solucoes/">Todas as soluções</a></div></details>
+      <a class="btn primary small" href="/diagnostico/?interesse=colaboria">Diagnóstico<span class="xs-hide"> gratuito</span></a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="wrap hero hero-split">
+    <div>
+      <div class="sub-brand"><img src="/colaboria/simbolo.png" alt="" width="44" height="44"><span>Colabor<b class="grad">IA</b></span></div>
+      <h1>Colaboradores de IA para a sua equipe.</h1>
+      <p class="lead">Eles assumem o trabalho repetitivo, do marketing ao financeiro. Aprendem como a sua empresa funciona e só agem nas decisões importantes depois da sua aprovação.</p>
+      <div class="hero-ctas">
+        <a class="btn wa" href="https://wa.me/5527988140076?text=Ol%C3%A1%20Rubens!%20Quero%20montar%20o%20meu%20time%20com%20a%20ColaborIA." target="_blank" rel="noopener">Quero montar o meu time</a>
+        <a class="btn" href="#time">Conhecer os colaboradores</a>
+      </div>
+    </div>
+    <div class="video-card">
+      <video controls playsinline preload="none" poster="/colaboria/colaboria-poster.jpg" src="/colaboria/colaboria.mp4" aria-label="Vídeo de apresentação da ColaborIA"></video>
+      <div class="video-cap">A ColaborIA em 1 minuto</div>
+    </div>
+  </div>
+
+  <section class="wrap" id="problema" style="padding-top:clamp(24px,4vw,48px)">
+    <div class="sec-head">
+      <div class="eyebrow">O problema</div>
+      <h2>Trabalho manual rouba o tempo da sua equipe.</h2>
+      <p class="lead">Cobrar cliente, responder as mesmas perguntas, montar relatório, postar nas redes, controlar estoque. Tarefas necessárias, mas que tiram a equipe do que só ela sabe fazer.</p>
+    </div>
+    <div class="leaks">
+      <div class="leak"><div class="q">Mensagens sem resposta.</div><p>Cliente pergunta preço, horário e prazo, e a resposta demora porque todo mundo está ocupado.</p></div>
+      <div class="leak"><div class="q">Cobrança esquecida.</div><p>Boleto vence, ninguém lembra o cliente e o caixa sente no fim do mês.</p></div>
+      <div class="leak"><div class="q">Relatório que nunca sai.</div><p>Os números existem, mas ninguém tem tempo de juntar e olhar com calma.</p></div>
+      <div class="leak"><div class="q">Redes paradas.</div><p>Sem tempo para criar e postar, a empresa some justamente onde o cliente procura.</p></div>
+    </div>
+  </section>
+
+  <section class="band" id="time">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="eyebrow">Conheça o time</div>
+        <h2>13 colaboradores de IA, do marketing ao financeiro.</h2>
+        <p class="lead">Você escolhe quem entra no seu time. Cada um pode reforçar quem já faz a tarefa ou cobrir uma função que hoje não existe na empresa.</p>
+      </div>
+      <div class="depts">
+        <div class="dept"><h3>Marketing e vendas</h3><ul><li>Gestor de anúncios</li><li>Designer</li><li>Gestor de redes sociais</li><li>Web e landing pages</li><li>Vendas e prospecção</li><li>Atendimento e qualificação no WhatsApp</li></ul></div>
+        <div class="dept"><h3>Financeiro</h3><ul><li>Cobrança e contas a receber</li><li>Assistente fiscal e financeiro</li></ul></div>
+        <div class="dept"><h3>Administrativo e pessoas</h3><ul><li>Secretária e administrativo</li><li>Recrutamento e RH operacional</li><li>Compras e estoque</li></ul></div>
+        <div class="dept"><h3>Relacionamento e dados</h3><ul><li>Pós-venda e reputação</li><li>Analista de dados</li></ul></div>
+      </div>
+      <p class="note-dark">Os colaboradores entram em ondas. No diagnóstico mostramos quais já estão disponíveis para a sua empresa.</p>
+    </div>
+  </section>
+
+  <section class="wrap" id="como-funciona">
+    <div class="sec-head">
+      <div class="eyebrow">Como funciona</div>
+      <h2>Aprende a sua empresa e trabalha em equipe.</h2>
+    </div>
+    <div class="steps">
+      <div class="step"><div class="n">1</div><h3>Diagnóstico</h3><p>Entendemos as áreas da empresa e onde está o gargalo, e recomendamos a composição do time.</p></div>
+      <div class="step"><div class="n">2</div><h3>Base de conhecimento</h3><p>Cada colaborador aprende os seus produtos, preços, regras e jeito de falar com o cliente.</p></div>
+      <div class="step"><div class="n">3</div><h3>Trabalho com aprovação</h3><p>Nas decisões importantes, como enviar uma cobrança ou ligar uma campanha, quem aprova é você.</p></div>
+      <div class="step"><div class="n">4</div><h3>Antes e depois</h3><p>Relatórios em 30, 60 e 90 dias mostram o que mudou: horas poupadas, tempo de resposta, contas recebidas.</p></div>
+    </div>
+  </section>
+
+  <section class="wrap" id="controle" style="padding-top:0">
+    <div class="sec-head">
+      <div class="eyebrow">Segurança e controle</div>
+      <h2>A IA prepara. A sua equipe decide.</h2>
+    </div>
+    <div class="leaks">
+      <div class="leak"><div class="q">Aprovação humana</div><p>Nada sensível sai sem o seu OK. Você define o que cada colaborador pode fazer sozinho e até que limite.</p></div>
+      <div class="leak"><div class="q">Tudo registrado</div><p>Cada ação fica anotada, com o que foi feito, quando e por quê.</p></div>
+      <div class="leak"><div class="q">Só canais oficiais</div><p>Trabalhamos apenas com as APIs oficiais do WhatsApp, da Meta e do Google. Nada que coloque as suas contas em risco.</p></div>
+      <div class="leak"><div class="q">Áreas reguladas</div><p>Em fiscal, contábil e jurídico, o colaborador organiza e lembra. A decisão continua com o profissional responsável.</p></div>
+    </div>
+  </section>
+
+  <section class="wrap" id="planos" style="padding-top:0">
+    <div class="sec-head">
+      <div class="eyebrow">Planos</div>
+      <h2>Do primeiro colaborador ao time completo.</h2>
+      <p class="lead">Todos os planos incluem o diagnóstico, a base de conhecimento da empresa, o registro de tudo e a aprovação humana nas ações sensíveis.</p>
+    </div>
+    <div class="plans">
+      <div class="plan"><div class="tag">Essencial</div><h3>Reforço</h3><p>Um colaborador de IA à sua escolha para a tarefa que mais pesa hoje.</p><ul><li>1 colaborador</li><li>Tudo com a sua aprovação</li><li>Relatório mensal</li></ul></div>
+      <div class="plan featured"><div class="tag">Pro</div><h3>Departamento</h3><p>Um departamento inteiro funcionando, com um gerente que coordena o time.</p><ul><li>3 a 4 colaboradores</li><li>Gerente do Time</li><li>Relatório semanal e Antes × Depois</li></ul></div>
+      <div class="plan"><div class="tag">Plus</div><h3>Time completo</h3><p>Todos os colaboradores disponíveis, integrados aos sistemas da empresa.</p><ul><li>Todos os colaboradores</li><li>Gerente do Time dedicado</li><li>Integração com CRM e financeiro</li></ul></div>
+    </div>
+    <p class="fine">Também é possível incluir colaboradores avulsos em qualquer plano. Os valores dependem do tamanho do time e são apresentados depois do diagnóstico.</p>
+  </section>
+
+  <section class="wrap" id="perguntas" style="padding-top:0">
+    <div class="sec-head">
+      <div class="eyebrow">Perguntas frequentes</div>
+      <h2>Antes de você perguntar.</h2>
+    </div>
+    <div class="faq">
+      <details><summary>A ColaborIA substitui os meus funcionários?</summary><p>Não é esse o objetivo. Os colaboradores de IA tiram o trabalho repetitivo das costas da equipe, ou cobrem uma função que a empresa ainda não tem. As pessoas ficam com o que exige julgamento e relacionamento.</p></details>
+      <details><summary>E se a IA errar com um cliente?</summary><p>Por isso tudo o que é sensível passa pela sua aprovação antes de sair. Você define o que cada colaborador pode fazer sozinho e acompanha tudo no registro.</p></details>
+      <details><summary>Preciso trocar os sistemas que já uso?</summary><p>Não. Os colaboradores trabalham com as ferramentas que você já tem, e nos planos maiores se integram ao seu CRM e financeiro.</p></details>
+      <details><summary>Os dados da minha empresa ficam seguros?</summary><p>Cada empresa tem a sua própria base de conhecimento, separada das outras. Usamos apenas canais oficiais e você decide o que cada colaborador pode acessar.</p></details>
+      <details><summary>Quanto custa?</summary><p>Depende de quantos colaboradores entram no time e do tamanho da operação. O diagnóstico é gratuito e você recebe a proposta com tudo detalhado.</p></details>
+      <details><summary>Funciona junto com o Ciclo de Excelência?</summary><p>Sim. O atendimento com IA do Ciclo é um dos colaboradores da ColaborIA, e os dois podem ser contratados juntos.</p></details>
+    </div>
+  </section>
+
+  <div class="wrap">
+    <div class="final">
+      <div class="eyebrow" style="color:#22D3EE">Monte o seu time</div>
+      <h2>Qual tarefa você tiraria da sua equipe amanhã?</h2>
+      <p>Conte para a gente onde está o gargalo. Fazemos o diagnóstico gratuito e mostramos qual colaborador resolve primeiro.</p>
+      <a class="btn wa" href="https://wa.me/5527988140076?text=Ol%C3%A1%20Rubens!%20Quero%20montar%20o%20meu%20time%20com%20a%20ColaborIA." target="_blank" rel="noopener">Quero montar o meu time</a>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="cols">
+      <div>
+        <a class="brand" href="/"><svg viewBox="0 0 200 200" aria-hidden="true" style="width:22px;height:22px"><circle cx="100" cy="100" r="62" fill="none" stroke="currentColor" stroke-width="16" stroke-linecap="round" stroke-dasharray="322.46 67.09"/><circle cx="153.1" cy="68.1" r="12" fill="#E3A23F"/></svg><span>Creative Always</span></a>
+        <p style="margin:10px 0 0;max-width:40ch">Marketing e IA para empresas que crescem.</p>
+      </div>
+      <div>
+        <h4>Soluções</h4>
+        <ul>
+          <li><a href="/ciclo-de-excelencia/">Ciclo de Excelência</a></li>
+          <li><a href="/solucoes/#saude">Ciclo para clínicas</a></li>
+          <li><a href="/colaboria/">ColaborIA</a></li>
+          <li><a href="/consultoria-ia/">Consultoria em IA</a></li>
+          <li><a href="/solucoes/">Todas as soluções</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contato</h4>
+        <ul>
+          <li><a href="https://wa.me/5527988140076" target="_blank" rel="noopener">WhatsApp (27) 98814-0076</a></li>
+          <li><a href="https://www.instagram.com/creativealways_" target="_blank" rel="noopener">Instagram @creativealways_</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="legal"><a href="/privacidade/">Política de Privacidade</a> · 13.413.576 RUBENS LOSS DA SILVA · CNPJ 13.413.576/0001-22 · Vila Velha - ES</div>
+  </div>
+</footer>
+</body>
+</html>
