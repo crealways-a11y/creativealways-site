@@ -268,9 +268,8 @@ footer .legal{margin-top:28px;font-size:12.5px;color:var(--faint)}
       </ul>
     </div>
 
-    <form class="dform" name="diagnostico" method="POST" data-netlify="true" netlify-honeypot="empresa_site" action="/diagnostico/obrigado/" novalidate>
-      <input type="hidden" name="form-name" value="diagnostico">
-      <p class="hp"><label>Não preencha <input name="empresa_site" tabindex="-1" autocomplete="off"></label></p>
+    <form class="dform" name="diagnostico" novalidate>
+      <p class="hp"><label>Não preencha <input id="empresa_site" name="empresa_site" tabindex="-1" autocomplete="off"></label></p>
 
       <div class="row2">
         <label class="field"><span>Seu nome</span><input id="f-nome" name="nome" type="text" autocomplete="name" required></label>
@@ -338,11 +337,8 @@ footer .legal{margin-top:28px;font-size:12.5px;color:var(--faint)}
       (ints.length ? '\nInteresse: ' + ints.join('; ') : '') +
       (val('f-desafio') ? '\nDesafio: ' + val('f-desafio') : '');
     var wa = 'https://wa.me/5527988140076?text=' + encodeURIComponent(msg);
-    var body = new URLSearchParams(new FormData(form)).toString();
-    var go = function(){ location.href = wa; };
-    fetch('/', { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: body })
-      .then(go, go);
-    setTimeout(go, 2500);
+    if (val('empresa_site')) return;
+    location.href = wa;
   });
 })();
 </script>
