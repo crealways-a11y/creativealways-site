@@ -139,6 +139,17 @@ header.top.hide{transform:translateY(-100%)}
 .trio span{border:1px solid var(--line);border-radius:999px;padding:11px 22px;font-size:15px;color:var(--muted);background:rgba(11,12,15,.6);display:inline-flex;gap:10px;align-items:center}
 .trio span i{font-style:normal;color:var(--gold);width:0;overflow:hidden;display:inline-block}
 
+.bens{height:100svh;position:relative;overflow:hidden;background:var(--bg);display:flex;align-items:center}
+.bens .wrap{position:relative;height:100%;display:flex;flex-direction:column;justify-content:center;gap:2vh}
+.bens .bt{font-size:clamp(24px,3.5vw,50px);max-width:900px;letter-spacing:-.03em;line-height:1.1}
+.bens .bt em{font-style:normal}
+.bens .bwords{position:relative;height:clamp(110px,22vw,300px)}
+.bens .bwords span{position:absolute;left:0;top:50%;font-family:var(--d);font-weight:800;font-size:clamp(34px,9.6vw,140px);letter-spacing:-.05em;line-height:1;white-space:nowrap;will-change:transform}
+.bens .bwords span:nth-child(even){color:var(--gold)}
+.bens .dots{display:flex;gap:9px;flex-wrap:wrap}
+.bens .dots i{width:34px;height:4px;border-radius:3px;background:var(--line);transition:background .3s}
+.bens .dots i.on{background:var(--gold)}
+@media (max-width:640px){.bens .dots i{width:22px}.bens .bwords span{font-size:11vw}.bens .bwords{height:34vw}}
 /* PARA CADA */
 .each{height:100svh;position:relative;overflow:hidden;display:grid;place-items:center;background:var(--bg)}
 .each .floaty{animation:fl var(--fd,6s) ease-in-out infinite alternate;animation-delay:var(--fdl,0s);position:absolute;width:clamp(150px,19vw,280px);aspect-ratio:4/3;border-radius:18px;border:1px solid var(--line);padding:16px;display:flex;align-items:flex-end;font-family:var(--d);font-weight:700;font-size:clamp(16px,1.7vw,24px);letter-spacing:-.02em;box-shadow:0 30px 70px -30px #000;opacity:.9}
@@ -306,6 +317,16 @@ footer a:hover{color:var(--ink)}
 <!-- 2 · MANIFESTO -->
 <section class="manifesto" id="manifesto">
   <div class="wrap"><p id="mp">Seu cliente chama no WhatsApp às oito da noite, quando a maioria das empresas já não atende. A IA responde na hora, agenda e registra. E você acorda com o dia já organizado.</p></div>
+</section>
+
+<!-- 2b · BENEFÍCIOS -->
+<section class="bens" id="bens" aria-label="Benefícios">
+  <div class="wrap">
+    <div class="eyebrow">Soluções personalizadas</div>
+    <h2 class="bt" id="bt">Soluções personalizadas de inteligência artificial para o <em>dia a dia</em> da sua empresa.</h2>
+    <div class="bwords" id="bwords"></div>
+    <div class="dots" id="bdots"></div>
+  </div>
 </section>
 
 <!-- 5 · PARA CADA -->
@@ -568,6 +589,24 @@ document.addEventListener('pointermove',function(e){var dx=e.clientX/innerWidth-
 /* MANIFESTO */
 gsap.to('#mp .w',{opacity:1,stagger:.5,ease:'none',scrollTrigger:{trigger:'#manifesto',start:'top top',end:'+=150%',scrub:.5,pin:true}});
 gsap.from('#mp .w',{y:30,duration:.8,stagger:.05,ease:'power3.out',scrollTrigger:{trigger:'#manifesto',start:'top 70%'}});
+
+/* BENEFÍCIOS: palavras que entram uma depois da outra */
+(function(){
+  var ws=['Economia','Produtividade','Agilidade','Organização','Controle','Escala','Consistência','Disponibilidade','Previsibilidade','Tempo'];
+  var box=$('#bwords'),dots=$('#bdots');
+  ws.forEach(function(w){var s=document.createElement('span');s.textContent=w;box.appendChild(s);var d=document.createElement('i');dots.appendChild(d)});
+  var sp=$$('#bwords span'),dt=$$('#bdots i');
+  gsap.set(sp,{autoAlpha:0});
+  var bt=gsap.timeline({scrollTrigger:{trigger:'#bens',start:'top top',end:'+=750%',pin:true,scrub:.5}});
+  bt.from('#bens .eyebrow,#bt',{y:40,autoAlpha:0,duration:.6,stagger:.12},0);
+  ws.forEach(function(w,i){
+    var t=.9+i;
+    bt.fromTo(sp[i],{autoAlpha:0,scale:1.9,yPercent:-50,x:-30,rotation:-3},{autoAlpha:1,scale:1,yPercent:-50,x:0,rotation:0,duration:.28,ease:'back.out(1.7)'},t)
+      .to(dt[i],{backgroundColor:'#E3A23F',duration:.1},t)
+      .to(sp[i],{autoAlpha:0,scale:.92,yPercent:-70,duration:.18,ease:'power2.in'},t+.78);
+  });
+  bt.to({},{duration:.5});
+})();
 
 /* PARA CADA: peças voam para o lugar, flutuam e o título troca */
 var swapEl=$('#swap'),finalEl=$('#swap span.more');
