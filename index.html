@@ -48,7 +48,13 @@ header.top.hide{transform:translateY(-100%)}
 .btn.ghost{background:transparent;color:var(--ink);border:1px solid var(--line)}
 .btn.ghost:hover{border-color:var(--gold);box-shadow:none}
 .btn.sm{padding:10px 18px;font-size:14px}
-.burger{display:none}
+.nav-r{display:flex;align-items:center;gap:10px}
+.ico{width:42px;height:42px;border-radius:50%;border:1px solid var(--line);display:grid;place-items:center;color:var(--ink);transition:border-color .25s,color .25s,transform .25s}
+.ico svg{width:20px;height:20px}
+.ico:hover{border-color:var(--gold);color:var(--gold);transform:translateY(-2px)}
+.cta-row{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.btn svg{width:18px;height:18px}
+@media (max-width:440px){.lg{display:none}.nav-r{gap:8px}.ico{width:38px;height:38px}}
 
 /* HERO */
 .hero{position:relative;min-height:100svh;display:flex;align-items:center;overflow:hidden}
@@ -267,7 +273,7 @@ footer a:hover{color:var(--ink)}
       <a href="/consultoria-ia/">Consultoria em IA</a>
       <a href="/ciclo-de-excelencia/">Ciclo de Excelência</a>
     </nav>
-    <a class="btn sm" href="/diagnostico/?interesse=home">Diagnóstico gratuito</a>
+    <div class="nav-r"><a class="ico" href="https://www.instagram.com/creativealways_" target="_blank" rel="noopener" aria-label="Instagram da Creative Always"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1" fill="currentColor"/></svg></a><a class="btn sm" href="/diagnostico/?interesse=home"><span>Diagnóstico<span class="lg"> gratuito</span></span></a></div>
   </div>
 </header>
 
@@ -280,7 +286,7 @@ footer a:hover{color:var(--ink)}
     <g id="ringg"><circle cx="100" cy="100" r="62" fill="none" stroke="url(#gr)" stroke-width="7" stroke-linecap="round" stroke-dasharray="322.46 67.09"/><circle cx="153.1" cy="68.1" r="7" fill="#E3A23F"/></g>
   </svg>
   <div class="chip g" id="chipg"><b>Agenda</b> · IA<div class="bub" style="background:#1F3B2D">✅ Consulta marcada · qui, 15h</div><span style="color:var(--muted);font-size:12.5px;display:block;margin-top:8px">Registrado no painel</span></div>
-  <div class="chip w" id="chipw"><b>WhatsApp</b> · 22h14<div class="bub">Vocês atendem hoje?</div><div class="bub" style="background:var(--surface2);color:var(--ink);margin-left:14px">Atendo sim, já te encaixo 😊</div></div>
+  <div class="chip w" id="chipw"><b>WhatsApp</b> · 20h14<div class="bub">Vocês atendem hoje?</div><div class="bub" style="background:var(--surface2);color:var(--ink);margin-left:14px">Atendo sim, já te encaixo 😊</div></div>
   <div class="wrap content">
     <div class="eyebrow" id="h-eye">Soluções de inteligência artificial para empresas</div>
     <h1 id="h1">
@@ -299,7 +305,7 @@ footer a:hover{color:var(--ink)}
 
 <!-- 2 · MANIFESTO -->
 <section class="manifesto" id="manifesto">
-  <div class="wrap"><p id="mp">Seu cliente chama no WhatsApp às dez da noite. A IA responde na hora, agenda e registra. E você acorda com o dia já organizado.</p></div>
+  <div class="wrap"><p id="mp">Seu cliente chama no WhatsApp às oito da noite, quando a maioria das empresas já não atende. A IA responde na hora, agenda e registra. E você acorda com o dia já organizado.</p></div>
 </section>
 
 <!-- 5 · PARA CADA -->
@@ -317,7 +323,7 @@ footer a:hover{color:var(--ink)}
     <div class="lbl">Uma solução para</div>
     <div class="lbl">cada</div>
     <div class="swap" id="swap">
-      <span>clínica odontológica</span><span>consultório médico</span><span>estúdio de fisioterapia</span><span>corretora de seguros</span><span>agência de viagens</span><span>receptivo de passeios</span><span class="more">e muito mais.</span>
+      <span>clínica odontológica</span><span>consultório médico</span><span>estúdio de fisioterapia</span><span>corretora de seguros</span><span>agência de viagens</span><span>receptivo de passeios</span><span class="more">micro e pequena empresa.</span>
     </div>
   </div>
 </section>
@@ -450,7 +456,7 @@ footer a:hover{color:var(--ink)}
     <svg class="mark" id="fmark" viewBox="0 0 200 200" aria-hidden="true"><circle id="fring" cx="100" cy="100" r="62" fill="none" stroke="currentColor" stroke-width="9" stroke-linecap="round" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1" transform="rotate(-90 100 100)"/><circle id="fdot" cx="153.1" cy="68.1" r="9" fill="#E3A23F" opacity="0"/></svg>
     <h2 id="fh"><span class="mask"><span>Vamos colocar</span></span><span class="mask"><span>a IA para trabalhar</span></span><span class="mask"><span><em>no seu negócio?</em></span></span></h2>
     <p>Diagnóstico gratuito de 30 minutos. Sem compromisso, sem letra miúda. Atendo pessoalmente cada diagnóstico.</p>
-    <a class="btn" href="/diagnostico/?interesse=home">Agendar diagnóstico gratuito →</a>
+    <div class="cta-row"><a class="btn" href="/diagnostico/?interesse=home">Agendar diagnóstico gratuito →</a><a class="btn ghost" href="https://wa.me/5527988140076?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Creative%20Always%20e%20quero%20conversar." target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M20.5 11.5c0 4.7-3.8 8.5-8.5 8.5a8.4 8.4 0 0 1-4.3-1.2L3 20l1.3-4.5a8.4 8.4 0 0 1-1.3-4.5C3 6.3 6.8 2.5 11.5 2.5c5 0 9 4 9 9z"/><path d="M8.5 8.8c.2-.6.5-.6.8-.6h.5c.2 0 .4 0 .6.4.2.5.7 1.6.7 1.7.1.1.1.3 0 .4-.4.7-.8.7-.5 1.2.5.9 1 1.3 1.8 1.8.5.3.5-.1 1.2-.5.1-.1.3-.1.4 0 .1.1 1.2.6 1.7.8.4.2.4.4.4.6 0 .3 0 .8-.6 1.4-.6.6-1.9.9-2.7.7-1.3-.3-3.1-1.2-4.4-2.9-1-1.3-1.5-2.5-1.6-3.5"/></svg> WhatsApp</a><a class="btn ghost" href="https://www.instagram.com/creativealways_" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1" fill="currentColor"/></svg> Instagram</a></div>
   </div>
 </section>
 </main>
@@ -512,7 +518,7 @@ titles.forEach(function(t,i){
 var cents=$$('#cstack>div');
 var roles=$('#roles');
 ['Gestor de anúncios','Designer','Redes sociais','Web e landing pages','Vendas e SDR','Atendimento no WhatsApp','Cobrança','Fiscal e financeiro','Secretária','RH e recrutamento','Compras e estoque','Pós-venda','Analista de dados','e muito mais…'].forEach(function(r,i,a){var s=document.createElement('span');s.textContent=r;if(i===a.length-1)s.className='more';roles.appendChild(s)});
-var mq=$('#mq'),segs=['Odontologia','Fisioterapia','Clínicas médicas','Seguros','Turismo','Passeios','Jurídico','Negócios locais'],h='';
+var mq=$('#mq'),segs=['Odontologia','Fisioterapia','Clínicas médicas','Seguros','Turismo','Passeios','Jurídico','Estética','Academias','Restaurantes','Imobiliárias','Escolas','Lojas','Oficinas','Negócios locais'],h='';
 for(var k=0;k<2;k++)segs.forEach(function(s){h+='<span>'+s+'</span><b>✦</b>'});mq.innerHTML=h+h;
 mq.style.animation='none';
 var mp=$('#mp'),words=mp.textContent.split(' ');mp.innerHTML=words.map(function(w){return '<span class="w">'+w+'</span>'}).join(' ');
@@ -564,22 +570,31 @@ gsap.to('#mp .w',{opacity:1,stagger:.5,ease:'none',scrollTrigger:{trigger:'#mani
 gsap.from('#mp .w',{y:30,duration:.8,stagger:.05,ease:'power3.out',scrollTrigger:{trigger:'#manifesto',start:'top 70%'}});
 
 /* PARA CADA: peças voam para o lugar, flutuam e o título troca */
-var sw=$$('#swap span'),tiles=$$('.floaty');
-gsap.set(sw,{autoAlpha:0,yPercent:60,scale:.92});
-var etl=gsap.timeline({scrollTrigger:{trigger:'#each',start:'top top',end:'+=600%',pin:true,scrub:.6}});
+var swapEl=$('#swap'),finalEl=$('#swap span.more');
+var many=['academia','salão de beleza','barbearia','pet shop','restaurante','escritório de advocacia','contabilidade','imobiliária','escola de idiomas','oficina mecânica','loja de roupas','farmácia','clínica de estética','psicólogo','nutricionista','laboratório','pousada','transportadora','construtora','loja virtual','estúdio de tatuagem','autoescola','floricultura','padaria','ótica','escola de dança'];
+var fast=many.map(function(t,i){var s=document.createElement('span');s.textContent=t;if(i%2)s.style.color='var(--ink)';swapEl.insertBefore(s,finalEl);return s});
+var main=$$('#swap span').filter(function(s){return fast.indexOf(s)<0&&s!==finalEl});
+var tiles=$$('.floaty');
+gsap.set($$('#swap span'),{autoAlpha:0,yPercent:60,scale:.92});
+var etl=gsap.timeline({scrollTrigger:{trigger:'#each',start:'top top',end:'+=1000%',pin:true,scrub:.6}});
 tiles.forEach(function(f,i){
   var dir=i%2?1:-1;
   etl.from(f,{xPercent:dir*(160+i*18),yPercent:(i%3-1)*220,scale:.25,autoAlpha:0,duration:1.4,ease:'power3.out'},i*.12);
 });
 var T0=1.5;
-sw.forEach(function(s,i){
+main.forEach(function(s,i){
   etl.to(s,{autoAlpha:1,yPercent:0,scale:1,duration:.5,ease:'back.out(1.5)'},T0+i);
-  if(i<sw.length-1)etl.to(s,{autoAlpha:0,yPercent:-60,duration:.4,ease:'power3.in'},T0+i+.7);
+  etl.to(s,{autoAlpha:0,yPercent:-60,duration:.4,ease:'power3.in'},T0+i+.7);
 });
-var TL=T0+sw.length-1;
-etl.to('.each .lbl',{autoAlpha:0,y:-20,duration:.4},TL-.15);
+var TF=T0+main.length+.2,ST=.2;
+fast.forEach(function(s,i){
+  var t=TF+i*ST;
+  etl.set(s,{yPercent:0,scale:1},t).to(s,{autoAlpha:1,duration:.03},t).to(s,{autoAlpha:0,duration:.03},t+ST-.04);
+});
+var TL=TF+fast.length*ST+.1;
+etl.to(finalEl,{autoAlpha:1,yPercent:0,scale:1,duration:.6,ease:'back.out(1.5)'},TL);
 etl.to(tiles,{scale:1.12,duration:.5,stagger:.05,yoyo:true,repeat:1,ease:'sine.inOut'},TL);
-etl.to({},{duration:.5});
+etl.to({},{duration:.8});
 tiles.forEach(function(f){etl.to(f,{y:parseFloat(f.dataset.y)*2.2,rotation:'+='+(Math.random()*16-8),ease:'none',duration:TL+1},0)});
 
 /* SOLUÇÕES */
