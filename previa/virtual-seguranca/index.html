@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Virtual Segurança Eletrônica | Portaria Virtual, Totem Sentinela & Monitoramento 24h em Vila Velha e Vitória</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F4F7FB;
+  --surface: #FFFFFF;
+  --navy: #071936;
+  --navy-mid: #0D2B5C;
+  --blue: #0066FF;
+  --cyan: #00C2FF;
+  --amber: #F59E0B;
+  --text: #0F172A;
+  --muted: #475569;
+  --border: #E2E8F0;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: 'Plus Jakarta Sans', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; overflow-x: hidden; }
+.topbar { background: var(--navy); color: #E2E8F0; font-size: 12.5px; padding: 9px 24px; text-align: center; border-bottom: 1px solid rgba(0,194,255,0.2); }
+.topbar strong { color: var(--cyan); }
+header { position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,0.96); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); }
+.nav-wrap { max-width: 1240px; margin: 0 auto; padding: 12px 24px; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+.brand { display: flex; align-items: center; gap: 12px; text-decoration: none; color: var(--navy); flex-shrink: 0; }
+.brand img { width: 46px; height: 46px; border-radius: 10px; object-fit: contain; background: #FFF; border: 1px solid var(--border); padding: 2px; }
+.brand-text strong { display: block; font-family: 'Space Grotesk', sans-serif; font-size: 19px; color: var(--navy); line-height: 1.05; }
+.brand-text span { display: block; font-size: 11px; color: var(--muted); font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; }
+nav { display: flex; align-items: center; gap: 22px; }
+nav a { text-decoration: none; color: var(--text); font-size: 13.5px; font-weight: 600; white-space: nowrap; }
+nav a:hover { color: var(--blue); }
+.btn-nav { background: var(--blue); color: #FFF; padding: 10px 20px; border-radius: 999px; font-size: 13.5px; font-weight: 700; text-decoration: none; white-space: nowrap; flex-shrink: 0; box-shadow: 0 6px 18px rgba(0,102,255,0.25); }
+
+.hero { background: radial-gradient(circle at 80% 20%, #103570 0%, #071936 65%); color: #FFF; padding: 68px 24px 76px; }
+.hero-grid { max-width: 1240px; margin: 0 auto; display: grid; grid-template-columns: 1.12fr 0.88fr; gap: 44px; align-items: center; }
+.badge-award { display: inline-flex; align-items: center; gap: 8px; background: rgba(245,158,11,0.16); border: 1px solid rgba(245,158,11,0.5); color: #FCD34D; padding: 6px 14px; border-radius: 999px; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 18px; }
+.hero h1 { font-family: 'Space Grotesk', sans-serif; font-size: clamp(34px, 4vw, 50px); line-height: 1.1; margin-bottom: 18px; }
+.hero h1 span { color: var(--cyan); }
+.hero p.lead { font-size: 16.5px; color: rgba(255,255,255,0.85); margin-bottom: 28px; max-width: 590px; }
+.hero-ctas { display: flex; flex-wrap: wrap; gap: 14px; margin-bottom: 32px; }
+.btn-primary { background: var(--cyan); color: var(--navy); padding: 14px 26px; border-radius: 999px; font-weight: 800; font-size: 14.5px; text-decoration: none; white-space: nowrap; }
+.btn-ghost { background: rgba(255,255,255,0.08); color: #FFF; border: 1px solid rgba(255,255,255,0.25); padding: 14px 24px; border-radius: 999px; font-weight: 600; font-size: 14.5px; text-decoration: none; white-space: nowrap; }
+.hero-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; padding-top: 22px; border-top: 1px solid rgba(255,255,255,0.14); }
+.stat strong { display: block; font-family: 'Space Grotesk', sans-serif; font-size: 28px; color: var(--cyan); line-height: 1.1; }
+.stat span { font-size: 12.5px; color: rgba(255,255,255,0.75); }
+
+.hero-visual { background: rgba(255,255,255,0.06); border: 1px solid rgba(0,194,255,0.3); border-radius: 22px; padding: 20px; backdrop-filter: blur(10px); }
+.hero-visual img.main-photo { width: 100%; height: 290px; object-fit: cover; border-radius: 14px; display: block; margin-bottom: 14px; }
+.sentinela-callout { background: rgba(7,25,54,0.9); border: 1px solid rgba(0,194,255,0.4); border-radius: 14px; padding: 16px; display: flex; align-items: center; gap: 14px; }
+.sentinela-callout img { width: 56px; height: 56px; border-radius: 12px; object-fit: cover; flex-shrink: 0; border: 1px solid var(--cyan); }
+.sentinela-callout strong { display: block; font-size: 14.5px; color: var(--cyan); }
+.sentinela-callout span { font-size: 12.5px; color: rgba(255,255,255,0.82); }
+
+.section { max-width: 1240px; margin: 0 auto; padding: 72px 24px; }
+.sec-head { text-align: center; max-width: 760px; margin: 0 auto 48px; }
+.sec-tag { display: inline-block; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--blue); background: rgba(0,102,255,0.1); padding: 5px 14px; border-radius: 999px; margin-bottom: 12px; }
+.sec-head h2 { font-family: 'Space Grotesk', sans-serif; font-size: clamp(28px, 3.4vw, 40px); color: var(--navy); line-height: 1.15; margin-bottom: 12px; }
+.sec-head p { color: var(--muted); font-size: 15.5px; }
+
+.solutions-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.sol-card { background: var(--surface); border: 1px solid var(--border); border-radius: 20px; overflow: hidden; box-shadow: 0 10px 26px rgba(7,25,54,0.05); display: flex; flex-direction: column; }
+.sol-img { width: 100%; height: 200px; object-fit: cover; display: block; }
+.sol-body { padding: 24px; flex: 1; display: flex; flex-direction: column; }
+.sol-badge { display: inline-block; align-self: flex-start; font-size: 11px; font-weight: 700; text-transform: uppercase; color: var(--blue); background: #EBF3FF; padding: 4px 10px; border-radius: 6px; margin-bottom: 10px; }
+.sol-body h3 { font-family: 'Space Grotesk', sans-serif; font-size: 21px; color: var(--navy); margin-bottom: 10px; }
+.sol-body p { font-size: 14px; color: var(--muted); margin-bottom: 18px; flex: 1; }
+.sol-link { text-decoration: none; font-size: 13.5px; font-weight: 700; color: var(--blue); }
+
+.calc-box { background: var(--navy); color: #FFF; border-radius: 24px; padding: 44px; display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 36px; align-items: center; border: 1px solid rgba(0,194,255,0.35); }
+.calc-controls { background: rgba(255,255,255,0.06); padding: 26px; border-radius: 18px; border: 1px solid rgba(255,255,255,0.14); }
+.range-wrap { margin-bottom: 18px; }
+.range-wrap label { display: flex; justify-content: space-between; font-size: 14px; font-weight: 600; margin-bottom: 8px; }
+.range-wrap input[type=range] { width: 100%; accent-color: var(--cyan); }
+.calc-result { background: rgba(0,194,255,0.12); border: 1px solid var(--cyan); border-radius: 14px; padding: 18px; margin-bottom: 16px; }
+.calc-result strong { display: block; font-family: 'Space Grotesk', sans-serif; font-size: 28px; color: var(--cyan); }
+
+.ai-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 36px; align-items: center; background: var(--surface); border: 1px solid var(--border); border-radius: 24px; padding: 40px; }
+.chat-sim { background: #E5DDD5; border-radius: 18px; overflow: hidden; border: 1px solid var(--border); }
+.chat-head { background: #075E54; color: #FFF; padding: 14px 18px; display: flex; align-items: center; gap: 12px; }
+.chat-head img { width: 38px; height: 38px; border-radius: 50%; object-fit: cover; background: #FFF; }
+.chat-body { padding: 18px; display: grid; gap: 10px; font-size: 13.5px; }
+.msg-user { background: #DCF8C6; color: #111; padding: 10px 14px; border-radius: 12px 12px 2px 12px; justify-self: end; max-width: 85%; }
+.msg-bot { background: #FFF; color: #111; padding: 12px 14px; border-radius: 12px 12px 12px 2px; justify-self: start; max-width: 88%; box-shadow: 0 2px 4px rgba(0,0,0,0.06); }
+
+.ig-strip-box { background: var(--surface); border: 1px solid var(--border); border-radius: 20px; padding: 24px; margin-top: 36px; }
+.ig-strip-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 12px; margin-top: 16px; }
+.ig-thumb { border-radius: 10px; overflow: hidden; border: 1px solid var(--border); aspect-ratio: 1/1; }
+.ig-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+footer { background: var(--navy); color: rgba(255,255,255,0.75); padding: 44px 24px 30px; font-size: 13.5px; }
+.foot-wrap { max-width: 1240px; margin: 0 auto; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 20px; }
+@media (max-width: 980px) {
+  nav { display: none; }
+  .hero-grid, .solutions-grid, .calc-box, .ai-grid { grid-template-columns: 1fr; }
+  .ig-strip-grid { grid-template-columns: repeat(3, 1fr); }
+}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <strong>PRÊMIO VALOR EMPRESARIAL 2026</strong> · Mais de 15 anos protegendo condomínios, empresas e residências em Vila Velha, Vitória, Serra, Cariacica e Guarapari
+</div>
+
+<header>
+  <div class="nav-wrap">
+    <a href="#" class="brand">
+      <img src="assets/logo.jpg" alt="Virtual Segurança Eletrônica">
+      <div class="brand-text">
+        <strong>VIRTUAL SEGURANÇA</strong>
+        <span>Tecnologia &amp; Monitoramento 24h</span>
+      </div>
+    </a>
+    <nav>
+      <a href="#lancamentos">Totem Sentinela &amp; Caixa Box</a>
+      <a href="#portaria">Portaria Virtual</a>
+      <a href="#simulador">Simulador de Economia</a>
+      <a href="#atendimento-ia">Atendimento 24h</a>
+    </nav>
+    <a href="https://wa.me/5527998999212?text=Ol%C3%A1!%20Vim%20pelo%20novo%20site%20da%20Virtual%20Seguran%C3%A7a%20e%20quero%20solicitar%20um%20or%C3%A7amento." target="_blank" class="btn-nav">
+      Solicitar Vistoria
+    </a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-grid">
+    <div>
+      <div class="badge-award">★ Prêmio Valor Empresarial 2026 · Líder em Inovação no ES</div>
+      <h1>Portaria Virtual, Totens com IA e <span>Monitoramento 24h</span> na Grande Vitória.</h1>
+      <p class="lead">
+        Reduza em <strong>até 60% o custo condominial</strong> com a Portaria Virtual mais avançada do Espírito Santo, novos <strong>Totens Digitais integrados ao Projeto Sentinela</strong>, <strong>Caixa Box</strong> inteligente para encomendas e controle de acesso facial via app <strong>Virtual Mobile</strong>.
+      </p>
+      <div class="hero-ctas">
+        <a href="#simulador" class="btn-primary">Simular Economia do Condomínio</a>
+        <a href="https://wa.me/5527998999212?text=Ol%C3%A1!%20Gostaria%20de%20conhecer%20os%20novos%20Totens%20Digitais%20e%20a%20Portaria%20Virtual." target="_blank" class="btn-ghost">Falar com Consultor no WhatsApp</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat">
+          <strong>Até 60%</strong>
+          <span>Redução real no custo mensal da folha do condomínio</span>
+        </div>
+        <div class="stat">
+          <strong>+15 anos</strong>
+          <span>Atuação especializada em Vila Velha, Vitória e Grande Vitória</span>
+        </div>
+        <div class="stat">
+          <strong>24 horas</strong>
+          <span>Central própria de vídeo monitoramento, CFTV e pronta resposta</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-visual">
+      <img src="assets/hd_hero.jpg" alt="Tecnologia de Segurança Condominial e Controle de Acesso" class="main-photo">
+      <div class="sentinela-callout">
+        <img src="assets/ig_1.jpg" alt="Totem Digital Projeto Sentinela">
+        <div>
+          <strong>NOVO · Totem Digital Conectado ao Projeto Sentinela</strong>
+          <span>Monitoramento externo com Inteligência Artificial integrado à rede de segurança pública do Governo do Estado do ES.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="lancamentos">
+  <div class="sec-head">
+    <span class="sec-tag">Inovação &amp; Tecnologia Aplicada</span>
+    <h2>As soluções que estão modernizando os condomínios e empresas do ES</h2>
+    <p>Do controle de acesso facial de última geração aos novos lançamentos em destaque no Instagram da Virtual Segurança.</p>
+  </div>
+
+  <div class="solutions-grid">
+    <div class="sol-card" id="portaria">
+      <img src="assets/hd_condominio.jpg" alt="Portaria Virtual e Controle de Acesso" class="sol-img">
+      <div class="sol-body">
+        <span class="sol-badge">Economia de até 60%</span>
+        <h3>Portaria Virtual &amp; Acesso Facial</h3>
+        <p>Substitua custos trabalhistas elevados por controle de acesso biométrico/facial inviolável, acompanhamento 24h pela nossa central e gestão completa pelo app <strong>Virtual Mobile</strong>.</p>
+        <a href="https://wa.me/5527998999212?text=Ol%C3%A1!%20Quero%20cotar%20Portaria%20Virtual%20para%20meu%20condom%C3%ADnio." target="_blank" class="sol-link">Solicitar estudo para meu condomínio →</a>
+      </div>
+    </div>
+
+    <div class="sol-card">
+      <img src="assets/hd_cftv.jpg" alt="Totem Digital Projeto Sentinela e CFTV IA" class="sol-img">
+      <div class="sol-body">
+        <span class="sol-badge">Lançamento Exclusivo</span>
+        <h3>Totem Digital · Projeto Sentinela (IA)</h3>
+        <p>Totens ostensivos com câmeras inteligentes, leitura analítica de perímetro e integração ao <strong>Projeto Sentinela</strong> do Governo do Estado, inibindo ocorrências antes que aconteçam.</p>
+        <a href="https://wa.me/5527998999212?text=Ol%C3%A1!%20Quero%20saber%20mais%20sobre%20o%20Totem%20Digital%20integrado%20ao%20Projeto%20Sentinela." target="_blank" class="sol-link">Conhecer o Totem Sentinela →</a>
+      </div>
+    </div>
+
+    <div class="sol-card">
+      <img src="assets/hd_hero.jpg" alt="Caixa Box Inteligente e Vídeo Monitoramento 24h" class="sol-img">
+      <div class="sol-body">
+        <span class="sol-badge">Comodidade Condominial</span>
+        <h3>Caixa Box &amp; Monitoramento 24h</h3>
+        <p>Solução inteligente para recebimento seguro de encomendas em condomínios sem porteiro presencial, aliada a CFTV de alta definição, alarmes e manutenção preventiva e corretiva.</p>
+        <a href="https://wa.me/5527998999212?text=Ol%C3%A1!%20Quero%20conhecer%20a%20Caixa%20Box%20e%20o%20Monitoramento%2024h." target="_blank" class="sol-link">Solicitar demonstração →</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="ig-strip-box">
+    <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px;">
+      <div>
+        <strong style="color:var(--navy); font-size:16px;">@virtualseguranca · Destaques Recentes em Vila Velha e Vitória</strong>
+        <span style="display:block; font-size:13px; color:var(--muted);">Prêmio Valor Empresarial 2026, Totem Sentinela, Caixa Box e Virtual Mobile</span>
+      </div>
+      <a href="https://wa.me/5527998999212" target="_blank" class="btn-nav">Falar no WhatsApp (27) 99899-9212</a>
+    </div>
+    <div class="ig-strip-grid">
+      <div class="ig-thumb"><img src="assets/ig_1.jpg" alt="Virtual Segurança Post 1"></div>
+      <div class="ig-thumb"><img src="assets/ig_2.jpg" alt="Virtual Segurança Post 2"></div>
+      <div class="ig-thumb"><img src="assets/ig_3.jpg" alt="Virtual Segurança Post 3"></div>
+      <div class="ig-thumb"><img src="assets/ig_4.jpg" alt="Virtual Segurança Post 4"></div>
+      <div class="ig-thumb"><img src="assets/ig_5.jpg" alt="Virtual Segurança Post 5"></div>
+      <div class="ig-thumb"><img src="assets/ig_6.jpg" alt="Virtual Segurança Post 6"></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="simulador" style="padding-top: 10px;">
+  <div class="calc-box">
+    <div>
+      <span class="badge-award" style="margin-bottom:12px;">Para Síndicos e Administradoras</span>
+      <h2 style="font-family:'Space Grotesk',sans-serif; font-size:34px; line-height:1.15; margin-bottom:14px;">Simule a economia do seu condomínio com a Portaria Virtual</h2>
+      <p style="color:rgba(255,255,255,0.82); font-size:15px; margin-bottom:20px;">
+        Síndicos de Vila Velha e Vitória utilizam nossa calculadora rápida para estimar quanto o condomínio pode economizar por mês e por ano migrando da portaria presencial tradicional para a <strong>Portaria Virtual + Caixa Box</strong>.
+      </p>
+      <div style="font-size:14px; color:rgba(255,255,255,0.9); display:grid; gap:8px;">
+        <div>✓ Unidades em <strong>Itapoã (Vila Velha)</strong> e <strong>Santa Lúcia (Vitória)</strong></div>
+        <div>✓ Vistoria técnica gratuita com projeto personalizado</div>
+        <div>✓ App <strong>Virtual Mobile</strong> incluso para moradores liberarem visitantes por QR Code</div>
+      </div>
+    </div>
+
+    <div class="calc-controls">
+      <div class="range-wrap">
+        <label><span>Número de apartamentos / unidades:</span> <strong id="vs-apt-val">36 unidades</strong></label>
+        <input type="range" id="vs-apt" min="12" max="120" step="4" value="36" oninput="calcVirtual()">
+      </div>
+      <div class="range-wrap">
+        <label><span>Custo atual aproximado com portaria 24h:</span> <strong id="vs-custo-val">R$ 18.000/mês</strong></label>
+        <input type="range" id="vs-custo" min="8000" max="35000" step="1000" value="18000" oninput="calcVirtual()">
+      </div>
+      <div class="calc-result">
+        <span style="font-size:12.5px; text-transform:uppercase; letter-spacing:0.06em; color:rgba(255,255,255,0.8);">Economia estimada para o condomínio:</span>
+        <strong id="vs-econ-mes">Até R$ 9.900 / mês</strong>
+        <div id="vs-econ-ano" style="font-size:13.5px; color:#E2E8F0; margin-top:4px;">Representa cerca de R$ 118.800 economizados por ano</div>
+      </div>
+      <a href="#" id="vs-wa-btn" onclick="enviarSimulacaoVirtual(); return false;" class="btn-primary" style="width:100%; display:flex; justify-content:center; text-align:center;">
+        Receber Estudo Técnico no WhatsApp
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="atendimento-ia" style="padding-top: 10px;">
+  <div class="ai-grid">
+    <div>
+      <span class="sec-tag">Atendimento Imediato 24h</span>
+      <h2 style="font-family:'Space Grotesk',sans-serif; font-size:32px; color:var(--navy); line-height:1.15; margin-bottom:14px;">Nenhum síndico ou empresa fica esperando resposta no WhatsApp</h2>
+      <p style="font-size:15px; color:var(--muted); margin-bottom:18px;">
+        Com o atendimento inteligente integrado ao WhatsApp da <strong>Virtual Segurança</strong>, quem procura Portaria Virtual, Totem Sentinela, Caixa Box ou CFTV à noite ou no fim de semana é atendido em segundos e já deixa a vistoria pré-agendada para a equipe comercial.
+      </p>
+      <a href="https://wa.me/5527998999212?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20uma%20visita%20t%C3%A9cnica%20da%20Virtual%20Seguran%C3%A7a." target="_blank" class="btn-nav" style="padding:13px 24px; font-size:14.5px; display:inline-block;">
+        Testar Atendimento no WhatsApp (27) 99899-9212
+      </a>
+    </div>
+
+    <div class="chat-sim">
+      <div class="chat-head">
+        <img src="assets/logo.jpg" alt="Virtual Segurança">
+        <div>
+          <strong style="display:block; font-size:14.5px;">Virtual Segurança · Atendimento 24h</strong>
+          <span style="font-size:11.5px; opacity:0.85;">Online agora · Vila Velha &amp; Vitória</span>
+        </div>
+      </div>
+      <div class="chat-body">
+        <div class="msg-user">Olá! Sou síndico de um prédio em Itapoã com 40 apartamentos e queria entender como funciona o Totem Sentinela junto com a Portaria Virtual.</div>
+        <div class="msg-bot">
+          Olá! Seja muito bem-vindo à <strong>Virtual Segurança Eletrônica</strong> 🛡️<br><br>
+          Atendemos diversos condomínios aqui em Itapoã! Com a <strong>Portaria Virtual + Totem Digital conectado ao Projeto Sentinela</strong>, seu condomínio reduz em até 60% o custo mensal de portaria e passa a contar com monitoramento externo por IA.<br><br>
+          Prefere agendar uma vistoria técnica gratuita nesta <strong>terça ou quinta-feira</strong>?
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="foot-wrap">
+    <div>
+      <strong style="color:#FFF; font-family:'Space Grotesk',sans-serif; font-size:18px;">Virtual Segurança Eletrônica ES</strong>
+      <div>Vila Velha: R. Major Nodge Ulisses de Oliveira, 17 - Itapoã · Vitória: R. José Teixeira, 672, Sala 201 - Santa Lúcia</div>
+    </div>
+    <div>
+      Central: (27) 3329-9212 · WhatsApp: (27) 99899-9212
+    </div>
+  </div>
+</footer>
+
+<script>
+function calcVirtual() {
+  var apt = parseInt(document.getElementById('vs-apt').value, 10);
+  var custo = parseInt(document.getElementById('vs-custo').value, 10);
+  document.getElementById('vs-apt-val').innerText = apt + ' unidades';
+  document.getElementById('vs-custo-val').innerText = 'R$ ' + custo.toLocaleString('pt-BR') + '/mês';
+  var econMes = Math.round(custo * 0.55);
+  var econAno = econMes * 12;
+  document.getElementById('vs-econ-mes').innerText = 'Até R$ ' + econMes.toLocaleString('pt-BR') + ' / mês';
+  document.getElementById('vs-econ-ano').innerText = 'Representa cerca de R$ ' + econAno.toLocaleString('pt-BR') + ' economizados por ano';
+}
+function enviarSimulacaoVirtual() {
+  var apt = document.getElementById('vs-apt').value;
+  var custo = document.getElementById('vs-custo').value;
+  var msg = 'Olá! Fiz a simulação no site da Virtual Segurança para um condomínio de ' + apt + ' unidades (custo atual aproximado de R$ ' + custo + '/mês) e gostaria de agendar uma vistoria técnica.';
+  window.open('https://wa.me/5527998999212?text=' + encodeURIComponent(msg), '_blank');
+}
+</script>
+</body>
+</html>

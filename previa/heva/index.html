@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HEVA — Gestão e Desenvolvimento Humano | Cristiane Berriel</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #FAF6F0;
+  --surface: #FFFFFF;
+  --wine: #240B11;
+  --wine-mid: #3B131D;
+  --gold: #C89D54;
+  --gold-light: #E6C98F;
+  --text: #221619;
+  --muted: #6E5A5F;
+  --border: rgba(36, 11, 17, 0.1);
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: 'Plus Jakarta Sans', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; overflow-x: hidden; }
+.topbar { background: var(--wine); color: #F5E6C8; font-size: 12.5px; padding: 9px 24px; text-align: center; letter-spacing: 0.03em; border-bottom: 1px solid rgba(200,157,84,0.25); }
+.topbar strong { color: var(--gold-light); }
+header { position: sticky; top: 0; z-index: 100; background: rgba(250, 246, 240, 0.96); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); }
+.nav-wrap { max-width: 1240px; margin: 0 auto; padding: 12px 24px; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+.brand { display: flex; align-items: center; gap: 14px; text-decoration: none; color: var(--wine); flex-shrink: 0; }
+.brand-logo { width: 52px; height: 46px; border-radius: 8px; background: #1A0A0E; padding: 3px; object-fit: contain; border: 1px solid var(--gold); flex-shrink: 0; }
+.brand-text strong { display: block; font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 700; letter-spacing: 0.06em; color: var(--wine); line-height: 1.05; }
+.brand-text span { display: block; font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.1em; font-weight: 600; margin-top: 2px; }
+nav { display: flex; align-items: center; gap: 22px; }
+nav a { text-decoration: none; color: var(--text); font-size: 13.5px; font-weight: 600; white-space: nowrap; transition: color 0.2s; }
+nav a:hover { color: var(--gold); }
+.btn-nav { background: var(--wine); color: var(--gold-light); padding: 10px 20px; border-radius: 999px; font-size: 13.5px; font-weight: 700; text-decoration: none; white-space: nowrap; flex-shrink: 0; border: 1px solid var(--gold); transition: all 0.2s; display: inline-flex; align-items: center; gap: 8px; }
+.btn-nav:hover { background: var(--wine-mid); transform: translateY(-1px); }
+
+.hero { background: linear-gradient(135deg, #1A0A0E 0%, #2D1018 55%, #1F0B10 100%); color: #FAF6F0; padding: 68px 24px 76px; position: relative; overflow: hidden; }
+.hero-grid { max-width: 1240px; margin: 0 auto; display: grid; grid-template-columns: 1.12fr 0.88fr; gap: 48px; align-items: center; }
+.eyebrow { display: inline-flex; align-items: center; gap: 8px; background: rgba(200,157,84,0.15); border: 1px solid rgba(200,157,84,0.4); color: var(--gold-light); padding: 6px 14px; border-radius: 999px; font-size: 12px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 18px; }
+.hero h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(36px, 4.3vw, 54px); line-height: 1.08; font-weight: 700; margin-bottom: 18px; color: #FFFFFF; }
+.hero h1 em { color: var(--gold-light); font-style: italic; }
+.hero p.lead { font-size: 16.5px; color: rgba(250,246,240,0.86); margin-bottom: 28px; max-width: 590px; }
+.hero-ctas { display: flex; flex-wrap: wrap; gap: 14px; margin-bottom: 32px; }
+.btn-gold { background: linear-gradient(135deg, #D4AF37 0%, #B88928 100%); color: #1A0A0E; padding: 14px 26px; border-radius: 999px; font-weight: 700; font-size: 14.5px; text-decoration: none; white-space: nowrap; display: inline-flex; align-items: center; gap: 8px; box-shadow: 0 10px 24px rgba(0,0,0,0.28); }
+.btn-outline { background: rgba(255,255,255,0.06); color: #FAF6F0; border: 1px solid rgba(230,201,143,0.4); padding: 14px 24px; border-radius: 999px; font-weight: 600; font-size: 14.5px; text-decoration: none; white-space: nowrap; }
+.hero-metrics { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; padding-top: 24px; border-top: 1px solid rgba(230,201,143,0.2); }
+.metric strong { display: block; font-family: 'Cormorant Garamond', serif; font-size: 28px; color: var(--gold-light); line-height: 1; }
+.metric span { font-size: 12.5px; color: rgba(250,246,240,0.75); }
+
+.hero-card { background: #16070B; border: 1px solid rgba(200,157,84,0.45); border-radius: 22px; padding: 24px; box-shadow: 0 24px 50px rgba(0,0,0,0.45); }
+.hero-logo-showcase { background: #1A0A0E; border-radius: 14px; overflow: hidden; display: flex; align-items: center; justify-content: center; padding: 12px; border: 1px solid rgba(200,157,84,0.25); margin-bottom: 18px; }
+.hero-logo-showcase img { width: 100%; max-height: 250px; object-fit: contain; display: block; }
+.founder-strip { display: flex; align-items: center; gap: 14px; background: rgba(255,255,255,0.05); padding: 14px 16px; border-radius: 14px; border: 1px solid rgba(200,157,84,0.2); }
+.founder-strip img { width: 64px; height: 64px; border-radius: 50%; object-fit: cover; border: 2px solid var(--gold); flex-shrink: 0; }
+.founder-strip div strong { display: block; font-size: 15px; color: #FFF; }
+.founder-strip div span { display: block; font-size: 12.5px; color: rgba(250,246,240,0.78); margin-top: 2px; }
+
+.clients-bar { background: #FFFFFF; border-bottom: 1px solid var(--border); padding: 26px 24px; }
+.clients-wrap { max-width: 1240px; margin: 0 auto; }
+.clients-title { text-align: center; font-size: 12px; text-transform: uppercase; letter-spacing: 0.14em; color: var(--muted); font-weight: 700; margin-bottom: 16px; }
+.clients-pills { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
+.client-pill { background: var(--bg); border: 1px solid var(--border); padding: 8px 16px; border-radius: 999px; font-size: 13px; font-weight: 700; color: var(--wine); }
+
+.section { max-width: 1240px; margin: 0 auto; padding: 72px 24px; }
+.sec-head { text-align: center; max-width: 760px; margin: 0 auto 48px; }
+.sec-tag { display: inline-block; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: var(--wine); background: rgba(200,157,84,0.22); padding: 5px 14px; border-radius: 999px; margin-bottom: 12px; }
+.sec-head h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(30px, 3.5vw, 42px); color: var(--wine); line-height: 1.15; margin-bottom: 12px; }
+.sec-head p { color: var(--muted); font-size: 15.5px; }
+
+.pillars-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.pillar-card { background: var(--surface); border: 1px solid var(--border); border-radius: 20px; overflow: hidden; box-shadow: 0 10px 30px rgba(36,11,17,0.05); display: flex; flex-direction: column; }
+.pillar-img { height: 210px; width: 100%; object-fit: cover; display: block; }
+.pillar-body { padding: 26px; flex: 1; display: flex; flex-direction: column; }
+.pillar-badge { display: inline-block; align-self: flex-start; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--wine); background: #F5E9D4; padding: 4px 10px; border-radius: 6px; margin-bottom: 12px; }
+.pillar-body h3 { font-family: 'Cormorant Garamond', serif; font-size: 25px; color: var(--wine); margin-bottom: 10px; line-height: 1.2; }
+.pillar-body p { font-size: 14px; color: var(--muted); margin-bottom: 16px; }
+.pillar-list { list-style: none; margin-bottom: 22px; flex: 1; }
+.pillar-list li { font-size: 13.5px; color: var(--text); padding: 5px 0; border-bottom: 1px dashed rgba(36,11,17,0.08); display: flex; align-items: center; gap: 8px; }
+.pillar-list li::before { content: "•"; color: var(--gold); font-weight: 900; }
+.pillar-link { text-decoration: none; font-size: 13.5px; font-weight: 700; color: var(--wine); display: inline-flex; align-items: center; gap: 6px; }
+
+.dual-banner { background: var(--wine); color: #FAF6F0; border-radius: 24px; padding: 44px; margin-top: 40px; display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 36px; align-items: center; border: 1px solid var(--gold); }
+.dual-banner h3 { font-family: 'Cormorant Garamond', serif; font-size: 32px; color: var(--gold-light); margin-bottom: 12px; line-height: 1.15; }
+.dual-banner p { font-size: 15px; color: rgba(250,246,240,0.85); margin-bottom: 18px; }
+.dual-points { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 22px; }
+.dual-point { background: rgba(255,255,255,0.06); border: 1px solid rgba(200,157,84,0.28); padding: 12px 14px; border-radius: 12px; font-size: 13px; }
+.dual-point strong { display: block; color: var(--gold-light); margin-bottom: 2px; }
+
+.playlists-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; margin-bottom: 36px; }
+.playlist-card { background: var(--surface); border: 1px solid var(--border); border-radius: 18px; padding: 22px; position: relative; }
+.playlist-count { font-size: 11.5px; font-weight: 700; color: var(--wine); background: #F5E9D4; padding: 4px 10px; border-radius: 999px; display: inline-block; margin-bottom: 12px; }
+.playlist-card h4 { font-family: 'Cormorant Garamond', serif; font-size: 22px; color: var(--wine); margin-bottom: 8px; }
+.playlist-card p { font-size: 13.5px; color: var(--muted); margin-bottom: 14px; }
+.playlist-tag { font-size: 12px; font-weight: 700; color: #8A6220; }
+
+.ig-strip-box { background: var(--surface); border: 1px solid var(--border); border-radius: 20px; padding: 24px; }
+.ig-strip-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; flex-wrap: wrap; gap: 12px; }
+.ig-strip-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 12px; }
+.ig-thumb { border-radius: 10px; overflow: hidden; border: 1px solid var(--border); background: #1A0A0E; aspect-ratio: 1/1; }
+.ig-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+.reviews-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+.review-card { background: var(--surface); border: 1px solid var(--border); border-radius: 18px; padding: 24px; }
+.stars { color: #D4AF37; font-size: 15px; letter-spacing: 2px; margin-bottom: 10px; }
+.review-card p { font-size: 14px; color: var(--text); font-style: italic; margin-bottom: 14px; }
+.review-author strong { display: block; font-size: 13.5px; color: var(--wine); }
+.review-author span { font-size: 12px; color: var(--muted); }
+
+.contact-box { background: var(--surface); border: 2px solid var(--gold); border-radius: 24px; padding: 44px; display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 36px; align-items: center; box-shadow: 0 18px 40px rgba(36,11,17,0.07); }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 12px; }
+.input-field { width: 100%; padding: 12px 14px; border: 1px solid var(--border); border-radius: 10px; font-family: inherit; font-size: 14px; background: var(--bg); }
+.btn-wa-direct { width: 100%; background: #1E7E45; color: #FFF; border: none; padding: 15px 24px; border-radius: 12px; font-size: 15px; font-weight: 700; cursor: pointer; display: inline-flex; justify-content: center; align-items: center; gap: 10px; text-decoration: none; margin-top: 8px; }
+.btn-wa-direct:hover { background: #176637; }
+
+footer { background: var(--wine); color: rgba(250,246,240,0.8); padding: 48px 24px 32px; font-size: 13.5px; }
+.foot-wrap { max-width: 1240px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; }
+
+@media (max-width: 980px) {
+  nav { display: none; }
+  .hero-grid, .pillars-grid, .dual-banner, .playlists-grid, .reviews-grid, .contact-box { grid-template-columns: 1fr; }
+  .ig-strip-grid { grid-template-columns: repeat(3, 1fr); }
+}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <strong>HEVA — GESTÃO E DESENVOLVIMENTO HUMANO</strong> · São Paulo &amp; Santos/SP · Atendimento Corporativo e Individual Presencial e Online em Todo o Brasil
+</div>
+
+<header>
+  <div class="nav-wrap">
+    <a href="#" class="brand">
+      <img src="assets/logo_nav.jpg" alt="HEVA Logo" class="brand-logo">
+      <div class="brand-text">
+        <strong>HEVA</strong>
+        <span>Gestão e Desenvolvimento</span>
+      </div>
+    </a>
+    <nav>
+      <a href="#corporativo">Soluções Corporativas</a>
+      <a href="#nr1">NR-1 &amp; ISO</a>
+      <a href="#autonomia">Autonomia Emocional</a>
+      <a href="#acervo">Conteúdos &amp; Playlists</a>
+      <a href="#avaliacoes">Clientes</a>
+    </nav>
+    <a href="https://wa.me/5511982092557?text=Ol%C3%A1%2C%20Cristiane!%20Vim%20pelo%20site%20oficial%20da%20HEVA%20e%20gostaria%20de%20conversar." target="_blank" class="btn-nav">
+      Falar com Cristiane
+    </a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-grid">
+    <div>
+      <div class="eyebrow">Pessoas · Processos · Resultados</div>
+      <h1>Gestão corporativa, saúde emocional e <em>desenvolvimento humano</em> em uma só casa.</h1>
+      <p class="lead">
+        A <strong>HEVA — Gestão e Desenvolvimento</strong>, conduzida por <strong>Cristiane Berriel</strong>, une mais de 20 anos de experiência em auditorias de sistemas de gestão, adequação à <strong>NR-1 (Riscos Psicossociais)</strong> e treinamentos de liderança com o desenvolvimento profundo da autonomia emocional.
+      </p>
+      <div class="hero-ctas">
+        <a href="#contato-direto" class="btn-gold">Solicitar Diagnóstico ou Proposta</a>
+        <a href="#corporativo" class="btn-outline">Conhecer Frentes de Atuação</a>
+      </div>
+      <div class="hero-metrics">
+        <div class="metric">
+          <strong>+20 anos</strong>
+          <span>Experiência em Gestão, Qualidade e Desenvolvimento</span>
+        </div>
+        <div class="metric">
+          <strong>NR-1 &amp; ISO</strong>
+          <span>Riscos Psicossociais e Auditorias SGI (9001/14001/45001)</span>
+        </div>
+        <div class="metric">
+          <strong>+500 vídeos</strong>
+          <span>Acervo autoral sobre saúde emocional, liderança e trabalho</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-card">
+      <div class="hero-logo-showcase">
+        <img src="assets/logo_heva.jpg" alt="HEVA - Gestão e Desenvolvimento - Pessoas. Processos. Resultados.">
+      </div>
+      <div class="founder-strip">
+        <img src="assets/cristiane_avatar.jpg" alt="Cristiane Berriel">
+        <div>
+          <strong>Cristiane Berriel · Fundadora &amp; Consultora Principal</strong>
+          <span>Treinamentos Corporativos, Adequação NR-1, Auditorias Internas ISO e Mentorias de Autonomia Emocional.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="clients-bar" id="avaliacoes">
+  <div class="clients-wrap">
+    <div class="clients-title">Grandes marcas e organizações que já confiaram na nossa experiência</div>
+    <div class="clients-pills">
+      <span class="client-pill">Grupo Boticário</span>
+      <span class="client-pill">Klabin Papéis</span>
+      <span class="client-pill">Whirlpool</span>
+      <span class="client-pill">SKF</span>
+      <span class="client-pill">Duratex</span>
+      <span class="client-pill">Netz Engenharia (Renault Brasil)</span>
+      <span class="client-pill">Pérola Terminal Portuário</span>
+      <span class="client-pill">GS Inima</span>
+      <span class="client-pill">CONBOR</span>
+      <span class="client-pill">MAMUTH</span>
+      <span class="client-pill">CAEPA · COMASA · SESAMM</span>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="corporativo">
+  <div class="sec-head">
+    <span class="sec-tag">A Casa Oficial da HEVA</span>
+    <h2>Três frentes integradas para transformar organizações e pessoas</h2>
+    <p>Quando uma empresa ou um cliente individual pesquisa pelo seu nome, encontra de forma clara, elegante e estruturada tudo o que a HEVA entrega.</p>
+  </div>
+
+  <div class="pillars-grid">
+    <div class="pillar-card" id="nr1">
+      <img src="assets/hd_treinamento.jpg" alt="Treinamentos e NR-1" class="pillar-img">
+      <div class="pillar-body">
+        <span class="pillar-badge">Frente 01 · Saúde Emocional Corporativa</span>
+        <h3>Adequação à NR-1 (Riscos Psicossociais) &amp; Palestras</h3>
+        <p>Apoio técnico e humano para empresas que precisam mapear, prevenir e gerir riscos psicossociais no ambiente de trabalho com responsabilidade e resultados reais.</p>
+        <ul class="pillar-list">
+          <li>Diagnóstico e Gestão de Riscos Psicossociais (NR-1)</li>
+          <li>Palestras de Saúde Mental e Segurança Psicológica</li>
+          <li>Prevenção ao Burnout, Assédio e Adoecimento Ocupacional</li>
+          <li>Alinhamento entre RH, SESMT e Lideranças</li>
+        </ul>
+        <a href="https://wa.me/5511982092557?text=Ol%C3%A1%2C%20Cristiane!%20Gostaria%20de%20conversar%20sobre%20NR-1%20e%20Treinamentos%20Corporativos%20pela%20HEVA." target="_blank" class="pillar-link">Conversar sobre NR-1 no WhatsApp →</a>
+      </div>
+    </div>
+
+    <div class="pillar-card">
+      <img src="assets/hd_auditoria.jpg" alt="Gestão, Processos e Auditorias ISO" class="pillar-img">
+      <div class="pillar-body">
+        <span class="pillar-badge">Frente 02 · Processos &amp; Sistemas de Gestão</span>
+        <h3>Treinamentos de Liderança &amp; Auditorias ISO</h3>
+        <p>Estruturação de processos, formação de líderes e auditorias internas com visão prática que une conformidade técnica e cultura organizacional.</p>
+        <ul class="pillar-list">
+          <li>Auditorias Internas ISO 9001, ISO 14001 e ISO 45001 (SGI)</li>
+          <li>Desenvolvimento de Lideranças Humanizadas e Assertivas</li>
+          <li>Comunicação Não-Violenta e Gestão de Conflitos em Equipes</li>
+          <li>Treinamentos In-Company personalizados por setor</li>
+        </ul>
+        <a href="https://wa.me/5511982092557?text=Ol%C3%A1%2C%20Cristiane!%20Gostaria%20de%20solicitar%20uma%20proposta%20de%20Treinamento%20ou%20Auditoria%20pela%20HEVA." target="_blank" class="pillar-link">Solicitar proposta corporativa →</a>
+      </div>
+    </div>
+
+    <div class="pillar-card" id="autonomia">
+      <img src="assets/hd_corp1.jpg" alt="Desenvolvimento Humano e Autonomia Emocional" class="pillar-img">
+      <div class="pillar-body">
+        <span class="pillar-badge">Frente 03 · Desenvolvimento Individual</span>
+        <h3>Trabalho Terapêutico &amp; Autonomia Emocional</h3>
+        <p>Atendimento individual e mentorias voltadas para profissionais e pessoas que buscam maturidade emocional, clareza nas relações e posicionamento de vida.</p>
+        <ul class="pillar-list">
+          <li>Sessões individuais online e presenciais</li>
+          <li>Reconstrução de autoestima e limites saudáveis</li>
+          <li>Gestão de ansiedade, transição de carreira e propósito</li>
+          <li>Abordagem direta, acolhedora e orientada à autonomia</li>
+        </ul>
+        <a href="https://wa.me/5511982092557?text=Ol%C3%A1%2C%20Cristiane!%20Gostaria%20de%20saber%20mais%20sobre%20o%20acompanhamento%20de%20Autonomia%20Emocional." target="_blank" class="pillar-link">Agendar conversa individual →</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="dual-banner">
+    <div>
+      <span class="eyebrow">A União das Duas Frentes</span>
+      <h3>Por que unir Gestão de Processos e Saúde Emocional?</h3>
+      <p>Não existem processos sustentáveis com pessoas emocionalmente exaustas — nem saúde emocional no trabalho sem clareza de papéis, liderança preparada e gestão estruturada. A <strong>HEVA</strong> nasceu exatamente para integrar esses dois mundos com maturidade técnica e profundidade humana.</p>
+      <div class="dual-points">
+        <div class="dual-point">
+          <strong>Para o RH e Diretoria</strong>
+          Segurança jurídica e técnica na NR-1, SGI/ISO e formação de líderes que geram resultados.
+        </div>
+        <div class="dual-point">
+          <strong>Para o Ser Humano</strong>
+          Ferramentas reais de autonomia emocional para lidar com pressões, limites e escolhas.
+        </div>
+      </div>
+      <a href="#contato-direto" class="btn-gold">Falar diretamente com Cristiane Berriel</a>
+    </div>
+    <div style="background: rgba(0,0,0,0.28); padding: 26px; border-radius: 18px; border: 1px solid rgba(200,157,84,0.35);">
+      <h4 style="font-family: 'Cormorant Garamond', serif; font-size: 24px; color: var(--gold-light); margin-bottom: 10px;">Presença São Paulo &amp; Brasil</h4>
+      <p style="font-size: 14px; color: rgba(250,246,240,0.85); margin-bottom: 14px;">Base em <strong>São Paulo/SP</strong> e <strong>Santos/SP</strong> (Av. Dona Ana Costa, 61), com atuação presencial em empresas de todo o país e atendimento online.</p>
+      <div style="font-size: 13px; color: #FAF6F0; padding-top: 12px; border-top: 1px solid rgba(200,157,84,0.2);">
+        <div><strong>WhatsApp Direto:</strong> (11) 98209-2557</div>
+        <div style="margin-top: 4px;"><strong>E-mail:</strong> hevagestaoedesenvolvimento@gmail.com</div>
+        <div style="margin-top: 4px;"><strong>Instagram:</strong> @heva.cristianeberriel</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="acervo" style="padding-top: 10px;">
+  <div class="sec-head">
+    <span class="sec-tag">Acervo Digital Estruturado</span>
+    <h2>+500 vídeos e conteúdos organizados por tema para quem chega até você</h2>
+    <p>Toda a sua produção no TikTok e no Instagram organizada em playlists temáticas claras — sem apagar nada da sua história, mas guiando tanto o decisor de RH quanto o público de desenvolvimento pessoal.</p>
+  </div>
+
+  <div class="playlists-grid">
+    <div class="playlist-card">
+      <span class="playlist-count">Playlist 01 · Corporativo</span>
+      <h4>NR-1, Riscos Psicossociais &amp; Saúde no Trabalho</h4>
+      <p>Orientações práticas para empresas, gestores e RH sobre o que muda com a NR-1 e como proteger equipes.</p>
+      <span class="playlist-tag">Em destaque no TikTok &amp; Instagram</span>
+    </div>
+    <div class="playlist-card">
+      <span class="playlist-count">Playlist 02 · Liderança</span>
+      <h4>Liderança, Processos &amp; Cultura Organizacional</h4>
+      <p>Como desenvolver líderes maduros, conduzir feedbacks difíceis e alinhar processos a pessoas reais.</p>
+      <span class="playlist-tag">Para Diretores, Gestores e RH</span>
+    </div>
+    <div class="playlist-card">
+      <span class="playlist-count">Playlist 03 · Autonomia Emocional</span>
+      <h4>Limites, Maturidade &amp; Relações Saudáveis</h4>
+      <p>Reflexões diretas sobre dependência emocional, posicionamento pessoal e construção de autonomia.</p>
+      <span class="playlist-tag">+500 vídeos de acervo autoral</span>
+    </div>
+    <div class="playlist-card">
+      <span class="playlist-count">Playlist 04 · Bastidores &amp; Cases</span>
+      <h4>Treinamentos, Palestras &amp; Auditorias na Prática</h4>
+      <p>Registros reais de turmas capacitadas, vivências corporativas e depoimentos de quem já participou.</p>
+      <span class="playlist-tag">Autoridade comprovada em campo</span>
+    </div>
+  </div>
+
+  <div class="ig-strip-box">
+    <div class="ig-strip-head">
+      <div>
+        <strong style="color: var(--wine); font-size: 16px;">@heva.cristianeberriel · Publicações em Destaque no Instagram</strong>
+        <span style="display: block; font-size: 13px; color: var(--muted);">Identidade visual unificada com a nova marca HEVA — Gestão e Desenvolvimento</span>
+      </div>
+      <a href="https://wa.me/5511982092557" target="_blank" class="btn-nav" style="padding: 8px 16px; font-size: 12.5px;">Acompanhar Conteúdos</a>
+    </div>
+    <div class="ig-strip-grid">
+      <div class="ig-thumb"><img src="assets/ig_1.jpg" alt="Post Instagram HEVA 1"></div>
+      <div class="ig-thumb"><img src="assets/ig_2.jpg" alt="Post Instagram HEVA 2"></div>
+      <div class="ig-thumb"><img src="assets/ig_3.jpg" alt="Post Instagram HEVA 3"></div>
+      <div class="ig-thumb"><img src="assets/ig_4.jpg" alt="Post Instagram HEVA 4"></div>
+      <div class="ig-thumb"><img src="assets/ig_5.jpg" alt="Post Instagram HEVA 5"></div>
+      <div class="ig-thumb"><img src="assets/ig_6.jpg" alt="Post Instagram HEVA 6"></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="padding-top: 10px;">
+  <div class="sec-head">
+    <span class="sec-tag">Ciclo de Excelência Digital · Google São Paulo</span>
+    <h2>O que dizem as empresas e profissionais atendidos</h2>
+    <p>Ao final de cada treinamento, palestra ou acompanhamento, os participantes podem registrar sua avaliação de forma simples e discreta no perfil oficial da empresa no Google.</p>
+  </div>
+
+  <div class="reviews-grid">
+    <div class="review-card">
+      <div class="stars">★★★★★</div>
+      <p>"A condução da Cristiane no treinamento de lideranças e adequação à NR-1 trouxe uma clareza impressionante para toda a nossa equipe gestora. Une domínio técnico de normas ISO com uma escuta humana rara."</p>
+      <div class="review-author">
+        <strong>Gestão de Recursos Humanos &amp; QSMS</strong>
+        <span>Treinamento Corporativo In-Company</span>
+      </div>
+    </div>
+    <div class="review-card">
+      <div class="stars">★★★★★</div>
+      <p>"Nossas auditorias internas e capacitações ganharam outro nível de engajamento. A HEVA consegue traduzir exigências técnicas em processos leves que as pessoas realmente compreendem e aplicam."</p>
+      <div class="review-author">
+        <strong>Coordenação de Sistema de Gestão Integrado (SGI)</strong>
+        <span>Auditoria &amp; Desenvolvimento de Equipes</span>
+      </div>
+    </div>
+    <div class="review-card">
+      <div class="stars">★★★★★</div>
+      <p>"O acompanhamento de autonomia emocional com a Cristiane foi um divisor de águas na minha carreira e nas minhas relações pessoais. Direta, acolhedora e extremamente assertiva."</p>
+      <div class="review-author">
+        <strong>Cliente de Mentoria Individual</strong>
+        <span>Desenvolvimento Humano &amp; Autonomia Emocional</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="contato-direto" style="padding-top: 10px;">
+  <div class="contact-box">
+    <div>
+      <span class="sec-tag">Contato Direto · Sem Intermediários</span>
+      <h2 style="font-family: 'Cormorant Garamond', serif; font-size: 36px; color: var(--wine); line-height: 1.15; margin-bottom: 12px;">Vamos conversar sobre a sua empresa ou sobre a sua jornada?</h2>
+      <p style="font-size: 15px; color: var(--muted); margin-bottom: 20px;">
+        Escolha abaixo o tema da sua mensagem para falar <strong>diretamente com Cristiane Berriel no WhatsApp</strong>, já com o assunto identificado para agilizar o seu atendimento.
+      </p>
+      <div style="font-size: 14px; color: var(--text); display: grid; gap: 8px;">
+        <div>✓ <strong>Empresas e RH:</strong> Palestras, Treinamentos de Liderança, NR-1 e Auditorias ISO</div>
+        <div>✓ <strong>Atendimento Individual:</strong> Sessões e Mentorias de Autonomia Emocional</div>
+        <div>✓ <strong>Localização:</strong> São Paulo/SP e Santos/SP (Presencial e Online para todo o Brasil)</div>
+      </div>
+    </div>
+
+    <div style="background: var(--bg); padding: 28px; border-radius: 18px; border: 1px solid var(--border);">
+      <h3 style="font-family: 'Cormorant Garamond', serif; font-size: 24px; color: var(--wine); margin-bottom: 14px;">Enviar mensagem direta pelo WhatsApp</h3>
+      <div class="form-row">
+        <input type="text" id="hv-nome" class="input-field" placeholder="Seu nome">
+        <input type="text" id="hv-empresa" class="input-field" placeholder="Empresa (ou Individual)">
+      </div>
+      <div style="margin-bottom: 12px;">
+        <select id="hv-assunto" class="input-field">
+          <option value="Treinamento Corporativo / NR-1 (Riscos Psicossociais)">Treinamento Corporativo / NR-1 (Riscos Psicossociais)</option>
+          <option value="Desenvolvimento de Lideranças / Palestra In-Company">Desenvolvimento de Lideranças / Palestra In-Company</option>
+          <option value="Auditoria Interna e Consultoria SGI (ISO 9001/14001/45001)">Auditoria Interna e Consultoria SGI (ISO 9001/14001/45001)</option>
+          <option value="Atendimento Individual / Autonomia Emocional">Atendimento Individual / Autonomia Emocional</option>
+        </select>
+      </div>
+      <button type="button" class="btn-wa-direct" onclick="enviarWhatsHeva()">
+        Chamar Cristiane no WhatsApp (11) 98209-2557
+      </button>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="foot-wrap">
+    <div>
+      <strong style="color: var(--gold-light); font-family: 'Cormorant Garamond', serif; font-size: 20px;">HEVA — Gestão e Desenvolvimento Humano</strong>
+      <div>Cristiane Berriel · Pessoas. Processos. Resultados. · São Paulo &amp; Santos/SP</div>
+    </div>
+    <div>
+      WhatsApp: (11) 98209-2557 · hevagestaoedesenvolvimento@gmail.com
+    </div>
+  </div>
+</footer>
+
+<script>
+function enviarWhatsHeva() {
+  var nome = document.getElementById('hv-nome').value || 'Visitante';
+  var emp = document.getElementById('hv-empresa').value || '';
+  var assunto = document.getElementById('hv-assunto').value;
+  var texto = 'Olá, Cristiane! Meu nome é ' + nome + (emp ? ' (' + emp + ')' : '') + '. Vim pelo site oficial da HEVA e gostaria de conversar sobre: ' + assunto + '.';
+  window.open('https://wa.me/5511982092557?text=' + encodeURIComponent(texto), '_blank');
+}
+</script>
+</body>
+</html>

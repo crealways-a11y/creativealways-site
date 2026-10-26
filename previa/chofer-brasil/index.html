@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chofer Brasil Turismo | Transporte Executivo, Receptivo & Locação com Motorista em Vitória e Vila Velha - ES</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F8F7F4;
+  --surface: #FFFFFF;
+  --dark: #0B1320;
+  --navy: #132238;
+  --gold: #C59B27;
+  --gold-light: #E5C158;
+  --text: #1E293B;
+  --muted: #64748B;
+  --border: #E2E8F0;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: 'Plus Jakarta Sans', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; overflow-x: hidden; }
+.topbar { background: var(--dark); color: #E2E8F0; font-size: 12.5px; padding: 9px 24px; text-align: center; border-bottom: 1px solid rgba(197,155,39,0.3); }
+.topbar strong { color: var(--gold-light); }
+header { position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,0.96); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); }
+.nav-wrap { max-width: 1240px; margin: 0 auto; padding: 12px 24px; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+.brand { display: flex; align-items: center; gap: 12px; text-decoration: none; color: var(--dark); flex-shrink: 0; }
+.brand img { height: 46px; width: auto; object-fit: contain; border-radius: 8px; }
+.brand-text strong { display: block; font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 700; color: var(--dark); line-height: 1.05; }
+.brand-text span { display: block; font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; font-weight: 600; }
+nav { display: flex; align-items: center; gap: 22px; }
+nav a { text-decoration: none; color: var(--text); font-size: 13.5px; font-weight: 600; white-space: nowrap; }
+nav a:hover { color: var(--gold); }
+.btn-nav { background: var(--dark); color: var(--gold-light); padding: 10px 20px; border-radius: 999px; font-size: 13.5px; font-weight: 700; text-decoration: none; white-space: nowrap; flex-shrink: 0; border: 1px solid var(--gold); }
+
+.hero { background: linear-gradient(135deg, #0B1320 0%, #162640 100%); color: #FFF; padding: 68px 24px 76px; }
+.hero-grid { max-width: 1240px; margin: 0 auto; display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 44px; align-items: center; }
+.eyebrow { display: inline-flex; align-items: center; gap: 8px; background: rgba(197,155,39,0.18); border: 1px solid rgba(197,155,39,0.45); color: var(--gold-light); padding: 6px 14px; border-radius: 999px; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 18px; }
+.hero h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(36px, 4.3vw, 54px); line-height: 1.08; margin-bottom: 18px; }
+.hero h1 em { color: var(--gold-light); font-style: italic; }
+.hero p.lead { font-size: 16.5px; color: rgba(255,255,255,0.85); margin-bottom: 28px; max-width: 590px; }
+.hero-ctas { display: flex; flex-wrap: wrap; gap: 14px; margin-bottom: 32px; }
+.btn-gold { background: linear-gradient(135deg, #E5C158 0%, #C59B27 100%); color: #0B1320; padding: 14px 26px; border-radius: 999px; font-weight: 800; font-size: 14.5px; text-decoration: none; white-space: nowrap; }
+.btn-outline { background: rgba(255,255,255,0.06); color: #FFF; border: 1px solid rgba(255,255,255,0.25); padding: 14px 24px; border-radius: 999px; font-weight: 600; font-size: 14.5px; text-decoration: none; white-space: nowrap; }
+.hero-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; padding-top: 22px; border-top: 1px solid rgba(255,255,255,0.15); }
+.stat strong { display: block; font-family: 'Cormorant Garamond', serif; font-size: 28px; color: var(--gold-light); line-height: 1; }
+.stat span { font-size: 12.5px; color: rgba(255,255,255,0.78); }
+
+.booking-card { background: var(--surface); color: var(--text); border-radius: 22px; padding: 28px; box-shadow: 0 24px 50px rgba(0,0,0,0.4); border: 1px solid var(--gold); }
+.booking-card h3 { font-family: 'Cormorant Garamond', serif; font-size: 26px; color: var(--dark); margin-bottom: 6px; }
+.booking-card p { font-size: 13.5px; color: var(--muted); margin-bottom: 18px; }
+.field-group { margin-bottom: 12px; }
+.field-group label { display: block; font-size: 12px; font-weight: 700; color: var(--dark); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 5px; }
+.field-input { width: 100%; padding: 11px 14px; border: 1px solid var(--border); border-radius: 10px; font-family: inherit; font-size: 14px; background: var(--bg); }
+.field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.btn-book { width: 100%; background: var(--dark); color: var(--gold-light); border: 1px solid var(--gold); padding: 14px 20px; border-radius: 12px; font-size: 14.5px; font-weight: 700; cursor: pointer; margin-top: 8px; }
+
+.section { max-width: 1240px; margin: 0 auto; padding: 72px 24px; }
+.sec-head { text-align: center; max-width: 760px; margin: 0 auto 48px; }
+.sec-tag { display: inline-block; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--dark); background: rgba(197,155,39,0.22); padding: 5px 14px; border-radius: 999px; margin-bottom: 12px; }
+.sec-head h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(30px, 3.6vw, 42px); color: var(--dark); line-height: 1.15; margin-bottom: 12px; }
+.sec-head p { color: var(--muted); font-size: 15.5px; }
+
+.services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.srv-card { background: var(--surface); border: 1px solid var(--border); border-radius: 20px; overflow: hidden; box-shadow: 0 10px 26px rgba(11,19,32,0.05); display: flex; flex-direction: column; }
+.srv-img { width: 100%; height: 215px; object-fit: cover; display: block; }
+.srv-body { padding: 24px; flex: 1; display: flex; flex-direction: column; }
+.srv-badge { display: inline-block; align-self: flex-start; font-size: 11px; font-weight: 700; text-transform: uppercase; color: #8A680D; background: #FDF6E2; padding: 4px 10px; border-radius: 6px; margin-bottom: 10px; }
+.srv-body h3 { font-family: 'Cormorant Garamond', serif; font-size: 24px; color: var(--dark); margin-bottom: 8px; }
+.srv-body p { font-size: 14px; color: var(--muted); margin-bottom: 16px; flex: 1; }
+.srv-link { text-decoration: none; font-size: 13.5px; font-weight: 700; color: var(--dark); }
+
+.fleet-showcase { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 32px; margin-top: 40px; background: var(--dark); color: #FFF; border-radius: 24px; padding: 40px; align-items: center; border: 1px solid rgba(197,155,39,0.4); }
+.fleet-photos { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.fleet-photos img { width: 100%; height: 185px; object-fit: cover; border-radius: 14px; border: 1px solid rgba(255,255,255,0.15); }
+
+footer { background: var(--dark); color: rgba(255,255,255,0.75); padding: 44px 24px 30px; font-size: 13.5px; }
+.foot-wrap { max-width: 1240px; margin: 0 auto; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 20px; }
+@media (max-width: 980px) {
+  nav { display: none; }
+  .hero-grid, .services-grid, .fleet-showcase { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <strong>CHOFER BRASIL TURISMO</strong> · Fundada em Londres (2008) · No Brasil desde 2014 · Pontualidade Britânica e Carisma Brasileiro em Vitória e Vila Velha - ES
+</div>
+
+<header>
+  <div class="nav-wrap">
+    <a href="#" class="brand">
+      <img src="assets/logo.png" alt="Chofer Brasil Turismo">
+      <div class="brand-text">
+        <strong>CHOFER BRASIL</strong>
+        <span>Transporte Executivo &amp; Receptivo</span>
+      </div>
+    </a>
+    <nav>
+      <a href="#servicos">Transfers &amp; Receptivo</a>
+      <a href="#frota">Frota Executiva</a>
+      <a href="#roteiros">Roteiros no ES</a>
+      <a href="#cotacao">Cotação Rápida</a>
+    </nav>
+    <a href="https://wa.me/5527999501062?text=Ol%C3%A1!%20Vim%20pelo%20novo%20site%20da%20Chofer%20Brasil%20Turismo%20e%20gostaria%20de%20solicitar%20uma%20cota%C3%A7%C3%A3o." target="_blank" class="btn-nav">
+      Reservar Transfer
+    </a>
+  </div>
+</header>
+
+<section class="hero" id="cotacao">
+  <div class="hero-grid">
+    <div>
+      <div class="eyebrow">5,0 ★ no Google · Enseada do Suá, Vitória &amp; Vila Velha</div>
+      <h1>A pontualidade britânica com a <em>hospitalidade capixaba</em> em cada trajeto.</h1>
+      <p class="lead">
+        Fundada em Londres em 2008 e presente no Espírito Santo desde 2014, a <strong>Chofer Brasil Turismo</strong> oferece transporte executivo bilíngue, transfers no Aeroporto de Vitória (VIX), locação de vans e carros com motorista e receptivo corporativo de alto padrão.
+      </p>
+      <div class="hero-ctas">
+        <a href="https://wa.me/5527999501062?text=Ol%C3%A1!%20Gostaria%20de%20cotar%20um%20Transfer%20Executivo%20ou%20Locação%20com%20Motorista." target="_blank" class="btn-gold">Falar com Central no WhatsApp</a>
+        <a href="#servicos" class="btn-outline">Conhecer Frota e Serviços</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat">
+          <strong>2008 · UK</strong>
+          <span>Origem em Londres com padrão internacional de pontualidade</span>
+        </div>
+        <div class="stat">
+          <strong>5,0 ★</strong>
+          <span>Nota máxima de satisfação em receptivo e logística de eventos</span>
+        </div>
+        <div class="stat">
+          <strong>Bilíngue</strong>
+          <span>Motoristas treinados, turismo acessível e atendimento corporativo</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="booking-card">
+      <h3>Simulador de Cotação &amp; Reserva Rápida</h3>
+      <p>Receba a disponibilidade e tarifa imediata direto no WhatsApp da nossa equipe operacional.</p>
+      <div class="field-group">
+        <label>Tipo de Serviço</label>
+        <select id="cb-servico" class="field-input">
+          <option value="Transfer Executivo Aeroporto VIX / Hotel / Empresa">Transfer Executivo Aeroporto VIX / Hotel / Empresa</option>
+          <option value="Diária de Veículo Executivo ou Van com Motorista">Diária de Veículo Executivo ou Van com Motorista</option>
+          <option value="Logística e Receptivo para Eventos Corporativos">Logística e Receptivo para Eventos Corporativos</option>
+          <option value="City Tour Vitória & Vila Velha / Montanhas Capixabas (Pedra Azul)">City Tour Vitória &amp; Vila Velha / Montanhas Capixabas (Pedra Azul)</option>
+          <option value="Turismo Acessível / Atendimento Bilíngue">Turismo Acessível / Atendimento Bilíngue</option>
+        </select>
+      </div>
+      <div class="field-row">
+        <div class="field-group">
+          <label>Veículo Desejado</label>
+          <select id="cb-veiculo" class="field-input">
+            <option value="Sedan Executivo / SUV">Sedan Executivo / SUV</option>
+            <option value="Van Executiva (até 15/20 lugares)">Van Executiva (até 15/20 lugares)</option>
+            <option value="Micro-ônibus / Ônibus Executivo">Micro-ônibus / Ônibus Executivo</option>
+          </select>
+        </div>
+        <div class="field-group">
+          <label>Passageiros</label>
+          <input type="text" id="cb-pax" class="field-input" placeholder="Ex: 4 pessoas">
+        </div>
+      </div>
+      <div class="field-group">
+        <label>Data ou Período Aproximado</label>
+        <input type="text" id="cb-data" class="field-input" placeholder="Ex: Próxima segunda-feira, voo às 14h">
+      </div>
+      <button type="button" class="btn-book" onclick="cotarChofer()">
+        Solicitar Cotação Imediata no WhatsApp (27) 99950-1062
+      </button>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="servicos">
+  <div class="sec-head">
+    <span class="sec-tag">Excelência em Mobilidade e Turismo</span>
+    <h2>Soluções completas para empresas, executivos, famílias e grandes eventos</h2>
+    <p>Operação própria e credenciada na Enseada do Suá (Work Center Office), atendendo Vila Velha, Vitória e todo o Espírito Santo.</p>
+  </div>
+
+  <div class="services-grid">
+    <div class="srv-card">
+      <img src="assets/van_hero.png" alt="Locação de Veículos e Vans com Motorista" class="srv-img">
+      <div class="srv-body">
+        <span class="srv-badge">Corporativo &amp; Eventos</span>
+        <h3>Locação de Vans e Carros com Motorista</h3>
+        <p>Sedans executivos, vans, micro-ônibus e ônibus conduzidos por motoristas profissionais uniformizados para congressos, visitas técnicas, delegações e viagens interestaduais.</p>
+        <a href="https://wa.me/5527999501062?text=Ol%C3%A1!%20Gostaria%20de%20cotar%20Loca%C3%A7%C3%A3o%20de%20Ve%C3%ADculo%20com%20Motorista." target="_blank" class="srv-link">Cotar frota com motorista →</a>
+      </div>
+    </div>
+
+    <div class="srv-card">
+      <img src="assets/serv_transfer.png" alt="Transfers Executivos Aeroporto VIX" class="srv-img">
+      <div class="srv-body">
+        <span class="srv-badge">Pontualidade Britânica</span>
+        <h3>Transfers Executivos (In/Out &amp; Door to Door)</h3>
+        <p>Recepção personalizada no Aeroporto de Vitória (VIX), acompanhamento de voos em tempo real, transporte porta a porta para hotéis, portos e empresas em Vitória e Vila Velha.</p>
+        <a href="https://wa.me/5527999501062?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20um%20Transfer%20Executivo." target="_blank" class="srv-link">Agendar transfer executivo →</a>
+      </div>
+    </div>
+
+    <div class="srv-card" id="roteiros">
+      <img src="assets/serv_citytour.png" alt="City Tour, Pedra Azul e Turismo Acessível" class="srv-img">
+      <div class="srv-body">
+        <span class="srv-badge">Receptivo Capixaba &amp; Bilíngue</span>
+        <h3>City Tours, Montanhas &amp; Turismo Acessível</h3>
+        <p>Roteiros privativos e para grupos pelo Convento da Penha, Ilha do Boi, Guarapari, Pedra Azul, Santa Teresa e agroturismo, com atendimento bilíngue, turismo cognitivo e acessível.</p>
+        <a href="https://wa.me/5527999501062?text=Ol%C3%A1!%20Gostaria%20de%20conhecer%20os%20roteiros%20de%20City%20Tour%20e%20Passeios%20no%20ES." target="_blank" class="srv-link">Explorar roteiros no ES →</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="fleet-showcase" id="frota">
+    <div>
+      <span class="eyebrow">Estrutura &amp; Equipe</span>
+      <h3 style="font-family:'Cormorant Garamond',serif; font-size:34px; color:var(--gold-light); line-height:1.15; margin-bottom:14px;">Da recepção no aeroporto à coordenação completa de grandes grupos</h3>
+      <p style="font-size:15px; color:rgba(255,255,255,0.85); margin-bottom:20px;">
+        Nossa equipe coordena desde o deslocamento individual de diretores e palestrantes até o receptivo completo de eventos corporativos, órgãos públicos e missões internacionais no Espírito Santo.
+      </p>
+      <a href="https://wa.me/5527999501062?text=Ol%C3%A1!%20Quero%20falar%20com%20a%20equipe%20da%20Chofer%20Brasil%20Turismo." target="_blank" class="btn-gold">Falar com Atendimento 24h</a>
+    </div>
+    <div class="fleet-photos">
+      <img src="assets/frota_vix.png" alt="Frota Chofer Brasil em Vitória">
+      <img src="assets/equipe.png" alt="Equipe Chofer Brasil Turismo">
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="foot-wrap">
+    <div>
+      <strong style="color:var(--gold-light); font-family:'Cormorant Garamond',serif; font-size:20px;">Chofer Brasil Turismo</strong>
+      <div>Rua José Alexandre Buaiz, nº 300, Sala 2001 — Ed. Work Center Office, Enseada do Suá, Vitória - ES</div>
+    </div>
+    <div>
+      WhatsApp &amp; Plantão: (27) 99950-1062 · choferbrasilturismo.com.br
+    </div>
+  </div>
+</footer>
+
+<script>
+function cotarChofer() {
+  var srv = document.getElementById('cb-servico').value;
+  var veic = document.getElementById('cb-veiculo').value;
+  var pax = document.getElementById('cb-pax').value || 'a definir';
+  var data = document.getElementById('cb-data').value || 'a combinar';
+  var msg = 'Olá! Vim pelo site da Chofer Brasil Turismo e gostaria de cotar:
+• Serviço: ' + srv + '
+• Veículo: ' + veic + '
+• Passageiros: ' + pax + '
+• Data/Período: ' + data;
+  window.open('https://wa.me/5527999501062?text=' + encodeURIComponent(msg), '_blank');
+}
+</script>
+</body>
+</html>
