@@ -1,0 +1,782 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Solange Recchia · English Teacher · Aulas Particulares em Santos e Online</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --deep: #061124;
+  --deep2: #0B1C38;
+  --deep3: #12284C;
+  --royal: #1A56DB;
+  --cyan: #06B6D4;
+  --gold: #D4AF37;
+  --gold-soft: rgba(212, 175, 55, 0.15);
+  --sand: #E6DFD5;
+  --mist: #F4F7FB;
+  --paper: #FFFFFF;
+  --ink: #0F172A;
+  --mute: #64748B;
+  --line: rgba(15, 23, 42, 0.08);
+  --line-dark: rgba(255, 255, 255, 0.12);
+  --ease: cubic-bezier(0.2, 0.7, 0.2, 1);
+  --serif: 'Cormorant Garamond', Georgia, serif;
+  --sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  --display: 'Poppins', sans-serif;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { background: var(--paper); color: var(--ink); font-family: var(--sans); line-height: 1.6; font-size: 16px; overflow-x: hidden; }
+a { color: inherit; text-decoration: none; }
+img { display: block; max-width: 100%; }
+button, input, select { font: inherit; color: inherit; }
+button { border: 0; background: none; cursor: pointer; }
+
+.wrap { max-width: 1180px; margin: 0 auto; padding: 0 28px; }
+
+/* DRAFT PREVIEW BAR */
+.draft-bar {
+  position: relative; z-index: 70;
+  background: #040812; color: var(--sand);
+  font-size: 11.5px; letter-spacing: 0.2em; text-transform: uppercase;
+  text-align: center; padding: 9px 16px; border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+.draft-bar b {
+  color: #fff; font-weight: 600; letter-spacing: 0.05em; text-transform: none;
+  font-family: ui-monospace, Consolas, monospace; background: var(--deep3);
+  padding: 3px 12px; border-radius: 20px; margin-left: 10px; border: 1px solid var(--gold-soft);
+}
+
+/* NAVBAR */
+.nav {
+  position: absolute; left: 0; right: 0; top: 40px; z-index: 50;
+  background: linear-gradient(180deg, rgba(6,17,36,0.85) 0%, rgba(6,17,36,0) 100%);
+}
+.nav .wrap { display: flex; align-items: center; justify-content: space-between; height: 80px; }
+.logo-box { display: flex; align-items: center; gap: 14px; color: #fff; }
+.logo-box img { width: 46px; height: 46px; border-radius: 50%; object-fit: cover; border: 2px solid var(--gold); }
+.logo-text { border-left: 1px solid rgba(255,255,255,0.2); padding-left: 12px; }
+.logo-text b { display: block; font-family: var(--display); font-size: 15px; letter-spacing: 0.15em; text-transform: uppercase; color: #fff; }
+.logo-text small { font-size: 9.5px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold); font-weight: 600; }
+
+.nav-links { display: flex; align-items: center; gap: 28px; font-size: 14px; color: rgba(255,255,255,0.85); font-weight: 500; }
+.nav-links a:hover { color: var(--gold); }
+.nav-btn {
+  background: var(--gold); color: var(--deep); font-weight: 700; font-size: 13.5px;
+  padding: 11px 22px; border-radius: 30px; letter-spacing: 0.04em; transition: all 0.3s var(--ease);
+  display: inline-flex; align-items: center; gap: 8px;
+}
+.nav-btn:hover { transform: translateY(-2px); box-shadow: 0 10px 25px rgba(212,175,55,0.35); }
+
+/* HERO SECTION */
+.hero {
+  position: relative; height: 100vh; min-height: 720px; max-height: 960px;
+  color: #fff; overflow: hidden; background: var(--deep); display: flex; align-items: flex-end;
+  padding-bottom: 72px;
+}
+.hero-bg {
+  position: absolute; inset: 0; z-index: 1;
+  background: url('img/hero-english.jpg') center/cover;
+  transform: scale(1.05); animation: zoomHero 18s ease-out forwards;
+}
+@keyframes zoomHero { to { transform: scale(1); } }
+.hero:after {
+  content: ""; position: absolute; inset: 0; z-index: 2;
+  background: linear-gradient(90deg, rgba(6,17,36,0.92) 0%, rgba(6,17,36,0.65) 55%, rgba(6,17,36,0.2) 80%),
+              linear-gradient(180deg, rgba(6,17,36,0.7) 0%, rgba(6,17,36,0.15) 35%, rgba(6,17,36,0.75) 75%, rgba(6,17,36,0.98) 100%);
+}
+
+.hcont { position: relative; z-index: 5; max-width: 840px; }
+.kick {
+  display: inline-flex; align-items: center; gap: 10px; font-size: 12px; font-weight: 700;
+  letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold); margin-bottom: 14px;
+}
+.kick i { width: 8px; height: 8px; border-radius: 50%; background: var(--gold); box-shadow: 0 0 12px var(--gold); }
+
+.hero h1 {
+  font-family: var(--serif); font-weight: 600; font-size: clamp(38px, 5.4vw, 66px);
+  line-height: 1.05; letter-spacing: -0.01em; margin-bottom: 18px; color: #fff;
+}
+.hero h1 em { font-style: italic; color: var(--gold); font-family: var(--serif); font-weight: 400; }
+.hero p { font-size: 18px; line-height: 1.6; color: #E2E8F0; max-width: 660px; margin-bottom: 30px; font-weight: 300; }
+
+.ctas { display: flex; gap: 14px; flex-wrap: wrap; align-items: center; }
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+  padding: 16px 28px; font-weight: 600; font-size: 14.5px; border-radius: 12px;
+  transition: all 0.35s var(--ease);
+}
+.btn.gold { background: var(--gold); color: var(--deep); font-weight: 700; }
+.btn.gold:hover { transform: translateY(-2px); box-shadow: 0 12px 28px rgba(212,175,55,0.4); }
+.btn.line { border: 1px solid rgba(255,255,255,0.4); color: #fff; backdrop-filter: blur(8px); background: rgba(255,255,255,0.06); }
+.btn.line:hover { background: rgba(255,255,255,0.15); border-color: #fff; }
+
+.trust-row {
+  display: flex; gap: 20px; flex-wrap: wrap; margin-top: 36px; padding-top: 24px;
+  border-top: 1px solid rgba(255,255,255,0.12); font-size: 13.5px; color: #CBD5E1;
+}
+.trust-row span { display: inline-flex; align-items: center; gap: 6px; }
+.trust-row b { color: #fff; }
+.star-ico { color: #F59E0B; }
+
+/* SECTIONS GENERAL */
+section { padding: 100px 0; position: relative; }
+.eyebrow {
+  display: inline-flex; align-items: center; gap: 12px; font-size: 11.5px;
+  font-weight: 700; letter-spacing: 0.28em; text-transform: uppercase; color: var(--royal);
+}
+.eyebrow:before { content: ""; width: 24px; height: 2px; background: var(--royal); }
+h2 {
+  font-family: var(--serif); font-weight: 600; font-size: clamp(34px, 4.4vw, 54px);
+  line-height: 1.08; margin: 14px 0 18px; color: var(--deep); letter-spacing: -0.01em;
+}
+h2 em { font-style: italic; color: var(--royal); }
+.lead { font-size: 17.5px; color: var(--mute); max-width: 640px; line-height: 1.65; }
+
+/* REVEAL ANIMATIONS */
+.rv { opacity: 0; transform: translateY(26px); transition: opacity 0.9s var(--ease), transform 0.9s var(--ease); }
+.rv.in { opacity: 1; transform: none; }
+.rv.d1 { transition-delay: 0.1s; }
+.rv.d2 { transition-delay: 0.2s; }
+.rv.d3 { transition-delay: 0.3s; }
+
+/* SECTION: QUEM É A SOLANGE (MARCO) */
+.about-sec { background: var(--deep); color: #fff; }
+.about-sec h2 { color: #fff; }
+.about-sec h2 em { color: var(--gold); }
+.about-sec .lead { color: #CBD5E1; }
+.about-sec .eyebrow { color: var(--gold); }
+.about-sec .eyebrow:before { background: var(--gold); }
+
+.about-grid { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 50px; align-items: center; }
+.nums-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 32px; }
+.num-card {
+  background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 16px; padding: 20px; transition: transform 0.3s var(--ease);
+}
+.num-card:hover { transform: translateY(-4px); border-color: var(--gold); }
+.num-card b { display: block; font-family: var(--display); font-size: 32px; color: var(--gold); line-height: 1; margin-bottom: 6px; }
+.num-card span { font-size: 13px; color: #94A3B8; line-height: 1.4; display: block; }
+
+.frame-photo {
+  position: relative; border-radius: 24px; overflow: hidden; aspect-ratio: 4/5;
+  box-shadow: 0 35px 80px rgba(0,0,0,0.4);
+}
+.frame-photo img { width: 100%; height: 100%; object-fit: cover; }
+.frame-caption {
+  position: absolute; left: 18px; bottom: 18px; right: 18px;
+  background: rgba(6, 17, 36, 0.88); backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.14); border-radius: 16px; padding: 18px;
+}
+.frame-caption b { display: block; font-family: var(--serif); font-size: 19px; color: #fff; margin-bottom: 4px; }
+.frame-caption span { font-size: 13px; color: #CBD5E1; line-height: 1.4; display: block; }
+
+/* SERVICES GRID */
+.services-sec { background: var(--mist); }
+.sgrid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 40px; }
+.scard {
+  background: #fff; border: 1px solid var(--line); border-radius: 20px; padding: 28px;
+  transition: all 0.35s var(--ease); box-shadow: 0 8px 24px rgba(15,23,42,0.03);
+  display: flex; flex-direction: column; justify-content: space-between;
+}
+.scard:hover { transform: translateY(-5px); box-shadow: 0 20px 40px rgba(15,23,42,0.08); border-color: var(--royal); }
+.scard-icon {
+  width: 52px; height: 52px; border-radius: 14px; background: var(--deep2);
+  color: var(--gold); display: grid; place-items: center; margin-bottom: 20px;
+}
+.scard-icon svg { width: 24px; height: 24px; }
+.scard b { display: block; font-family: var(--display); font-size: 19px; color: var(--deep); margin-bottom: 8px; }
+.scard p { font-size: 14.5px; color: var(--mute); line-height: 1.55; }
+.scard-tag {
+  display: inline-block; font-size: 11.5px; font-weight: 600; letter-spacing: 0.1em;
+  text-transform: uppercase; color: var(--royal); margin-top: 18px;
+}
+
+/* INTERACTIVE LEVEL & GOAL TEST */
+.ver-sec { background: #fff; position: relative; }
+.vg { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center; }
+.vbox {
+  background: #fff; border: 1px solid var(--line); border-radius: 24px; padding: 32px;
+  box-shadow: 0 35px 80px rgba(6, 17, 36, 0.08);
+}
+.vbox h3 { font-family: var(--serif); font-size: 26px; color: var(--deep); margin-bottom: 16px; font-weight: 600; }
+.q-label { font-size: 11.5px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--mute); margin-bottom: 10px; }
+
+.chips { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 20px; }
+.chips button {
+  padding: 10px 16px; border: 1px solid var(--line); border-radius: 30px;
+  background: var(--mist); font-size: 13.5px; font-weight: 600; color: var(--deep);
+  transition: all 0.25s var(--ease);
+}
+.chips button.on, .chips button:hover {
+  background: var(--deep); border-color: var(--deep); color: var(--gold);
+}
+
+.fld { margin-bottom: 16px; }
+.fld label { display: block; font-size: 11.5px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--mute); margin-bottom: 6px; }
+.fld input, .fld select {
+  width: 100%; padding: 14px 16px; border: 1px solid var(--line); border-radius: 12px;
+  background: var(--mist); outline: none; font-size: 15px; transition: border-color 0.25s;
+}
+.fld input:focus, .fld select:focus { border-color: var(--royal); background: #fff; }
+
+.vbox .btn.submit-btn {
+  width: 100%; background: var(--deep); color: var(--gold); font-size: 15px; font-weight: 700;
+  padding: 16px; border-radius: 12px; margin-top: 8px;
+}
+.vbox .btn.submit-btn:hover { background: var(--deep2); }
+
+.diag-result {
+  display: none; margin-top: 18px; border-radius: 16px; background: var(--deep);
+  color: #fff; padding: 20px; animation: up 0.5s var(--ease) both;
+}
+.diag-result.on { display: block; }
+.diag-result small { font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); font-weight: 700; display: block; margin-bottom: 4px; }
+.diag-result b { font-family: var(--serif); font-size: 21px; display: block; margin-bottom: 8px; color: #fff; }
+.diag-result p { font-size: 14px; color: #CBD5E1; line-height: 1.5; margin-bottom: 14px; }
+
+.diag-zap-btn {
+  background: #25D366; color: #fff; width: 100%; border-radius: 12px; padding: 14px;
+  font-weight: 700; font-size: 14px; display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  transition: transform 0.25s;
+}
+.diag-zap-btn:hover { transform: translateY(-2px); }
+
+/* PHONE / WHATSAPP SIMULATION */
+.ia-sec { background: var(--deep); color: #fff; }
+.ia-sec h2 { color: #fff; }
+.ia-sec h2 em { color: var(--gold); }
+.ia-sec .lead { color: #CBD5E1; }
+.ia-sec .eyebrow { color: var(--gold); }
+.ia-sec .eyebrow:before { background: var(--gold); }
+
+.ia-grid { display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 50px; align-items: center; }
+.ia-feats { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-top: 32px; }
+.ia-feat {
+  background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 16px; padding: 18px;
+}
+.ia-feat b { display: block; font-family: var(--display); font-size: 15px; color: var(--gold); margin-bottom: 4px; }
+.ia-feat span { font-size: 13px; color: #94A3B8; }
+
+/* IPHONE MOCKUP */
+.iphone {
+  max-width: 380px; margin: 0 auto; background: #000; border-radius: 44px;
+  padding: 12px; box-shadow: 0 40px 100px rgba(0,0,0,0.6), inset 0 0 0 2px rgba(255,255,255,0.2);
+}
+.iphone-screen {
+  background: #0B141A; border-radius: 34px; overflow: hidden;
+  display: flex; flex-direction: column; font-family: -apple-system, system-ui, sans-serif;
+}
+.iphone-header {
+  background: #202C33; padding: 16px 16px 12px; display: flex; align-items: center; gap: 12px;
+}
+.iphone-avatar { width: 38px; height: 38px; border-radius: 50%; overflow: hidden; background: #fff; }
+.iphone-avatar img { width: 100%; height: 100%; object-fit: cover; }
+.iphone-title b { display: block; font-size: 14px; color: #E9EDEF; }
+.iphone-title small { font-size: 11px; color: #8696A0; }
+
+.iphone-chat {
+  padding: 18px 12px; min-height: 420px; display: flex; flex-direction: column; gap: 12px;
+  background-image: radial-gradient(rgba(255,255,255,0.03) 1px, transparent 1px); background-size: 12px 12px;
+}
+.bubble {
+  max-width: 82%; padding: 10px 12px; border-radius: 12px; font-size: 13.5px; line-height: 1.45;
+  position: relative; animation: up 0.4s var(--ease) both;
+}
+.bubble.in { background: #202C33; color: #E9EDEF; align-self: flex-start; border-top-left-radius: 3px; }
+.bubble.out { background: #005C4B; color: #E9EDEF; align-self: flex-end; border-top-right-radius: 3px; }
+.bubble small { display: block; text-align: right; font-size: 10px; color: rgba(255,255,255,0.6); margin-top: 4px; }
+
+/* GALLERY / MOMENTOS */
+.gallery-sec { background: var(--mist); }
+.g-grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 18px; margin-top: 40px; }
+.g-item { position: relative; border-radius: 18px; overflow: hidden; height: 320px; box-shadow: 0 10px 30px rgba(0,0,0,0.06); }
+.g-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s var(--ease); }
+.g-item:hover img { transform: scale(1.05); }
+.g-caption {
+  position: absolute; left: 0; right: 0; bottom: 0;
+  background: linear-gradient(180deg, transparent 0%, rgba(6,17,36,0.92) 100%);
+  padding: 24px 18px 16px; color: #fff; font-size: 13.5px; font-weight: 500;
+}
+.g-col-6 { grid-column: span 6; }
+.g-col-4 { grid-column: span 4; }
+
+/* CTA FINAL & FOOTER */
+.cta-sec {
+  background: linear-gradient(180deg, var(--deep2) 0%, var(--deep) 100%);
+  color: #fff; text-align: center; padding: 110px 0;
+}
+.cta-sec h2 { color: #fff; max-width: 760px; margin: 16px auto 20px; }
+.cta-sec h2 em { color: var(--gold); }
+.cta-sec p { color: #CBD5E1; font-size: 18px; max-width: 600px; margin: 0 auto 36px; }
+
+footer {
+  background: #030814; color: #94A3B8; font-size: 13px; padding: 40px 0;
+  border-top: 1px solid rgba(255,255,255,0.08);
+}
+.footer-wrap { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; }
+.footer-brand { display: flex; align-items: center; gap: 12px; }
+.footer-brand img { height: 38px; width: 38px; border-radius: 50%; }
+.footer-copy b { color: #fff; }
+
+@media(max-width: 900px) {
+  .about-grid, .vg, .ia-grid { grid-template-columns: 1fr; gap: 40px; }
+  .sgrid { grid-template-columns: 1fr; }
+  .nums-grid { grid-template-columns: 1fr; }
+  .g-col-6, .g-col-4 { grid-column: span 12; height: 260px; }
+  .nav-links { display: none; }
+  .footer-wrap { flex-direction: column; text-align: center; }
+}
+</style>
+</head>
+<body>
+
+<!-- TOP PREVIEW BAR -->
+<div class="draft-bar">
+  PRÉVIA DO NOVO SITE · SOLANGE RECCHIA (ENGLISH TEACHER · SANTOS - SP)
+  <b>DESENVOLVIDO POR CREATIVE ALWAYS</b>
+</div>
+
+<!-- NAVBAR -->
+<nav class="nav">
+  <div class="wrap">
+    <div class="logo-box">
+      <img src="img/logo.jpg" alt="Solange Recchia">
+      <div class="logo-text">
+        <b>SOLANGE RECCHIA</b>
+        <small>English Teacher · Santos - SP</small>
+      </div>
+    </div>
+    <div class="nav-links">
+      <a href="#sobre">Quem Ensina</a>
+      <a href="#modalidades">Modalidades</a>
+      <a href="#nivelamento">Teste de Nível</a>
+      <a href="#momentos">Aulas & Metodologia</a>
+      <a href="#contato">Fale no WhatsApp</a>
+    </div>
+    <a href="https://wa.me/5513996361966?text=Ol%C3%A1%2C%20Teacher%20Solange!%20Gostaria%20de%20agendar%20uma%20conversa%20e%20saber%20mais%20sobre%20as%20aulas%20de%20ingl%C3%AAs." target="_blank" class="nav-btn">
+      <span>(13) 99636-1966</span>
+    </a>
+  </div>
+</nav>
+
+<!-- HERO SECTION -->
+<section class="hero" id="inicio">
+  <div class="hero-bg"></div>
+  <div class="wrap hcont">
+    <div class="kick"><i></i> Santos - SP (Boqueirão) · Aulas Presenciais e Online Brasil</div>
+    <h1>Aprenda inglês com liberdade e confiança. <em>Aulas particulares sob medida para a sua rotina.</em></h1>
+    <p>Metodologia descomplicada para adultos, profissionais e viajantes. Perca o medo de falar, destrave sua pronúncia e alcance fluência no seu ritmo, com acompanhamento 100% individual.</p>
+    <div class="ctas">
+      <a href="#nivelamento" class="btn gold">Agendar Aula Experimental</a>
+      <a href="#modalidades" class="btn line">Conhecer as Modalidades</a>
+    </div>
+    <div class="trust-row">
+      <span><i class="star-ico">★</i> <b>5,0</b> Excelência de Ensino em Santos</span>
+      <span>• <b>+800</b> aulas e vídeos educativos</span>
+      <span>• Vivência <b>internacional nos EUA</b></span>
+      <span>• Aulas <b>presenciais e online</b></span>
+      <span>• Foco em <b>conversação e destrave</b></span>
+    </div>
+  </div>
+</section>
+
+<!-- QUEM É A TEACHER SOLANGE (MARCO) -->
+<section class="about-sec" id="sobre">
+  <div class="wrap">
+    <div class="about-grid">
+      <div class="rv d1">
+        <span class="eyebrow">Quem Ensina Você</span>
+        <h2>Inglês prático, <em style="color:var(--gold)">sem julgamento e focado nos seus objetivos.</em></h2>
+        <p class="lead">Formada em Secretariado Executivo Bilíngue, com vivência de aprendizado nos Estados Unidos e experiência em multinacionais, a Teacher Solange Recchia desenvolveu uma abordagem acolhedora e eficiente para adultos que travam na hora de falar.</p>
+        <div class="nums-grid">
+          <div class="num-card">
+            <b>+15</b>
+            <span>anos de vivência e dedicação ao ensino do idioma</span>
+          </div>
+          <div class="num-card">
+            <b>+800</b>
+            <span>conteúdos autorais publicados no Instagram</span>
+          </div>
+          <div class="num-card">
+            <b>100%</b>
+            <span>aulas personalizadas conforme o ritmo do aluno</span>
+          </div>
+        </div>
+      </div>
+      <div class="rv d2">
+        <div class="frame-photo">
+          <img src="img/teacher-solange.jpg" alt="Teacher Solange Recchia">
+          <div class="frame-caption">
+            <b>Atenção individualizada</b>
+            <span>Seja presencialmente em Santos (Boqueirão) ou no conforto da sua casa via aulas online.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MODALIDADES DE AULAS -->
+<section class="services-sec" id="modalidades">
+  <div class="wrap">
+    <div style="text-align:center; max-width:700px; margin:0 auto;">
+      <span class="eyebrow">Cursos Sob Medida</span>
+      <h2>Do primeiro contato <em>à fluência no mercado de trabalho.</em></h2>
+      <p class="lead" style="margin:0 auto;">Escolha o programa que mais combina com o seu momento pessoal ou profissional.</p>
+    </div>
+
+    <div class="sgrid">
+      <div class="scard rv d1">
+        <div>
+          <div class="scard-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          </div>
+          <b>Conversação & Destrave</b>
+          <p>Ideal para quem já estudou regras gramaticais mas trava na hora de se expressar. Diálogos reais, redução de sotaque e segurança para falar.</p>
+        </div>
+        <span class="scard-tag">Perca o medo de falar</span>
+      </div>
+
+      <div class="scard rv d2">
+        <div>
+          <div class="scard-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+          </div>
+          <b>Business English & Carreira</b>
+          <p>Preparação para reuniões, entrevistas em multinacionais, apresentações de impacto e trocas de e-mails profissionais com naturalidade.</p>
+        </div>
+        <span class="scard-tag">Foco em promoções e vagas</span>
+      </div>
+
+      <div class="scard rv d3">
+        <div>
+          <div class="scard-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          </div>
+          <b>Inglês para Viagens</b>
+          <p>Situações práticas de aeroporto, alfândega, reservas de hotel, compras, restaurantes e emergências para você viajar o mundo sem depender de ninguém.</p>
+        </div>
+        <span class="scard-tag">Independência no exterior</span>
+      </div>
+
+      <div class="scard rv d1">
+        <div>
+          <div class="scard-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+          </div>
+          <b>Inglês do Zero para Adultos</b>
+          <p>Aprenda a falar inglês desde a primeira aula, sem decoreba e com paciência pedagógica, mesmo que você nunca tenha conseguido aprender antes.</p>
+        </div>
+        <span class="scard-tag">Passo a passo no seu tempo</span>
+      </div>
+
+      <div class="scard rv d2">
+        <div>
+          <div class="scard-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <b>Presencial em Santos (Boqueirão)</b>
+          <p>Aulas presenciais em ambiente calmo e bem localizado na Baixada Santista, com toda a infraestrutura para prática imersiva.</p>
+        </div>
+        <span class="scard-tag">Atendimento local exclusivo</span>
+      </div>
+
+      <div class="scard rv d3">
+        <div>
+          <div class="scard-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+          </div>
+          <b>Online para Todo o Brasil</b>
+          <p>Aulas ao vivo individuais via plataforma de vídeo, com material digital interativo, flexibilidade de horários e gravação das explicações.</p>
+        </div>
+        <span class="scard-tag">Flexibilidade total</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTE DE NÍVEL / SIMULADOR INTERATIVO -->
+<section class="ver-sec" id="nivelamento">
+  <div class="wrap">
+    <div class="vg">
+      <div class="rv d1">
+        <span class="eyebrow">Alinhamento Pedagógico</span>
+        <h2>Qual é o seu objetivo com o inglês? <em>Montamos o plano ideal para você.</em></h2>
+        <p class="lead">Selecione seu foco principal e seu nível de partida. Você já recebe a recomendação de metodologia e o link para agendar sua aula experimental no WhatsApp da Solange.</p>
+        <div style="margin-top:28px; display:flex; flex-direction:column; gap:12px; font-size:14.5px; color:var(--deep);">
+          <div>✓ <b>Atendimento individual e personalizado</b></div>
+          <div>✓ <b>Aulas sem cobrança de taxas de matrícula abusivas</b></div>
+          <div>✓ <b>Material focado em situações reais do dia a dia</b></div>
+        </div>
+      </div>
+
+      <div class="rv d2">
+        <div class="vbox">
+          <h3>Simular Plano de Aulas</h3>
+          <div class="q-label">Qual é o seu objetivo?</div>
+          <div class="chips" id="obj-chips">
+            <button class="on" type="button" data-val="Conversação & Destrave">Conversação</button>
+            <button type="button" data-val="Business English">Carreira / Negócios</button>
+            <button type="button" data-val="Inglês para Viagens">Viagens</button>
+            <button type="button" data-val="Inglês do Zero">Do Zero</button>
+            <button type="button" data-val="Aulas de Espanhol">Espanhol</button>
+          </div>
+
+          <div class="fld">
+            <label>Seu nível atual aproximado</label>
+            <select id="nivel-select">
+              <option value="Iniciante (nunca estudei)">Iniciante (nunca estudei ou sei quase nada)</option>
+              <option value="Básico (entendo palavras soltas)">Básico (entendo palavras soltas mas não falo)</option>
+              <option value="Intermediário (travo na hora de falar)" selected>Intermediário (entendo mas travo na fala)</option>
+              <option value="Avançado (preciso de polimento)">Avançado (preciso de vocabulário e fluência profissional)</option>
+            </select>
+          </div>
+
+          <div class="fld">
+            <label>Cidade / Modalidade desejada</label>
+            <input type="text" id="cidade-input" placeholder="ex.: Santos (Boqueirão) ou Online..." value="Santos - SP (Presencial)">
+          </div>
+
+          <button type="button" class="btn submit-btn" id="ver-btn">Ver Metodologia Recomendada</button>
+
+          <div class="diag-result" id="res-box">
+            <small>Plano de Estudos Indicado</small>
+            <b id="res-title">Programa Intensivo de Conversação & Confiança</b>
+            <p id="res-desc">Aulas individuais focadas em destravar sua fala através de diálogos guiados, vocabulário ativo e correção sutil de pronúncia sem constrangimentos.</p>
+            <a href="#" target="_blank" class="diag-zap-btn" id="res-link">
+              <span>Agendar Aula Experimental no WhatsApp</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHATSAPP ATENDIMENTO EM TEMPO REAL -->
+<section class="ia-sec">
+  <div class="wrap">
+    <div class="ia-grid">
+      <div class="rv d1">
+        <span class="eyebrow">Agendamento Ágil</span>
+        <h2>Dúvidas sobre horários ou valores? <em>Fale diretamente com a Solange.</em></h2>
+        <p class="lead">Nada de robôs impessoais ou atendimentos burocráticos. Você conversa diretamente com quem vai te ensinar e planeja os melhores dias da semana para as suas aulas.</p>
+        
+        <div class="ia-feats">
+          <div class="ia-feat">
+            <b>Diagnóstico de Nível</b>
+            <span>Conversa rápida para entender seu vocabulário e histórico.</span>
+          </div>
+          <div class="ia-feat">
+            <b>Horários Flexíveis</b>
+            <span>Opções pela manhã, tarde ou noite conforme sua agenda.</span>
+          </div>
+          <div class="ia-feat">
+            <b>Aulas Experimentais</b>
+            <span>Conheça a didática na prática antes de fechar o mês.</span>
+          </div>
+          <div class="ia-feat">
+            <b>WhatsApp Direto</b>
+            <span>Contato simples sem intermediários ou taxas de terceiros.</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="rv d2">
+        <div class="iphone">
+          <div class="iphone-screen">
+            <div class="iphone-header">
+              <div class="iphone-avatar">
+                <img src="img/logo.jpg" alt="Solange Recchia">
+              </div>
+              <div class="iphone-title">
+                <b>Teacher Solange Recchia</b>
+                <small>English Teacher · Online</small>
+              </div>
+            </div>
+            <div class="iphone-chat">
+              <div class="bubble in">
+                Olá, Teacher Solange! Vi seus vídeos no Instagram de Future Forms e amei a didática. Gostaria de saber como funcionam as aulas particulares aqui em Santos.
+                <small>15:20</small>
+              </div>
+              <div class="bubble out">
+                Olá! Que alegria ver você por aqui! 😊 Nossas aulas particulares são 100% sob medida para o seu objetivo, seja para conversação, trabalho ou viagens.
+                <small>15:21</small>
+              </div>
+              <div class="bubble in">
+                Eu já estudei em escola tradicional mas tenho muita vergonha de falar em público.
+                <small>15:22</small>
+              </div>
+              <div class="bubble out">
+                Fique super tranquilo! Esse é o caso de 90% dos meus alunos. Aqui criamos um ambiente seguro, onde você ganha vocabulário e confiança sem nenhum julgamento.
+                <small>15:22</small>
+              </div>
+              <div class="bubble in">
+                Que ótimo! Como faço para agendarmos uma aula experimental?
+                <small>15:23</small>
+              </div>
+              <div class="bubble out">
+                Tenho horários disponíveis nesta terça às 14h ou quinta às 18h30. Qual fica melhor para você?
+                <small>15:24</small>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALERIA DE MOMENTOS / CASOS -->
+<section class="gallery-sec" id="momentos">
+  <div class="wrap">
+    <div style="text-align:center; max-width:680px; margin:0 auto;">
+      <span class="eyebrow">Vivência e Ensino</span>
+      <h2>O idioma presente <em>em cada conquista da sua vida.</em></h2>
+      <p class="lead" style="margin:0 auto;">Foco nos momentos em que falar inglês abre portas para o seu futuro.</p>
+    </div>
+
+    <div class="g-grid">
+      <div class="g-item g-col-6 rv d1">
+        <img src="img/conversation.jpg" alt="Conversação ativa">
+        <div class="g-caption">Conversação Fluida e Confiança ao Falar</div>
+      </div>
+      <div class="g-item g-col-6 rv d2">
+        <img src="img/business-meeting.jpg" alt="Carreira internacional">
+        <div class="g-caption">Business English para Reuniões e Promoções</div>
+      </div>
+      <div class="g-item g-col-4 rv d1">
+        <img src="img/travel-world.jpg" alt="Viagens internacionais">
+        <div class="g-caption">Inglês sem medo para Viagens no Exterior</div>
+      </div>
+      <div class="g-item g-col-4 rv d2">
+        <img src="img/hero-english.jpg" alt="Estudo dinâmico">
+        <div class="g-caption">Aulas Online com Material Digital Moderno</div>
+      </div>
+      <div class="g-item g-col-4 rv d3">
+        <img src="img/teacher-solange.jpg" alt="Atendimento no Boqueirão Santos">
+        <div class="g-caption">Atendimento Presencial no Boqueirão (Santos - SP)</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA FINAL -->
+<section class="cta-sec" id="contato">
+  <div class="wrap">
+    <span class="eyebrow" style="color:var(--gold);">Dê o Primeiro Passo Hoje</span>
+    <h2>Destrave o seu inglês com quem tem <em>experiência real e metodologia comprovada.</em></h2>
+    <p>Agende uma conversa de nivelamento diretamente no WhatsApp e venha fazer uma aula experimental sem compromisso.</p>
+    <a href="https://wa.me/5513996361966?text=Ol%C3%A1%2C%20Teacher%20Solange!%20Gostaria%20de%20agendar%20uma%20conversa%20e%20saber%20mais%20sobre%20as%20aulas%20de%20ingl%C3%AAs." target="_blank" class="btn gold" style="font-size:16px; padding:18px 36px;">
+      Conversar com Teacher Solange · (13) 99636-1966
+    </a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap footer-wrap">
+    <div class="footer-brand">
+      <img src="img/logo.jpg" alt="Solange Recchia">
+      <div class="footer-copy">
+        <b>Solange Recchia</b> · English Teacher · Santos - SP · Atendimento Nacional Online
+      </div>
+    </div>
+    <div>
+      WhatsApp: (13) 99636-1966 · solrecchia@gmail.com · @solrecchiaenglishteacher
+    </div>
+  </div>
+</footer>
+
+<script>
+// SCROLL REVEAL
+(()=>{
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('in');
+      }
+    });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.rv').forEach(el => obs.observe(el));
+})();
+
+// INTERACTIVE GOAL / LEVEL SELECTOR
+(()=>{
+  const chips = document.querySelectorAll('#obj-chips button');
+  let selectedObj = 'Conversação & Destrave';
+
+  const data = {
+    'Conversação & Destrave': {
+      title: 'Programa Intensivo de Conversação & Confiança',
+      desc: 'Aulas individuais focadas em destravar sua fala através de diálogos guiados, vocabulário ativo e correção sutil de pronúncia sem constrangimentos.',
+      msg: 'Olá, Teacher Solange! Gostaria de agendar uma aula de Conversação & Destrave. Meu nível é {nivel} e gostaria de atendimento em {cidade}.'
+    },
+    'Business English': {
+      title: 'Business English para Reuniões e Carreira',
+      desc: 'Simulações reais de apresentações, negociações corporativas, e-mails executivos e vocabulário formal para alavancar sua posição no mercado.',
+      msg: 'Olá, Teacher Solange! Tenho interesse no programa de Business English / Carreira. Meu nível é {nivel} e prefiro modalidade {cidade}.'
+    },
+    'Inglês para Viagens': {
+      title: 'Módulo Expresso para Viagens Internacionais',
+      desc: 'Treinamento prático para imigração, reservas, restaurantes e compras para você viajar o mundo com total independência e tranquilidade.',
+      msg: 'Olá, Teacher Solange! Estou planejando uma viagem e quero fazer o módulo de Inglês para Viagens. Meu nível é {nivel}.'
+    },
+    'Inglês do Zero': {
+      title: 'Inglês do Zero para Adultos (Passo a Passo)',
+      desc: 'Método acolhedor e gradual que constrói sua base de forma sólida e sem traumas, respeitando sua rotina e seu tempo de aprendizado.',
+      msg: 'Olá, Teacher Solange! Gostaria de começar do zero no inglês. Gostaria de saber como funciona a aula experimental ({cidade}).'
+    },
+    'Aulas de Espanhol': {
+      title: 'Aulas de Espanhol Prático e Conversação',
+      desc: 'Metodologia dinâmica para viagens ou negócios na América Latina e Espanha, com ênfase na fluência natural.',
+      msg: 'Olá, Teacher Solange! Gostaria de saber mais sobre as aulas de Espanhol ({cidade}).'
+    }
+  };
+
+  chips.forEach(btn => {
+    btn.addEventListener('click', () => {
+      chips.forEach(b => b.classList.remove('on'));
+      btn.classList.add('on');
+      selectedObj = btn.getAttribute('data-val');
+      updateResult();
+    });
+  });
+
+  const btnVer = document.getElementById('ver-btn');
+  const resBox = document.getElementById('res-box');
+  const resTitle = document.getElementById('res-title');
+  const resDesc = document.getElementById('res-desc');
+  const resLink = document.getElementById('res-link');
+  const selNivel = document.getElementById('nivel-select');
+  const inpCidade = document.getElementById('cidade-input');
+
+  function updateResult() {
+    const cur = data[selectedObj] || data['Conversação & Destrave'];
+    resTitle.innerText = cur.title;
+    resDesc.innerText = cur.desc;
+
+    const n = selNivel.value;
+    const c = inpCidade.value.trim() || 'Santos - SP';
+    const rawMsg = cur.msg.replace('{nivel}', n).replace('{cidade}', c);
+    resLink.href = 'https://wa.me/5513996361966?text=' + encodeURIComponent(rawMsg);
+  }
+
+  btnVer.addEventListener('click', () => {
+    updateResult();
+    resBox.classList.add('on');
+    resBox.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  });
+
+  [selNivel, inpCidade].forEach(i => i.addEventListener('input', updateResult));
+  updateResult();
+})();
+</script>
+</body>
+</html>
