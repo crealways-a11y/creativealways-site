@@ -1,0 +1,708 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AMEVET · 1ª Clínica de Medicina Veterinária Proativa do ES · Vila Velha</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;1,400;1,600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --teal: #1DA6A8;
+  --teal-dark: #12797B;
+  --teal-deep: #0E4E50;
+  --teal-soft: rgba(29, 166, 168, 0.12);
+  --blue: #2F5979;
+  --blue-dark: #1C384E;
+  --gold: #E5A93C;
+  --gold-soft: rgba(229, 169, 60, 0.16);
+  --sand: #F7FAF9;
+  --card: #FFFFFF;
+  --paper: #FFFFFF;
+  --ink: #192733;
+  --ink-muted: #5C6E7E;
+  --ink-faint: #8E9EA9;
+  --border: rgba(29, 166, 168, 0.16);
+  --border-subtle: rgba(25, 39, 51, 0.08);
+  --font-title: 'Outfit', -apple-system, sans-serif;
+  --font-serif: 'Playfair Display', Georgia, serif;
+  --font-body: 'Plus Jakarta Sans', system-ui, sans-serif;
+  --ease: cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { background: var(--sand); color: var(--ink); font-family: var(--font-body); line-height: 1.6; font-size: 15.5px; overflow-x: hidden; }
+a { color: inherit; text-decoration: none; }
+img { display: block; max-width: 100%; }
+button, input, select { font: inherit; color: inherit; }
+button { border: 0; background: none; cursor: pointer; }
+
+.wrap { max-width: 1200px; margin: 0 auto; padding: 0 28px; }
+
+/* TOP BAR */
+.top-bar {
+  background: var(--blue-dark); color: #E1EAF0; font-size: 12px;
+  padding: 10px 16px; text-align: center; letter-spacing: 0.06em;
+  border-bottom: 1px solid rgba(255,255,255,0.08); font-weight: 500;
+  display: flex; align-items: center; justify-content: center; gap: 14px; flex-wrap: wrap;
+}
+.top-bar span.pill {
+  background: var(--teal); color: #fff; font-weight: 800;
+  font-size: 10.5px; padding: 2px 10px; border-radius: 20px; text-transform: uppercase; letter-spacing: 0.1em;
+}
+
+/* NAVBAR */
+.nav {
+  position: sticky; top: 0; z-index: 60;
+  background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--border-subtle); box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+}
+.nav-wrap { display: flex; align-items: center; justify-content: space-between; height: 82px; }
+.logo-box { display: flex; align-items: center; gap: 14px; }
+.logo-img { width: 50px; height: 50px; border-radius: 50%; object-fit: contain; }
+.brand-name { font-family: var(--font-title); font-size: 24px; font-weight: 900; letter-spacing: 0.12em; color: var(--teal-dark); line-height: 1; }
+.brand-sub { font-size: 10.5px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--blue); font-weight: 700; margin-top: 3px; }
+
+.nav-links { display: flex; align-items: center; gap: 28px; font-size: 13.5px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; color: var(--ink); }
+.nav-links a { position: relative; transition: color 0.2s; }
+.nav-links a:hover { color: var(--teal); }
+
+.nav-btn {
+  background: var(--teal); color: #fff; font-weight: 800; font-size: 13.5px;
+  padding: 12px 22px; border-radius: 30px; letter-spacing: 0.04em; transition: all 0.25s var(--ease);
+  display: inline-flex; align-items: center; gap: 8px; box-shadow: 0 6px 18px rgba(29,166,168,0.28);
+}
+.nav-btn:hover { background: var(--teal-dark); transform: translateY(-2px); box-shadow: 0 10px 24px rgba(29,166,168,0.36); }
+
+/* HERO */
+.hero {
+  position: relative; min-height: 620px; background: var(--blue-dark); color: #fff;
+  display: flex; align-items: center; overflow: hidden; padding: 75px 0;
+}
+.hero-bg {
+  position: absolute; inset: 0; z-index: 1;
+  background: url('img/hero-pet.jpg') center 30%/cover no-repeat;
+  opacity: 0.32; transform: scale(1.03); animation: heroZoom 16s ease-out infinite alternate;
+}
+@keyframes heroZoom { 0% { transform: scale(1.03); } 100% { transform: scale(1.09); } }
+.hero-grad {
+  position: absolute; inset: 0; z-index: 2;
+  background: linear-gradient(90deg, rgba(14,45,67,0.96) 0%, rgba(14,45,67,0.85) 55%, rgba(14,45,67,0.45) 100%),
+              linear-gradient(180deg, rgba(14,45,67,0.6) 0%, rgba(14,45,67,0.98) 100%);
+}
+.hero-content { position: relative; z-index: 5; max-width: 740px; }
+.hero-kick {
+  display: inline-flex; align-items: center; gap: 10px; font-size: 12px; font-weight: 800;
+  letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold); margin-bottom: 16px;
+  background: rgba(229,169,60,0.18); border: 1px solid rgba(229,169,60,0.35); padding: 6px 14px; border-radius: 20px;
+}
+.hero h1 {
+  font-family: var(--font-title); font-size: 50px; font-weight: 800; line-height: 1.14;
+  margin-bottom: 20px; letter-spacing: -0.01em; color: #FAFBFD;
+}
+.hero h1 em { font-family: var(--font-serif); font-style: italic; font-weight: 400; color: #8BE4E6; }
+.hero p { font-size: 17.5px; color: #D8E5EE; line-height: 1.65; margin-bottom: 34px; max-width: 660px; }
+.hero-btns { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; margin-bottom: 42px; }
+.btn-primary {
+  background: var(--teal); color: #fff; font-weight: 800; font-size: 14.5px;
+  padding: 15px 32px; border-radius: 40px; letter-spacing: 0.04em; text-transform: uppercase;
+  transition: all 0.3s var(--ease); box-shadow: 0 10px 25px rgba(29,166,168,0.38); display: inline-flex; align-items: center; gap: 10px;
+}
+.btn-primary:hover { background: var(--teal-dark); transform: translateY(-2px); box-shadow: 0 14px 30px rgba(29,166,168,0.48); }
+.btn-outline {
+  background: rgba(255,255,255,0.08); color: #FAFBFD; border: 1px solid rgba(255,255,255,0.35);
+  font-weight: 700; font-size: 14.5px; padding: 15px 28px; border-radius: 40px; letter-spacing: 0.04em;
+  transition: all 0.25s; backdrop-filter: blur(8px);
+}
+.btn-outline:hover { background: rgba(255,255,255,0.2); border-color: #fff; }
+
+.hero-stats {
+  display: grid; grid-template-columns: repeat(4, auto); gap: 28px;
+  border-top: 1px solid rgba(255,255,255,0.15); padding-top: 26px;
+}
+.h-stat { display: flex; flex-direction: column; }
+.h-stat b { font-family: var(--font-title); font-size: 22px; color: #8BE4E6; font-weight: 800; }
+.h-stat span { font-size: 12px; color: #BDCFDD; text-transform: uppercase; letter-spacing: 0.06em; font-weight: 600; }
+
+/* CONCEITO PROATIVO SECTION */
+.concept-sec { padding: 90px 0 80px; background: #fff; }
+.c-head { text-align: center; max-width: 720px; margin: 0 auto 50px; }
+.sec-tag { font-size: 11.5px; letter-spacing: 0.25em; text-transform: uppercase; color: var(--teal-dark); font-weight: 800; margin-bottom: 10px; }
+.c-head h2 { font-family: var(--font-title); font-size: 40px; color: var(--blue-dark); margin-bottom: 14px; font-weight: 800; }
+.c-head p { font-size: 16.5px; color: var(--ink-muted); }
+
+.vs-box {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-bottom: 50px;
+  background: var(--sand); border: 1px solid var(--border-subtle); border-radius: 20px; padding: 36px;
+}
+.vs-col h3 { font-family: var(--font-title); font-size: 20px; font-weight: 800; margin-bottom: 14px; display: flex; align-items: center; gap: 10px; }
+.vs-bad { color: #A83232; }
+.vs-good { color: var(--teal-dark); }
+.vs-list { list-style: none; display: flex; flex-direction: column; gap: 10px; font-size: 14px; color: var(--ink-muted); }
+.vs-list li { display: flex; align-items: flex-start; gap: 10px; }
+.vs-list li i { font-weight: 800; flex-shrink: 0; }
+
+.pillars-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.pil-card {
+  background: var(--sand); border: 1px solid var(--border-subtle); border-radius: 16px; padding: 26px;
+  transition: transform 0.3s var(--ease), box-shadow 0.3s var(--ease);
+}
+.pil-card:hover { transform: translateY(-4px); box-shadow: 0 14px 30px rgba(29,166,168,0.12); border-color: var(--teal); }
+.pil-icon { font-size: 28px; margin-bottom: 12px; display: inline-block; }
+.pil-card b { display: block; font-family: var(--font-title); font-size: 17px; color: var(--blue-dark); margin-bottom: 8px; font-weight: 800; }
+.pil-card p { font-size: 13.5px; color: var(--ink-muted); line-height: 1.55; }
+
+/* ESPECIALIDADES SECTION */
+.specs-sec { padding: 90px 0; background: var(--sand); border-top: 1px solid var(--border-subtle); }
+.specs-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px; margin-top: 40px; }
+.spec-item {
+  background: #fff; border-radius: 18px; overflow: hidden; border: 1px solid var(--border-subtle);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.03); transition: transform 0.3s var(--ease);
+}
+.spec-item:hover { transform: translateY(-5px); box-shadow: 0 16px 36px rgba(0,0,0,0.07); }
+.spec-img { height: 200px; width: 100%; object-fit: cover; }
+.spec-body { padding: 22px; }
+.spec-tag { font-size: 10.5px; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; color: var(--teal); margin-bottom: 6px; }
+.spec-body h3 { font-family: var(--font-title); font-size: 19px; color: var(--blue-dark); margin-bottom: 8px; font-weight: 800; }
+.spec-body p { font-size: 13.5px; color: var(--ink-muted); line-height: 1.5; margin-bottom: 16px; }
+.spec-link { font-size: 13px; font-weight: 800; color: var(--teal-dark); display: inline-flex; align-items: center; gap: 6px; }
+.spec-link:hover { color: var(--teal); }
+
+/* TRIAGEM INTELIGENTE SECTION */
+.quiz-sec { padding: 90px 0; background: var(--blue-dark); color: #fff; }
+.quiz-box {
+  background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.14); border-radius: 24px;
+  padding: 44px; max-width: 900px; margin: 0 auto; backdrop-filter: blur(10px);
+}
+.quiz-box h3 { font-family: var(--font-title); font-size: 30px; text-align: center; margin-bottom: 10px; font-weight: 800; color: #FAFBFD; }
+.quiz-box p.desc { text-align: center; font-size: 15.5px; color: #CFDEE8; margin-bottom: 34px; }
+
+.quiz-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; margin-bottom: 24px; }
+.q-group label { display: block; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--gold); margin-bottom: 8px; }
+.q-group select, .q-group input {
+  width: 100%; padding: 13px 16px; border: 1px solid rgba(255,255,255,0.25); border-radius: 12px;
+  background: rgba(255,255,255,0.09); font-weight: 600; font-size: 14.5px; color: #fff;
+}
+.q-group select option { background: #1C384E; color: #fff; }
+
+.quiz-btn {
+  width: 100%; background: var(--teal); color: #fff; font-weight: 800; font-size: 15px;
+  padding: 16px; border-radius: 14px; text-transform: uppercase; letter-spacing: 0.05em;
+  transition: all 0.25s; margin-bottom: 22px; box-shadow: 0 10px 25px rgba(29,166,168,0.35);
+}
+.quiz-btn:hover { background: #169395; transform: translateY(-2px); }
+
+.quiz-res {
+  background: rgba(255,255,255,0.1); border: 2px dashed var(--gold); border-radius: 16px;
+  padding: 24px; display: none; align-items: center; justify-content: space-between; gap: 20px;
+}
+.quiz-res.show { display: flex; }
+.qr-text b { display: block; font-size: 18px; color: var(--gold); margin-bottom: 4px; font-family: var(--font-title); font-weight: 800; }
+.qr-text span { font-size: 13.5px; color: #E3EDF3; }
+.qr-btn {
+  background: #25D366; color: #fff; font-weight: 800; font-size: 13.5px; padding: 12px 20px;
+  border-radius: 30px; text-transform: uppercase; letter-spacing: 0.04em; white-space: nowrap; flex-shrink: 0;
+  display: inline-flex; align-items: center; gap: 8px;
+}
+.qr-btn:hover { background: #1EBE5B; }
+
+/* SIMULAÇÃO WHATSAPP */
+.wa-sec { padding: 90px 0; background: #fff; }
+.wa-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+.wa-phone {
+  background: #111B21; border: 8px solid #2A3942; border-radius: 36px;
+  padding: 16px; max-width: 380px; margin: 0 auto; box-shadow: 0 24px 50px rgba(0,0,0,0.18);
+}
+.wa-top {
+  display: flex; align-items: center; gap: 12px; padding: 10px 6px 14px;
+  border-bottom: 1px solid rgba(255,255,255,0.08); color: #fff;
+}
+.wa-avatar { width: 40px; height: 40px; border-radius: 50%; object-fit: contain; background: #fff; padding: 2px; }
+.wa-name b { display: block; font-size: 14px; color: #E9EDEF; }
+.wa-name span { font-size: 11px; color: #8696A0; }
+.wa-chat { display: flex; flex-direction: column; gap: 12px; padding: 18px 0; }
+.wa-msg { padding: 12px 14px; border-radius: 12px; font-size: 12.5px; line-height: 1.5; max-width: 90%; position: relative; }
+.wa-in { background: #202C33; color: #E9EDEF; align-self: flex-start; border-bottom-left-radius: 2px; }
+.wa-out { background: #005C4B; color: #E9EDEF; align-self: flex-end; border-bottom-right-radius: 2px; }
+.wa-time { display: block; font-size: 10px; color: rgba(255,255,255,0.5); text-align: right; margin-top: 4px; }
+
+/* DEPOIMENTOS GOOGLE */
+.rev-sec { padding: 90px 0; background: var(--sand); border-top: 1px solid var(--border-subtle); }
+.rev-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 40px; }
+.rev-card {
+  background: #fff; border: 1px solid var(--border-subtle); border-radius: 16px; padding: 26px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.03); display: flex; flex-direction: column;
+}
+.rev-stars { color: #F59E0B; font-size: 16px; margin-bottom: 10px; }
+.rev-card p { font-size: 13.8px; color: var(--ink-muted); line-height: 1.6; margin-bottom: 18px; flex-grow: 1; }
+.rev-author { display: flex; align-items: center; gap: 12px; border-top: 1px solid var(--border-subtle); padding-top: 14px; }
+.rev-avatar { width: 38px; height: 38px; border-radius: 50%; background: var(--teal-soft); color: var(--teal-dark); font-weight: 800; display: flex; align-items: center; justify-content: center; font-size: 14px; }
+.rev-author b { display: block; font-size: 13.5px; color: var(--ink); }
+.rev-author span { font-size: 11.5px; color: var(--ink-faint); }
+
+/* LOCALIZAÇÃO E CONTATO */
+.loc-sec { padding: 80px 0; background: #fff; border-top: 1px solid var(--border-subtle); }
+.loc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center; }
+.loc-info h2 { font-family: var(--font-title); font-size: 36px; color: var(--blue-dark); margin-bottom: 18px; font-weight: 800; }
+.loc-info p { font-size: 16px; color: var(--ink-muted); line-height: 1.65; margin-bottom: 24px; }
+.loc-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 26px; }
+.l-card { background: var(--sand); border: 1px solid var(--border-subtle); padding: 18px; border-radius: 12px; }
+.l-card b { display: block; font-size: 14px; color: var(--teal-dark); margin-bottom: 4px; font-weight: 700; }
+.l-card span { font-size: 12.5px; color: var(--ink-muted); }
+
+/* FOOTER */
+.footer { background: var(--blue-dark); color: #E1EAF0; padding: 70px 0 30px; font-size: 14px; }
+.foot-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1.5fr; gap: 40px; margin-bottom: 50px; }
+.foot-brand b { font-family: var(--font-title); font-size: 24px; letter-spacing: 0.12em; color: var(--teal); display: block; margin-bottom: 12px; font-weight: 900; }
+.foot-brand p { color: #A8BAC6; line-height: 1.6; max-width: 320px; font-size: 13.5px; }
+.foot-col h4 { font-family: var(--font-title); font-size: 14px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; font-weight: 800; }
+.foot-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; color: #C5D5E0; font-size: 13.5px; }
+.foot-col ul a:hover { color: var(--teal); }
+.foot-bottom { border-top: 1px solid rgba(255,255,255,0.08); padding-top: 24px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 14px; color: #7B8E9D; font-size: 12px; }
+
+@media (max-width: 900px) {
+  .hero h1 { font-size: 38px; }
+  .vs-box, .wa-grid, .loc-grid { grid-template-columns: 1fr; gap: 30px; }
+  .pillars-grid, .specs-grid, .rev-grid { grid-template-columns: 1fr 1fr; }
+  .foot-grid { grid-template-columns: 1fr 1fr; }
+  .nav-links { display: none; }
+}
+@media (max-width: 600px) {
+  .hero h1 { font-size: 32px; }
+  .pillars-grid, .specs-grid, .rev-grid, .quiz-grid { grid-template-columns: 1fr; }
+  .foot-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="top-bar">
+  <span class="pill">Vila Velha - ES</span>
+  <span>🐾 1ª Clínica de Medicina Veterinária Proativa do Espírito Santo • Atendimento de Segunda a Sexta das 09h às 17h</span>
+</div>
+
+<!-- NAVBAR -->
+<nav class="nav">
+  <div class="wrap nav-wrap">
+    <a href="#inicio" class="logo-box">
+      <img src="img/logo.png" alt="Amevet Clínica Veterinária" class="logo-img">
+      <div>
+        <div class="brand-name">AMEVET</div>
+        <div class="brand-sub">Medicina Veterinária Proativa</div>
+      </div>
+    </a>
+    <div class="nav-links">
+      <a href="#proativa">Medicina Proativa</a>
+      <a href="#especialidades">Especialidades</a>
+      <a href="#triagem">Triagem Rápida</a>
+      <a href="#depoimentos">Avaliações 4.8★</a>
+      <a href="#contato">Localização</a>
+    </div>
+    <div class="nav-actions">
+      <a href="https://wa.me/5527988409606?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20uma%20consulta%20proativa%20para%20o%20meu%20pet%20na%20AMEVET" target="_blank" class="nav-btn">
+        <span>Agendar Consulta</span>
+      </a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="inicio">
+  <div class="hero-bg"></div>
+  <div class="hero-grad"></div>
+  <div class="wrap hero-content">
+    <div class="hero-kick">🩺 Pioneira no Espírito Santo · Vila Velha (Centro)</div>
+    <h1>Cuidar da saúde antes que a <em>doença apareça.</em></h1>
+    <p>A primeira clínica de medicina veterinária proativa do ES. Foco em prevenção avançada, longevidade com qualidade de vida, alimentação natural e odontologia preventiva em um ambiente de baixo estresse para o seu pet.</p>
+    <div class="hero-btns">
+      <a href="https://wa.me/5527988409606?text=Ol%C3%A1%2C%20gostaria%20de%20marcar%20uma%20consulta%20na%20Amevet" target="_blank" class="btn-primary">Marcar Consulta no WhatsApp</a>
+      <a href="#triagem" class="btn-outline">Fazer Triagem do seu Pet</a>
+    </div>
+    <div class="hero-stats">
+      <div class="h-stat"><b>4,8 ★</b><span>+130 Avaliações</span></div>
+      <div class="h-stat"><b>Proativa</b><span>Prevenção & Longevidade</span></div>
+      <div class="h-stat"><b>Nutrição</b><span>Alimentação Natural</span></div>
+      <div class="h-stat"><b>Petlove</b><span>Rede Credenciada</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONCEITO MEDICINA PROATIVA -->
+<section class="concept-sec" id="proativa">
+  <div class="wrap">
+    <div class="c-head">
+      <div class="sec-tag">Filosofia Amevet</div>
+      <h2>Por que escolher a Medicina Proativa?</h2>
+      <p>Entenda a diferença fundamental entre tratar sintomas tardios e promover a longevidade ativa do seu cão ou gato.</p>
+    </div>
+
+    <div class="vs-box">
+      <div class="vs-col">
+        <h3 class="vs-bad">⚠️ Medicina Reativa Tradicional</h3>
+        <ul class="vs-list">
+          <li><i>✕</i> Espera o pet manifestar dor ou sintomas graves para agir.</li>
+          <li><i>✕</i> Foco quase exclusivo em remédios fortes e exames de emergência.</li>
+          <li><i>✕</i> Consultas rápidas sem investigar a alimentação ou o estilo de vida.</li>
+          <li><i>✕</i> Doenças renais, hepáticas e periodontais detectadas tarde demais.</li>
+        </ul>
+      </div>
+      <div class="vs-col">
+        <h3 class="vs-good">🌿 Medicina Veterinária Proativa AMEVET</h3>
+        <ul class="vs-list">
+          <li><i>✓</i> Previne doenças crônicas através de biomarcadores precoces.</li>
+          <li><i>✓</i> Planejamento nutricional com alimentação natural e balanceada.</li>
+          <li><i>✓</i> Odontologia preventiva para proteger o coração e os rins do animal.</li>
+          <li><i>✓</i> Manejo humanizado de baixo estresse (Fear Free) que acolhe tutor e pet.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- OS PILARES -->
+    <div class="pillars-grid">
+      <div class="pil-card">
+        <span class="pil-icon">🥩</span>
+        <b>Alimentação Natural & Nutrição</b>
+        <p>Dietas personalizadas com comida de verdade, livres de conservantes artificiais para fortalecer a imunidade e longevidade.</p>
+      </div>
+      <div class="pil-card">
+        <span class="pil-icon">🦷</span>
+        <b>Odontologia Preventiva</b>
+        <p>Higienização e controle precoce de placa bacteriana, prevenindo infecções cardíacas e renais silenciosas.</p>
+      </div>
+      <div class="pil-card">
+        <span class="pil-icon">🌱</span>
+        <b>Terapias Integrativas & Ozônio</b>
+        <p>Terapias complementares que aceleram cicatrizações, reduzem inflamações e trazem alívio a pets idosos ou alérgicos.</p>
+      </div>
+      <div class="pil-card">
+        <span class="pil-icon">🛡️</span>
+        <b>Imunização Ética & Check-ups</b>
+        <p>Vacinação consciente e exames laboratoriais periódicos para rastrear alterações antes de se tornarem sintomas.</p>
+      </div>
+      <div class="pil-card">
+        <span class="pil-icon">🐾</span>
+        <b>Manejo de Baixo Estresse</b>
+        <p>Ambiente acolhedor pensado para reduzir o medo e a ansiedade de cães e gatos em cada atendimento.</p>
+      </div>
+      <div class="pil-card">
+        <span class="pil-icon">🤝</span>
+        <b>Vínculo Tutor-Veterinário</b>
+        <p>Acompanhamento próximo e transparente para tirar dúvidas e orientar a rotina de saúde do pet em cada fase da vida.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ESPECIALIDADES -->
+<section class="specs-sec" id="especialidades">
+  <div class="wrap">
+    <div class="c-head">
+      <div class="sec-tag">Cuidado Integral</div>
+      <h2>Especialidades para cada fase do seu pet</h2>
+      <p>Do filhote que precisa de imunidade forte ao pet sênior que merece envelhecer com dignidade e disposição.</p>
+    </div>
+
+    <div class="specs-grid">
+      <div class="spec-item">
+        <img src="img/vet-care-dog.jpg" alt="Consulta Clínica Proativa" class="spec-img">
+        <div class="spec-body">
+          <div class="spec-tag">Prevenção Primária</div>
+          <h3>Consulta Clínica Proativa</h3>
+          <p>Avaliação detalhada de todos os sistemas, histórico familiar, estilo de vida e plano personalizado de longevidade.</p>
+          <a href="https://wa.me/5527988409606?text=Ol%C3%A1%2C%20gostaria%20de%20marcar%20uma%20Consulta%20Proativa%20na%20Amevet" target="_blank" class="spec-link">Agendar pelo WhatsApp →</a>
+        </div>
+      </div>
+
+      <div class="spec-item">
+        <img src="img/natural-food.jpg" alt="Nutrição Clínica e Alimentação Natural" class="spec-img">
+        <div class="spec-body">
+          <div class="spec-tag">Nutrição Funcional</div>
+          <h3>Alimentação Natural (AN)</h3>
+          <p>Prescrição e transição segura para dietas caseiras cozidas ou cruas, controle de peso e alergias alimentares.</p>
+          <a href="https://wa.me/5527988409606?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20uma%20consulta%20de%20Alimenta%C3%A7%C3%A3o%20Natural" target="_blank" class="spec-link">Agendar pelo WhatsApp →</a>
+        </div>
+      </div>
+
+      <div class="spec-item">
+        <img src="img/dental-health.jpg" alt="Odontologia Veterinária Preventiva" class="spec-img">
+        <div class="spec-body">
+          <div class="spec-tag">Saúde Oral</div>
+          <h3>Odontologia Preventiva</h3>
+          <p>Avaliação e tratamento de tártaro e gengivite para evitar a entrada de bactérias na corrente sanguínea do animal.</p>
+          <a href="https://wa.me/5527988409606?text=Ol%C3%A1%2C%20gostaria%20de%20avaliar%20os%20dentes%20do%20meu%20pet" target="_blank" class="spec-link">Agendar pelo WhatsApp →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRIAGEM RÁPIDA -->
+<section class="quiz-sec" id="triagem">
+  <div class="wrap">
+    <div class="quiz-box">
+      <h3>Triagem Proativa Online</h3>
+      <p class="desc">Descubra o protocolo mais indicado para as necessidades e idade do seu pet em poucos segundos.</p>
+
+      <div class="quiz-grid">
+        <div class="q-group">
+          <label>Espécie do Pet</label>
+          <select id="q-spec">
+            <option value="dog" selected>🐶 Cãozinho</option>
+            <option value="cat">🐱 Gatinho</option>
+          </select>
+        </div>
+        <div class="q-group">
+          <label>Idade Atual</label>
+          <select id="q-age">
+            <option value="puppy">Filhote (até 1 ano)</option>
+            <option value="adult" selected>Adulto (1 a 7 anos)</option>
+            <option value="senior">Sênior (7+ anos)</option>
+          </select>
+        </div>
+        <div class="q-group">
+          <label>Principal Objetivo</label>
+          <select id="q-goal">
+            <option value="prev" selected>Check-up de Longevidade</option>
+            <option value="nutri">Alimentação Natural / Dieta</option>
+            <option value="dent">Avaliação Odontológica / Tártaro</option>
+            <option value="allergy">Coceira / Queda de Pelo / Pele</option>
+          </select>
+        </div>
+      </div>
+
+      <button type="button" class="quiz-btn" id="calc-quiz-btn">Ver Protocolo Recomendado</button>
+
+      <div class="quiz-res" id="quiz-result">
+        <div class="qr-text">
+          <b id="qr-title">Protocolo Proativo: Check-up de Longevidade Adulto</b>
+          <span id="qr-desc">Avaliação completa dos órgãos vitais, perfil bioquímico preventivo e orientação nutricional individualizada.</span>
+        </div>
+        <a href="#" target="_blank" class="qr-btn" id="qr-link">
+          <span>Agendar no WhatsApp (27) 98840-9606</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SIMULAÇÃO WHATSAPP -->
+<section class="wa-sec">
+  <div class="wrap wa-grid">
+    <div class="wa-phone">
+      <div class="wa-top">
+        <img src="img/logo.png" alt="Amevet" class="wa-avatar">
+        <div class="wa-name">
+          <b>Clínica Veterinária AMEVET</b>
+          <span>Online · Atendimento Oficial</span>
+        </div>
+      </div>
+      <div class="wa-chat">
+        <div class="wa-msg wa-in">
+          Olá! Gostaria de agendar uma consulta proativa na Amevet.<br>
+          🐶 <b>Pet: Pipoca (Golden Retriever, 4 anos)</b><br>
+          🎯 <b>Objetivo: Check-up de Longevidade + Transição para Alimentação Natural</b><br>
+          📍 Sou de Vila Velha (Praia da Costa).
+          <span class="wa-time">09:15</span>
+        </div>
+        <div class="wa-msg wa-out">
+          Olá! Que alegria receber você e o Pipoca na AMEVET! 🐾💙<br>
+          O check-up proativo é o melhor caminho para garantir que ele chegue aos 12, 14 anos com muita energia e rins saudáveis.<br>
+          Temos horários disponíveis nesta quinta às 10h ou sexta às 14h com a nossa equipe veterinária. Qual fica melhor para você?
+          <span class="wa-time">09:17</span>
+        </div>
+        <div class="wa-msg wa-in">
+          Quinta às 10h seria perfeito!
+          <span class="wa-time">09:18</span>
+        </div>
+        <div class="wa-msg wa-out">
+          Combinado! Pipoca agendado para quinta às 10h na Rua Castelo Branco, 1671A (Centro). Estamos preparando um atendimento super acolhedor para ele! 🐶✨
+          <span class="wa-time">09:19</span>
+        </div>
+      </div>
+    </div>
+    <div class="wa-text">
+      <div class="sec-tag">Agendamento Ágil Sem Fricção</div>
+      <h2 style="font-family:var(--font-title);font-size:38px;color:var(--blue-dark);margin-bottom:18px;font-weight:800;">O tutor faz a triagem no site e o agendamento chega pronto no WhatsApp.</h2>
+      <p style="font-size:16px;color:var(--ink-muted);line-height:1.65;margin-bottom:20px;">
+        Em vez de um link quebrado ou de ter que perguntar repetidamente qual é a queixa do pet, o tutor seleciona o perfil do animal e clica para enviar a mensagem já estruturada direto para o WhatsApp oficial <strong>(27) 98840-9606</strong> da AMEVET.
+      </p>
+      <div style="background:var(--sand);padding:18px 22px;border-radius:14px;border-left:4px solid var(--teal);font-size:14px;color:var(--blue-dark);font-weight:600;">
+        💡 Fim do site fora do ar: um portal moderno, seguro e com certificado SSL ativo que transmite credibilidade e coloca a clínica nas primeiras posições de Vila Velha.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DEPOIMENTOS GOOGLE 4.8 ESTRELAS -->
+<section class="rev-sec" id="depoimentos">
+  <div class="wrap">
+    <div class="c-head">
+      <div class="sec-tag">Prova Social Real</div>
+      <h2>O que dizem os tutores de Vila Velha</h2>
+      <p>Mais de 130 avaliações no Google com nota média 4.8. Reconhecimento de quem confia a vida dos seus melhores amigos à AMEVET.</p>
+    </div>
+
+    <div class="rev-grid">
+      <div class="rev-card">
+        <div class="rev-stars">★★★★★</div>
+        <p>"A melhor clínica veterinária de Vila Velha! O atendimento da Dra. Thaís é extremamente carinhoso e técnico. Meus cachorros não têm medo de entrar, a abordagem da alimentação natural mudou a disposição deles. Super recomendo!"</p>
+        <div class="rev-author">
+          <div class="rev-avatar">M</div>
+          <div>
+            <b>Mariana Vasconcellos</b>
+            <span>Tutora do Theo e da Mel · Praia da Costa</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="rev-card">
+        <div class="rev-stars">★★★★★</div>
+        <p>"Lugar limpo, acolhedor e com profissionais que realmente amam o que fazem. A medicina proativa faz toda a diferença: descobrimos um problema renal no início e hoje meu gato está com exames perfeitos."</p>
+        <div class="rev-author">
+          <div class="rev-avatar">R</div>
+          <div>
+            <b>Rodrigo Alvarenga</b>
+            <span>Tutor do Oliver · Centro de Vila Velha</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="rev-card">
+        <div class="rev-stars">★★★★★</div>
+        <p>"Equipe nota 1000! Aceitam o plano Petlove com muita atenção e sem enrolação. Fiz a limpeza de tártaro do meu cãozinho idoso e o procedimento foi impecável e seguro."</p>
+        <div class="rev-author">
+          <div class="rev-avatar">C</div>
+          <div>
+            <b>Camila Freitas</b>
+            <span>Tutora do Bob · Itapuã</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LOCALIZAÇÃO & CONTATO -->
+<section class="loc-sec" id="contato">
+  <div class="wrap loc-grid">
+    <div class="loc-info">
+      <div class="sec-tag">Fácil Acesso</div>
+      <h2>Venha conhecer a AMEVET</h2>
+      <p>Localizada no coração de Vila Velha, com estacionamento fácil e acesso rápido para moradores da Praia da Costa, Centro, Itapuã, Glória e Vitória.</p>
+      
+      <div class="loc-cards">
+        <div class="l-card">
+          <b>Endereço</b>
+          <span>Rua Castelo Branco, 1671A<br>Centro, Vila Velha - ES</span>
+        </div>
+        <div class="l-card">
+          <b>Horário de Atendimento</b>
+          <span>Segunda a Sexta<br>Das 09:00h às 17:00h</span>
+        </div>
+        <div class="l-card">
+          <b>WhatsApp Oficial</b>
+          <span>(27) 98840-9606</span>
+        </div>
+        <div class="l-card">
+          <b>Telefone Fixo</b>
+          <span>(27) 3329-9606</span>
+        </div>
+      </div>
+
+      <a href="https://wa.me/5527988409606?text=Ol%C3%A1%2C%20gostaria%20de%20marcar%20uma%20visita%20na%20AMEVET" target="_blank" class="btn-primary">Falar com a Recepção no WhatsApp</a>
+    </div>
+
+    <div class="loc-media">
+      <img src="img/clinic-modern.jpg" alt="Estrutura AMEVET Clínica Veterinária" style="border-radius:20px;box-shadow:0 16px 36px rgba(0,0,0,0.08);width:100%;">
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="wrap foot-grid">
+    <div class="foot-brand">
+      <b>AMEVET</b>
+      <p>A primeira clínica de medicina veterinária proativa do Espírito Santo. Saúde preventiva, longevidade e nutrição para cães e gatos.</p>
+    </div>
+    <div class="foot-col">
+      <h4>Navegação</h4>
+      <ul>
+        <li><a href="#proativa">Medicina Proativa</a></li>
+        <li><a href="#especialidades">Especialidades</a></li>
+        <li><a href="#triagem">Triagem Online</a></li>
+        <li><a href="#depoimentos">Avaliações Google</a></li>
+      </ul>
+    </div>
+    <div class="foot-col">
+      <h4>Serviços</h4>
+      <ul>
+        <li><a href="#especialidades">Alimentação Natural</a></li>
+        <li><a href="#especialidades">Odontologia Preventiva</a></li>
+        <li><a href="#especialidades">Check-up de Longevidade</a></li>
+        <li><a href="#especialidades">Rede Petlove Saúde</a></li>
+      </ul>
+    </div>
+    <div class="foot-col">
+      <h4>Contato Oficial</h4>
+      <ul>
+        <li><strong>WhatsApp:</strong> (27) 98840-9606</li>
+        <li><strong>Telefone:</strong> (27) 3329-9606</li>
+        <li><strong>E-mail:</strong> amevetes@gmail.com</li>
+        <li><strong>Endereço:</strong> R. Castelo Branco, 1671A - Centro, Vila Velha - ES</li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap foot-bottom">
+    <div>© 2026 Clínica Veterinária AMEVET · CRMV-ES Ativo · Todos os direitos reservados.</div>
+    <div>Desenvolvido com padrão de excelência por <strong style="color:var(--gold);">Creative Always</strong></div>
+  </div>
+</footer>
+
+<script>
+// QUIZ TRIAGEM PROATIVA
+const quizBtn = document.getElementById('calc-quiz-btn');
+const quizRes = document.getElementById('quiz-result');
+const qrTitle = document.getElementById('qr-title');
+const qrDesc = document.getElementById('qr-desc');
+const qrLink = document.getElementById('qr-link');
+
+quizBtn.addEventListener('click', () => {
+  const spec = document.getElementById('q-spec').value === 'dog' ? 'Cão' : 'Gato';
+  const age = document.getElementById('q-age').value;
+  const goal = document.getElementById('q-goal').value;
+
+  let title = 'Protocolo Proativo de Longevidade';
+  let desc = 'Avaliação abrangente para prevenir doenças crônicas antes que elas se manifestem.';
+  let zapMsg = `Olá, fiz a triagem no site da AMEVET para o meu ${spec} e gostaria de agendar uma consulta proativa!`;
+
+  if (goal === 'nutri') {
+    title = `Protocolo Nutricional: Alimentação Natural para ${spec}`;
+    desc = 'Transição alimentar segura para comida de verdade, fortalecendo a flora intestinal, a pelagem e o controle de peso.';
+    zapMsg = `Olá! Fiz a triagem no site da AMEVET e quero agendar uma consulta de Alimentação Natural para meu ${spec}!`;
+  } else if (goal === 'dent') {
+    title = `Protocolo Odontológico Preventivo (${spec})`;
+    desc = 'Inspeção bucal minuciosa e higienização para evitar tártaro e impedir a migração de bactérias para rins e coração.';
+    zapMsg = `Olá! Gostaria de agendar uma avaliação odontológica para o meu ${spec} na AMEVET.`;
+  } else if (goal === 'allergy') {
+    title = `Investigação Dermatológica & Imunológica (${spec})`;
+    desc = 'Diagnóstico das causas de coceira e dermatites através de imunidade integrativa e exclusão alimentar.';
+    zapMsg = `Olá! Meu ${spec} está com coceira/queda de pelo e gostaria de agendar uma consulta na AMEVET.`;
+  } else if (age === 'senior') {
+    title = `Protocolo Sênior: Vitalidade & Geriatria (${spec})`;
+    desc = 'Rastreamento precoce de função renal e articular para garantir conforto, disposição e longevidade na melhor idade.';
+    zapMsg = `Olá! Gostaria de agendar o Check-up Sênior de longevidade para meu ${spec} na AMEVET.`;
+  }
+
+  qrTitle.textContent = title;
+  qrDesc.textContent = desc;
+  qrLink.href = `https://wa.me/5527988409606?text=${encodeURIComponent(zapMsg)}`;
+  quizRes.classList.add('show');
+  quizRes.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+});
+</script>
+
+</body>
+</html>
