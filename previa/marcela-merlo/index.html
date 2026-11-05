@@ -1,0 +1,275 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Marcela Merlo Estética · Cuidados Faciais e Corporais em Colatina - ES</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap">
+<style>
+:root{--deep:#130F0D;--deep2:#221A17;--teal:#C5A072;--lime:#E6C8A0;--mist:#FBF8F5;--paper:#FFFFFF;--ink:#1A1412;--mute:#655650;--line:rgba(34,26,23,.1);--ease:cubic-bezier(.2,.7,.2,1);--fh:Poppins,sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--paper);color:var(--ink);font-family:Inter,system-ui,sans-serif;line-height:1.6;font-size:16px;overflow-x:hidden}
+a{color:inherit;text-decoration:none}img{display:block;max-width:100%}button,input,select{font:inherit;color:inherit}button{border:0;background:none;cursor:pointer}
+.wrap{max-width:1140px;margin:0 auto;padding:0 24px}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:11.5px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--teal)}
+.eyebrow:before{content:"";width:22px;height:2px;background:var(--teal)}
+h2{font-family:var(--fh);font-weight:700;font-size:clamp(30px,4.2vw,48px);line-height:1.08;margin:12px 0 12px;color:var(--deep);letter-spacing:-.02em}
+h2 em{font-style:normal;color:var(--teal)}
+.lead{font-size:16.5px;color:var(--mute);max-width:620px}
+.url{position:relative;z-index:60;background:#0A0807;color:#C9CDD3;font-size:12px;padding:8px 14px;display:flex;align-items:center;gap:10px;justify-content:center}
+.url span{background:var(--deep2);border-radius:20px;padding:4px 12px;font-family:ui-monospace,Consolas,monospace;font-size:11.5px;border:1px solid rgba(230,200,160,.2)}
+.url b{color:var(--lime)}.url i{font-style:normal;font-size:10px;letter-spacing:.2em;color:var(--lime);text-transform:uppercase}
+.rv{opacity:0;transform:translateY(26px);transition:opacity .9s var(--ease),transform .9s var(--ease)}.rv.in{opacity:1;transform:none}
+.rv.d1{transition-delay:.1s}.rv.d2{transition-delay:.2s}.rv.d3{transition-delay:.3s}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:15px 22px;font-weight:600;font-size:14.5px;border-radius:12px;transition:transform .3s var(--ease)}
+.btn:hover{transform:translateY(-2px)}
+.btn.lime{background:var(--lime);color:var(--deep)}
+.btn.line{border:1px solid rgba(255,255,255,.5);color:#fff}
+.btn.deep{background:var(--deep);color:#fff}
+.btn.zap{background:#22C55E;color:#fff}
+section{padding:90px 0;position:relative}
+.nav{position:absolute;left:0;right:0;top:37px;z-index:50}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;height:70px}
+.logo{display:flex;align-items:center;gap:12px;color:#fff}
+.logo img{width:46px;height:46px;border-radius:50%;object-fit:contain;background:#fff;padding:3px}
+.logo b{display:block;font-family:var(--fh);font-size:18px;line-height:1;letter-spacing:.03em}
+.logo small{font-size:9.5px;letter-spacing:.24em;text-transform:uppercase;color:var(--lime)}
+.links{display:flex;gap:4px;font-size:14px;color:#fff}.links a{padding:10px 14px;white-space:nowrap}
+.links a:hover{color:var(--lime)}
+.hero{padding:0;height:calc(100svh - 37px);min-height:660px;max-height:940px;color:#fff;overflow:hidden;background:var(--deep)}
+.hero .bgi{position:absolute;inset:0;background:url(img/hero-facial.jpg) center/cover;opacity:1;transform:scale(1.1);animation:zoom 16s ease-out forwards}
+@keyframes zoom{to{transform:scale(1)}}
+.hero:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(19,15,13,.88) 0%,rgba(19,15,13,.45) 50%,rgba(19,15,13,0) 75%),linear-gradient(180deg,rgba(19,15,13,.65) 0%,rgba(19,15,13,0) 28%,rgba(19,15,13,.4) 60%,rgba(19,15,13,.96) 100%)}
+.hero .glow{position:absolute;z-index:1;width:560px;height:560px;right:-160px;top:-100px;border-radius:50%;background:radial-gradient(circle,rgba(230,200,160,.25),transparent 65%);animation:pulse 7s ease-in-out infinite}
+@keyframes pulse{50%{transform:scale(1.12);opacity:.7}}
+.hero .gw{position:absolute;z-index:1;right:-1%;top:18%;font-family:var(--fh);font-weight:700;font-size:clamp(120px,20vw,300px);line-height:.8;color:transparent;-webkit-text-stroke:1.5px rgba(230,200,160,.16)}
+.hcont{position:absolute;z-index:3;left:0;right:0;bottom:7%;opacity:0;transform:translateY(24px);animation:up 1s .25s var(--ease) forwards}
+@keyframes up{to{opacity:1;transform:none}}
+.kick{display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--lime)}
+.kick i{width:8px;height:8px;border-radius:50%;background:var(--lime)}
+.hero h1{font-family:var(--fh);font-weight:700;font-size:clamp(38px,6vw,76px);line-height:1.04;margin:12px 0 14px;max-width:860px;letter-spacing:-.03em}
+.hero h1 em{font-style:normal;color:var(--lime)}
+.hero p{font-size:17px;color:#E6DCD6;max-width:600px;margin-bottom:24px}
+.ctas{display:flex;gap:10px;flex-wrap:wrap}
+.trust{display:flex;gap:18px;flex-wrap:wrap;margin-top:22px;font-size:13.5px;color:#D6C9C2}.trust b{color:#fff}
+.marco{background:var(--deep);color:#fff;padding:70px 0;overflow:hidden}
+.mg{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center}
+.marco h2{color:#fff}.marco .lead{color:#D9CCC4}.marco .eyebrow{color:var(--lime)}.marco .eyebrow:before{background:var(--lime)}
+.badge{border-radius:24px;overflow:hidden;position:relative;aspect-ratio:4/5;max-height:520px}
+.badge img{width:100%;height:100%;object-fit:cover}
+.badge div{position:absolute;left:16px;bottom:16px;right:16px;background:rgba(0,0,0,.68);backdrop-filter:blur(6px);border-radius:14px;padding:14px 16px}
+.badge b{display:block;font-family:var(--fh);font-size:19px}.badge span{font-size:13px;color:#E8DCD4}
+.nums{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:22px}
+.nums div{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.14);border-radius:16px;padding:16px}
+.nums b{display:block;font-family:var(--fh);font-size:30px;color:var(--lime);line-height:1}
+.nums span{font-size:13px;color:#D9CCC4}
+.sgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:32px}
+.svc{border:1px solid var(--line);border-radius:20px;padding:22px;background:var(--mist)}
+.svc .ic{width:46px;height:46px;border-radius:12px;background:var(--deep);color:var(--lime);display:grid;place-items:center;margin-bottom:14px}
+.svc .ic svg{width:22px;height:22px}
+.svc b{display:block;font-family:var(--fh);font-size:18px;color:var(--deep);margin-bottom:4px}
+.svc span{font-size:14px;color:var(--mute)}
+.ver{background:var(--mist)}
+.vg{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center}
+.vbox{background:#fff;border-radius:22px;padding:24px;box-shadow:0 30px 70px rgba(25,18,15,.1)}
+.vbox h3{font-family:var(--fh);font-size:21px;color:var(--deep);margin-bottom:14px}
+.q{font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--mute);margin:0 0 7px}
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}
+.chips button{padding:9px 13px;border:1px solid var(--line);border-radius:30px;background:#fff;font-size:13.5px;font-weight:500}
+.chips button.on{background:var(--deep);border-color:var(--deep);color:var(--lime)}
+.fld{margin-bottom:12px}.fld label{display:block;font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--mute);margin-bottom:5px}
+.fld input{width:100%;padding:12px 14px;border:1px solid var(--line);border-radius:12px;background:var(--mist);outline:none}
+.vbox .btn{width:100%}
+.res{display:none;margin-top:14px;border-radius:16px;background:var(--deep);color:#fff;padding:16px 18px}
+.res.on{display:block;animation:up .5s var(--ease) both}
+.res small{display:block;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--lime);font-weight:600}
+.res b{display:block;font-family:var(--fh);font-size:19px;margin:4px 0}
+.res p{font-size:13.5px;color:#D9CCC4}
+.prev{margin-top:12px;background:#DCF8C6;border-radius:14px;padding:12px 14px;font-size:13.5px;line-height:1.45;color:#111;opacity:0;transform:translateY(8px);transition:all .5s var(--ease)}
+.prev.on{opacity:1;transform:none}
+.prev small{display:block;font-size:11px;color:#58705a;margin-bottom:4px;font-weight:600;letter-spacing:.06em;text-transform:uppercase}
+.est .map{margin-top:28px;border-radius:22px;overflow:hidden;border:1px solid var(--line)}
+.og{display:grid;grid-template-columns:1.2fr 1fr 1fr;grid-auto-rows:210px;gap:14px;margin-top:22px}
+.og div{position:relative;border-radius:18px;overflow:hidden}
+.og div:first-child{grid-row:span 2}
+.og img{width:100%;height:100%;object-fit:cover}
+.og span{position:absolute;left:12px;bottom:12px;background:rgba(0,0,0,.7);color:#fff;font-size:12px;font-weight:600;padding:6px 10px;border-radius:10px}
+.iasec{background:var(--mist)}
+.ia{display:grid;grid-template-columns:1fr .9fr;gap:60px;align-items:center}
+.phone{position:relative;width:340px;max-width:100%;margin:0 auto;border-radius:44px;background:#000;padding:13px;box-shadow:0 40px 90px rgba(25,18,15,.25)}
+.screen{border-radius:32px;overflow:hidden;background:#ECE5DD;height:620px;display:flex;flex-direction:column}
+.wtop{background:#221A17;color:#fff;padding:14px 16px;display:flex;align-items:center;gap:10px}
+.wtop img{width:38px;height:38px;border-radius:50%;object-fit:contain;background:#fff;padding:2px}
+.wtop b{display:block;font-size:15px;font-weight:500}.wtop span{font-size:12px;opacity:.85}
+.chat{flex:1;padding:14px 12px;display:flex;flex-direction:column;justify-content:flex-end;gap:7px;overflow:hidden;color:#111}
+.msg{max-width:84%;padding:8px 11px;border-radius:12px;font-size:13.3px;line-height:1.4;box-shadow:0 1px 1px rgba(0,0,0,.08);opacity:0;transform:translateY(10px);transition:opacity .4s,transform .4s var(--ease)}
+.msg.show{opacity:1;transform:none}
+.msg.in{background:#fff;align-self:flex-start}.msg.out{background:#DCF8C6;align-self:flex-end}
+.msg small{display:block;text-align:right;font-size:10.5px;color:#7a8a86;margin-top:2px}
+.typing{align-self:flex-end;background:#DCF8C6;border-radius:12px;padding:10px 14px;display:none;gap:4px}.typing.show{display:flex}
+.typing i{width:7px;height:7px;border-radius:50%;background:#7a9a7a;animation:tp 1s infinite}.typing i:nth-child(2){animation-delay:.15s}.typing i:nth-child(3){animation-delay:.3s}
+@keyframes tp{0%,60%,100%{transform:translateY(0);opacity:.5}30%{transform:translateY(-4px);opacity:1}}
+.feats{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:24px}
+.feats div{border:1px solid var(--line);border-radius:14px;padding:16px 18px;background:#fff}
+.feats b{display:block;font-weight:600;margin-bottom:2px;color:var(--deep)}.feats span{font-size:14px;color:var(--mute)}
+.contato{text-align:center;color:#fff;overflow:hidden;padding:120px 0}
+.contato .bgi{position:absolute;inset:0;background:url(img/clinica-moderna.jpg) center/cover}
+.contato:after{content:"";position:absolute;inset:0;background:#130F0Ded}
+.contato .wrap{position:relative;z-index:2}
+.contato h2{color:#fff}.contato .eyebrow{color:var(--lime)}.contato .eyebrow:before{background:var(--lime)}
+.contato .lead{color:#E6DCD6;margin:0 auto 24px}
+footer{background:#0A0807;color:#8C837C;font-size:12.5px;padding:22px 0}
+footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+footer b{color:var(--lime);font-weight:600}
+.toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,30px);background:var(--deep);color:#fff;padding:13px 18px;border-radius:12px;font-size:14px;opacity:0;transition:all .4s var(--ease);z-index:80;max-width:calc(100% - 32px);text-align:center}
+.toast.on{opacity:1;transform:translate(-50%,0)}
+@media(max-width:980px){.links{display:none}.sgrid{grid-template-columns:1fr 1fr}.vg,.ia,.mg{grid-template-columns:1fr}.og{grid-template-columns:1fr 1fr;grid-auto-rows:170px}.feats{grid-template-columns:1fr}section{padding:72px 0}}
+@media(max-width:560px){.wrap{padding:0 18px}.hero h1{font-size:38px;line-height:1.06}.sgrid{grid-template-columns:1fr}.nums b{font-size:24px}.nums{grid-template-columns:1fr}.vg{gap:30px}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}.msg{opacity:1;transform:none}}
+.hero .slides{position:absolute;inset:0}.hero .slides img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transform:scale(1.08);transition:opacity 1.4s ease,transform 7s linear}.hero .slides img.on{opacity:1;transform:scale(1)}
+</style>
+</head>
+<body>
+<div class="url"><i>Prévia</i><span><b>marcelamerloestetica.com.br</b></span></div>
+<header class="nav"><div class="wrap">
+  <a class="logo" href="#"><img src="img/logo.png" alt="Marcela Merlo Estética"><span><b>MARCELA MERLO</b><small>Estética & Bem-Estar</small></span></a>
+  <nav class="links"><a href="#sobre">A Clínica</a><a href="#procedimentos">Procedimentos</a><a href="#triagem">Avaliação</a><a href="#galeria">Estrutura</a><a href="#contato">Contato</a></nav>
+</div></header>
+
+<section class="hero" id="hero">
+  <div class="slides"><img class="on" src="img/hero-facial.jpg" alt="Marcela Merlo Estética"><img src="img/limpeza-pele.jpg" alt="Limpeza de Pele"><img src="img/massagem-corpo.jpg" alt="Massagem Redutora"><img src="img/rejuvenescimento.jpg" alt="Estética Facial"></div><div class="glow"></div><div class="gw">ESTÉTICA</div>
+  <div class="hcont"><div class="wrap">
+    <div class="kick"><i></i>São Silvano · Colatina - ES</div>
+    <h1>Beleza natural, pele renovada e <em>cuidado que transforma.</em></h1>
+    <p>Protocolos faciais e corporais personalizados com avaliação individualizada, biossegurança e ambiente acolhedor em Colatina.</p>
+    <div class="ctas"><a class="btn lime" href="#triagem">Fazer triagem estética<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><a class="btn line" href="#procedimentos">Ver procedimentos</a></div>
+    <div class="trust"><span>★ <b>4,9</b> no Google, 36 avaliações</span><span>Avaliação <b>100% personalizada</b></span><span>Atendimento <b>exclusivo com hora marcada</b></span></div>
+  </div></div>
+</section>
+
+<section class="marco" id="sobre"><div class="wrap mg">
+  <div>
+    <div class="eyebrow rv">Cuidado Individualizado</div>
+    <h2 class="rv d1">Muito mais que estética passageira, <em style="color:var(--lime)">autoestima e saúde para sua pele.</em></h2>
+    <p class="lead rv d2">Na Marcela Merlo Estética, cada cliente é única. Antes de qualquer protocolo, realizamos uma avaliação criteriosa para entender o seu tipo de pele, rotina e objetivos — seja para eliminar cravos e oleosidade, atenuar manchas e linhas finas, reduzir medidas ou relaxar da rotina acelerada.</p>
+    <div class="nums rv d3"><div><b>4,9★</b><span>36 avaliações no Google</span></div><div><b>100%</b><span>protocolos personalizados</span></div><div><b>São Silvano</b><span>Av. Silvio Avidos, Colatina</span></div></div>
+  </div>
+  <div class="badge rv d2"><img src="img/rejuvenescimento.jpg" alt="Estética Facial Avançada"><div><b>Protocolos Exclusivos</b><span>Tecnologia, biossegurança e toque humanizado</span></div></div>
+</div></section>
+
+<section id="procedimentos"><div class="wrap">
+  <div class="eyebrow rv">Nossos Tratamentos</div>
+  <h2 class="rv d1">Do cuidado facial <em>ao contorno corporal.</em></h2>
+  <p class="lead rv d2">Procedimentos não invasivos com produtos dermatológicos selecionados e técnicas consagradas.</p>
+  <div class="sgrid">
+    <div class="svc rv d1"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg></div><b>Limpeza de Pele Profunda</b><span>Higienização completa, extração suave, controle da oleosidade e hidratação profunda.</span></div>
+    <div class="svc rv d2"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div><b>Massagem Redutora & Modeladora</b><span>Manobras firmes focadas na quebra de gordura localizada, melhora da celulite e contorno.</span></div>
+    <div class="svc rv d3"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="m12 3-1.9 5.8a2 2 0 0 1-1.3 1.3L3 12l5.8 1.9a2 2 0 0 1 1.3 1.3L12 21l1.9-5.8a2 2 0 0 1 1.3-1.3L21 12l-5.8-1.9a2 2 0 0 1-1.3-1.3z"/></svg></div><b>Microagulhamento & Colágeno</b><span>Indução potente de colágeno para atenuar linhas de expressão, melasma, poros e cicatrizes.</span></div>
+    <div class="svc rv d1"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div><b>Peelings Químicos Renovatórios</b><span>Aceleração da renovação celular, clareamento gradual de manchas e textura sedosa.</span></div>
+    <div class="svc rv d2"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div><b>Massagem Relaxante & Bem-Estar</b><span>Alívio das tensões musculares, redução de estresse e relaxamento completo de corpo e mente.</span></div>
+    <div class="svc rv d3"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 22c5-3 8-7 8-12V5l-8-3-8 3v5c0 5 3 9 8 12z"/><path d="m9 12 2 2 4-4"/></svg></div><b>Depilação com Cera</b><span>Técnica higiênica e precisa que deixa a pele lisa, suave e livre de pelos indesejados.</span></div>
+  </div>
+</div></section>
+
+<section class="ver" id="triagem"><div class="wrap vg">
+  <div>
+    <div class="eyebrow rv">Triagem Estética Online</div>
+    <h2 class="rv d1">Conte qual é o seu objetivo. <em>A gente indica o melhor protocolo.</em></h2>
+    <p class="lead rv d2">Escolha o foco do seu cuidado e informe seu nome. A recomendação chega pronta no WhatsApp da Marcela Merlo.</p>
+  </div>
+  <div class="vbox rv d2" id="vbox">
+    <h3>Minha Avaliação Estética</h3>
+    <div class="q">Qual é o seu objetivo principal?</div>
+    <div class="chips" id="c1"><button type="button" class="on">Limpeza de Pele</button><button type="button">Manchas & Melasma</button><button type="button">Gordura & Celulite</button><button type="button">Rejuvenescimento</button></div>
+    <div class="fld"><label>Seu nome</label><input id="vm" placeholder="ex.: Juliana"></div>
+    <div class="fld"><label>Bairro ou Cidade</label><input id="vh" placeholder="ex.: São Silvano, Colatina"></div>
+    <button class="btn deep" type="button" onclick="verificar()">Ver protocolo sugerido</button>
+    <div class="res" id="res"><small>Protocolo Sugerido</small><b id="resb"></b><p id="resp"></p></div>
+    <div class="prev" id="prev"><small>Mensagem pronta para o WhatsApp da Marcela</small><span id="prevtx"></span></div>
+  </div>
+</div></section>
+
+<section class="est" id="galeria"><div class="wrap">
+  <div class="eyebrow rv">Nossa Estrutura</div>
+  <h2 class="rv d1">Ambiente aconchegante, <em>cuidado de verdade.</em></h2>
+  <p class="lead rv d2">Espaço planejado para oferecer conforto, privacidade e relaxamento em Colatina.</p>
+  <div class="og">
+    <div class="rv d1"><img src="img/clinica-moderna.jpg" alt="Consultório Marcela Merlo"><span>Ambiente Acolhedor em São Silvano</span></div>
+    <div class="rv d2"><img src="img/limpeza-pele.jpg" alt="Limpeza de Pele Profunda"><span>Limpeza Profunda Indolor</span></div>
+    <div class="rv d3"><img src="img/massagem-corpo.jpg" alt="Massagem Redutora"><span>Contorno Corporal e Drenagem</span></div>
+    <div class="rv d1"><img src="img/peeling-pele.jpg" alt="Peelings Químicos"><span>Renovação Celular e Glow</span></div>
+    <div class="rv d2"><img src="img/massagem-relaxante.jpg" alt="Massagem Relaxante"><span>Terapia Relaxante Antiestresse</span></div>
+  </div>
+</div></section>
+
+<section class="iasec" id="atendimento"><div class="wrap ia">
+  <div>
+    <div class="eyebrow rv">Atendimento Ágil com IA</div>
+    <h2 class="rv d1">Dúvida sobre qual procedimento fazer? <em>A resposta sai na hora.</em></h2>
+    <p class="lead rv d2">Quem busca cuidados com a pele quer saber qual tratamento combina com sua rotina e já garantir um horário. O atendimento inteligente da Marcela Merlo Estética acolhe, esclarece sobre contraindicações e direciona o agendamento no WhatsApp.</p>
+    <div class="feats rv d3">
+      <div><b>Triagem Estética</b><span>Entende a queixa, tipo de pele e objetivo.</span></div>
+      <div><b>Tira Dúvidas</b><span>Explica sobre dor, recuperação e cuidados pós-sessão.</span></div>
+      <div><b>Agenda Integrada</b><span>Facilita a reserva do melhor horário.</span></div>
+      <div><b>WhatsApp Oficial</b><span>Atendimento imediato e sem demora.</span></div>
+    </div>
+  </div>
+  <div class="rv d2"><div class="phone"><div class="screen">
+    <div class="wtop"><img src="img/logo.png" alt="Marcela Merlo"><div><b>Marcela Merlo Estética</b><span>online</span></div></div>
+    <div class="chat" id="chat"><div class="typing" id="typing"><i></i><i></i><i></i></div></div>
+  </div></div></div>
+</div></section>
+
+<section class="contato" id="contato"><div class="bgi"></div><div class="wrap">
+  <div class="eyebrow rv">Fale com a Marcela Merlo</div>
+  <h2 class="rv d1">Agende sua avaliação e realce sua melhor versão.</h2>
+  <p class="lead rv d2">Av. Silvio Avidos, 2226 · São Silvano, Colatina - ES. WhatsApp: (27) 99720-7482.</p>
+  <div class="rv d3"><a class="btn zap" href="https://wa.me/5527997207482" target="_blank" onclick="toast('Abrindo WhatsApp oficial da Marcela Merlo...');">Falar no WhatsApp (27) 99720-7482</a></div>
+</div></section>
+<footer><div class="wrap"><span><b>Marcela Merlo Estética</b> · São Silvano, Colatina - ES</span><span>Site por Creative Always</span></div></footer>
+<div class="toast" id="toast"></div>
+
+<script>
+let tt; function toast(m){const t=document.getElementById('toast'); t.textContent=m; t.classList.add('on'); clearTimeout(tt); tt=setTimeout(()=>t.classList.remove('on'),3200)}
+document.querySelectorAll('#c1 button').forEach(b=>b.onclick=()=>document.querySelectorAll('#c1 button').forEach(x=>x.classList.toggle('on',x===b)));
+const NEXT={
+  "Limpeza de Pele": ["Protocolo Limpeza Profunda & Glow", "Extração suave com emoliência térmica, remoção de cravos e miliuns, controle de oleosidade e máscara calmante hidratante."],
+  "Manchas & Melasma": ["Protocolo Clareamento & Renovação", "Peelings químicos magistrais, associação de ativos despigmentantes e fortalecimento da barreira cutânea para uniformizar o tom."],
+  "Gordura & Celulite": ["Protocolo Redutor & Drenagem", "Manobras modeladoras intensas, cosmecêuticos lipolíticos e drenagem linfática para remodelar contorno e desinchar."],
+  "Rejuvenescimento": ["Indução de Colágeno & Firmadora", "Microagulhamento fracionado com drug delivery de ácido hialurônico e fatores de crescimento para suavizar rugas e poros."]
+};
+const MSG="Olá, Marcela! Gostaria de agendar uma avaliação estética. Meu nome é {m} de {h}, e meu foco principal é {s}. Vi a prévia do site.";
+function verificar(){
+  const s=document.querySelector('#c1 .on').textContent, m=document.getElementById('vm').value||"Juliana", h=document.getElementById('vh').value||"Colatina";
+  const [b,p]=NEXT[s]; document.getElementById('resb').textContent=b; document.getElementById('resp').textContent=p; document.getElementById('res').classList.add('on');
+  document.getElementById('prevtx').textContent=MSG.replace('{s}',s.toLowerCase()).replace('{m}',m).replace('{h}',h);
+  setTimeout(()=>document.getElementById('prev').classList.add('on'),350)
+}
+async function typeTo(id,txt){const el=document.getElementById(id); el.focus(); for(let i=1;i<=txt.length;i++){el.value=txt.slice(0,i); await new Promise(r=>setTimeout(r,80))}}
+window.demoVer=async()=>{await typeTo('vm',"Juliana"); await typeTo('vh',"São Silvano, Colatina"); document.activeElement.blur(); await new Promise(r=>setTimeout(r,500)); verificar()};
+const reveal=el=>el.classList.add('in');
+const CH=[
+  ["in", "Olá, Marcela! Gostaria de fazer uma limpeza de pele e saber sobre os peelings.", "10:10"],
+  ["out", "Olá! Que alegria receber você ✨ Nossa limpeza de pele inclui extração suave e hidratação profunda para deixar a pele lisinha.", "10:10"],
+  ["in", "Eu tenho umas manchinhas de sol no rosto, o peeling ajuda?", "10:11"],
+  ["out", "Com certeza! Fazemos uma avaliação gratuita da sua pele e indicamos o peeling certo para clarear com total segurança.", "10:11"],
+  ["in", "Que ótimo! Vocês atendem em São Silvano, né?", "10:12"],
+  ["out", "Isso mesmo! Av. Silvio Avidos, 2226 em São Silvano. Temos horários para quinta às 15h ou sexta às 10h.", "10:12"],
+  ["in", "Quinta às 15h fica perfeito para mim!", "10:13"],
+  ["out", "Agendado com carinho! 🌸 Qualquer dúvida estou à disposição. Até quinta!", "10:13"]
+];
+let run=false;
+function runChat(){ if(run)return; run=true; const chat=document.getElementById('chat'), ty=document.getElementById('typing'); let i=0;
+  const next=()=>{ if(i>=CH.length){setTimeout(()=>{chat.querySelectorAll('.msg').forEach(m=>m.remove()); i=0; next()},5000); return}
+    const [w,t,h]=CH[i++]; const show=()=>{ty.classList.remove('show'); const m=document.createElement('div'); m.className='msg '+w; m.innerHTML=t+'<small>'+h+'</small>'; chat.insertBefore(m,ty); requestAnimationFrame(()=>requestAnimationFrame(()=>m.classList.add('show'))); setTimeout(next,w==='in'?1000:1500)};
+    if(w==='out'){ty.classList.add('show'); chat.appendChild(ty); setTimeout(show,1000)} else show(); }; next(); }
+const phone=document.querySelector('.phone');
+function onScroll(){ document.querySelectorAll('.rv:not(.in)').forEach(el=>{if(el.getBoundingClientRect().top<innerHeight*.92) reveal(el)});
+  if(phone.getBoundingClientRect().top<innerHeight*.8) runChat(); }
+addEventListener('scroll',onScroll,{passive:true}); onScroll();
+</script>
+<script>(()=>{const f=[...document.querySelectorAll(".hero .slides img")];let i=0;setInterval(()=>{i=(i+1)%f.length;f.forEach((x,j)=>x.classList.toggle("on",j===i))},4800)})()</script>
+</body>
+</html>
