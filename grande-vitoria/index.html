@@ -413,7 +413,10 @@ const ZAP='5527981332228';
 const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 /* HERO */
-const slides=[...document.querySelectorAll('.hslide')],caps=['Vitória, ES','Condomínios','Residencial','Auto'],dots=document.getElementById('dots'),cap=document.getElementById('cap');
+let slides=[...document.querySelectorAll('.hslide')],caps=['Vitória, ES','Condomínios','Residencial','Auto'];
+/* celular em pé: fotos horizontais com pessoas cortam no topo; ficam só as paisagens (as pessoas seguem nos cartões) */
+if(matchMedia('(max-width:700px) and (orientation:portrait)').matches){slides.slice(2).forEach(s=>s.remove());slides=slides.slice(0,2);caps=caps.slice(0,2)}
+const dots=document.getElementById('dots'),cap=document.getElementById('cap');
 slides.forEach(()=>dots.appendChild(document.createElement('b')));let cur=0;
 function setDot(){[...dots.children].forEach((d,j)=>{d.classList.remove('on');if(j===cur){void d.offsetWidth;d.classList.add('on')}})}setDot();
 if(!reduce)setInterval(()=>{slides[cur].classList.remove('on');cur=(cur+1)%slides.length;const s=slides[cur];s.style.animation='none';void s.offsetWidth;s.style.animation='';s.classList.add('on');cap.textContent=caps[cur];setDot()},6000);
