@@ -60,6 +60,8 @@ section{position:relative;padding:130px 0}
 .hero{height:100svh;min-height:680px;max-height:1020px;padding:0;overflow:hidden;background:#000}
 .hslide{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;transform:scale(1.12);transition:opacity 1.6s ease}
 .hslide.on{opacity:1;animation:kb 10s linear forwards}
+/* celular em pé: versões verticais (pessoas inteiras no alto da tela) */
+@media(max-width:700px) and (orientation:portrait){.hslide.s-casa{background-image:url(img/casa-m.jpg)!important;background-position:center top}.hslide.s-auto{background-image:url(img/auto-m.jpg)!important;background-position:center top}}
 @keyframes kb{from{transform:scale(1.12)}to{transform:scale(1.02)}}
 .hero .shade{position:absolute;inset:0;z-index:2;background:linear-gradient(90deg,rgba(6,21,43,.86) 0%,rgba(6,21,43,.5) 45%,rgba(6,21,43,.1) 75%),linear-gradient(180deg,rgba(6,21,43,.55) 0%,rgba(6,21,43,0) 25%,rgba(6,21,43,0) 60%,rgba(6,21,43,1) 100%)}
 .arc{position:absolute;z-index:3;right:-12vw;top:50%;width:62vw;height:62vw;max-width:900px;max-height:900px;transform:translateY(-50%) rotate(-18deg);pointer-events:none}
@@ -263,8 +265,8 @@ h2.in .sw>span{transform:none}
 <section class="hero" id="top">
   <div class="hslide on" style="background-image:url(img/hero.jpg)"></div>
   <div class="hslide" style="background-image:url(img/torres.jpg)"></div>
-  <div class="hslide" style="background-image:url(img/casa.jpg)"></div>
-  <div class="hslide" style="background-image:url(img/auto.jpg)"></div>
+  <div class="hslide s-casa" style="background-image:url(img/casa.jpg)"></div>
+  <div class="hslide s-auto" style="background-image:url(img/auto.jpg)"></div>
   <div class="shade"></div>
   <svg class="arc" viewBox="0 0 400 400" aria-hidden="true"><defs><linearGradient id="ga" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#EC5F9A"/><stop offset="1" stop-color="#5AA5F0"/></linearGradient></defs><circle cx="200" cy="200" r="190"/></svg>
   <div class="hc"><div class="wrap">
@@ -413,10 +415,7 @@ const ZAP='5527981332228';
 const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 /* HERO */
-let slides=[...document.querySelectorAll('.hslide')],caps=['Vitória, ES','Condomínios','Residencial','Auto'];
-/* celular em pé: fotos horizontais com pessoas cortam no topo; ficam só as paisagens (as pessoas seguem nos cartões) */
-if(matchMedia('(max-width:700px) and (orientation:portrait)').matches){slides.slice(2).forEach(s=>s.remove());slides=slides.slice(0,2);caps=caps.slice(0,2)}
-const dots=document.getElementById('dots'),cap=document.getElementById('cap');
+const slides=[...document.querySelectorAll('.hslide')],caps=['Vitória, ES','Condomínios','Residencial','Auto'],dots=document.getElementById('dots'),cap=document.getElementById('cap');
 slides.forEach(()=>dots.appendChild(document.createElement('b')));let cur=0;
 function setDot(){[...dots.children].forEach((d,j)=>{d.classList.remove('on');if(j===cur){void d.offsetWidth;d.classList.add('on')}})}setDot();
 if(!reduce)setInterval(()=>{slides[cur].classList.remove('on');cur=(cur+1)%slides.length;const s=slides[cur];s.style.animation='none';void s.offsetWidth;s.style.animation='';s.classList.add('on');cap.textContent=caps[cur];setDot()},6000);
