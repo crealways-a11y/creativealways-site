@@ -161,6 +161,15 @@ section{position:relative;padding:130px 0}
 .ano span,.ano small{display:block;font-size:12px;letter-spacing:.26em;text-transform:uppercase;color:var(--blue2)}
 .ano b{display:block;font-family:Fraunces,serif;font-size:clamp(72px,9vw,128px);line-height:1;margin:10px 0;background:linear-gradient(135deg,#fff,var(--sky));-webkit-background-clip:text;background-clip:text;color:transparent}
 @media(max-width:900px){.hg{grid-template-columns:1fr;gap:28px}.ano{padding:30px}}
+.segs{padding:90px 0 70px}
+.marq{overflow:hidden;margin-top:34px;-webkit-mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent);mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent)}
+.marq .trk{display:flex;width:max-content;animation:mq 70s linear infinite}
+.marq.rev .trk{animation-direction:reverse;animation-duration:80s}
+.marq span{display:inline-flex;align-items:center;padding:16px 30px;margin:0 8px;border-radius:16px;border:1px solid var(--line2);background:linear-gradient(135deg,rgba(255,255,255,.07),rgba(255,255,255,.02));font-family:Manrope,sans-serif;font-weight:800;font-size:19px;letter-spacing:.02em;color:#E6EEFF;white-space:nowrap}
+.marq span:before{content:"";width:8px;height:8px;border-radius:50%;background:var(--sky);margin-right:12px;box-shadow:0 0 12px var(--sky)}
+.marq:hover .trk{animation-play-state:paused}
+@keyframes mq{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@media(max-width:700px){.segs{padding:70px 0 50px}.marq span{font-size:16px;padding:12px 20px}}
 .team{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center}
 .tphoto{position:relative;border-radius:28px;overflow:hidden;aspect-ratio:3/4;border:1px solid var(--line2)}
 .tphoto img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
@@ -302,7 +311,7 @@ h2.in .sw>span{transform:none}
     <p class="lead rv d2">Toque no seguro e mande uma mensagem. A gente compara as seguradoras e te mostra a melhor opção, com tudo explicado.</p>
   </div>
   <div class="sgrid">
-    <a class="card big rv" href="#cotacao" data-tipo="Condomínio"><img src="img/torres.jpg" alt="Seguro de condomínio"><span class="badge">Nossa especialidade</span><div class="shine"></div><div class="tx"><h3>Condomínio</h3><p>Obrigatório por lei. Comparativo pronto para a assembleia e renovação acompanhada.</p><span class="go">Cotar →</span></div></a>
+    <a class="card big rv" href="#cotacao" data-tipo="Condomínio"><img src="img/torres.jpg" alt="Seguro de condomínio"><div class="shine"></div><div class="tx"><h3>Condomínio</h3><p>Obrigatório por lei. Comparativo pronto para a assembleia e renovação acompanhada.</p><span class="go">Cotar →</span></div></a>
     <a class="card rv d1" href="#cotacao" data-tipo="Auto"><img src="img/auto.jpg" alt="Seguro auto"><div class="shine"></div><div class="tx"><h3>Auto</h3><p>Várias seguradoras comparadas e o corretor no sinistro.</p><span class="go">Cotar →</span></div></a>
     <a class="card rv d2" href="#cotacao" data-tipo="Residencial"><img src="img/casa.jpg" alt="Seguro residencial" style="object-position:76% center"><div class="shine"></div><div class="tx"><h3>Residencial</h3><p>Casa e apartamento, por dentro.</p><span class="go">Cotar →</span></div></a>
     <a class="card rv" href="#cotacao" data-tipo="Vida"><img src="img/vida.jpg" alt="Seguro de vida" style="object-position:80% center"><div class="shine"></div><div class="tx"><h3>Vida</h3><p>Individual e em grupo.</p><span class="go">Cotar →</span></div></a>
@@ -314,11 +323,20 @@ h2.in .sw>span{transform:none}
   </div>
 </div></section>
 
+<section class="segs"><div class="wrap" style="text-align:center">
+  <div class="tag rv">Seguradoras parceiras</div>
+  <h2 class="rv d1" style="margin:14px 0 10px">Comparamos as <em>principais seguradoras do país.</em></h2>
+  <p class="lead rv d2" style="margin:0 auto">E muitas outras. Você escolhe com o comparativo na mão.</p>
+</div>
+<div class="marq rv d2"><div class="trk"><span>Porto Seguro</span><span>Azul Seguros</span><span>Icatu</span><span>PASI</span><span>Allianz</span><span>Bradesco Seguros</span><span>Suhai</span><span>Banestes</span><span>Tokio Marine</span><span>Mapfre</span><span>HDI Seguros</span><span>MetLife</span><span>Alfa Seguros</span><span>Chubb</span><span>Porto Seguro</span><span>Azul Seguros</span><span>Icatu</span><span>PASI</span><span>Allianz</span><span>Bradesco Seguros</span><span>Suhai</span><span>Banestes</span><span>Tokio Marine</span><span>Mapfre</span><span>HDI Seguros</span><span>MetLife</span><span>Alfa Seguros</span><span>Chubb</span></div></div>
+<div class="marq rev rv d3"><div class="trk"><span>Yelum</span><span>AXA</span><span>Zurich</span><span>Sura</span><span>Ezze</span><span>Pottencial</span><span>Fator Connect</span><span>Fairfax</span><span>Capemisa</span><span>Justos</span><span>Sancor</span><span>Youse</span><span>MBM</span><span>Yelum</span><span>AXA</span><span>Zurich</span><span>Sura</span><span>Ezze</span><span>Pottencial</span><span>Fator Connect</span><span>Fairfax</span><span>Capemisa</span><span>Justos</span><span>Sancor</span><span>Youse</span><span>MBM</span></div></div>
+</section>
+
 <section class="condo" id="condominio"><div class="wrap cg">
   <div class="cimg rv"><img src="img/torres.jpg" alt="Prédios residenciais"><div class="law glass"><b>Código Civil, art. 1.346 e 1.348</b>O seguro da edificação é obrigatório e cabe ao síndico contratá-lo.</div></div>
   <div>
-    <div class="tag rv">Nossa especialidade</div>
-    <h2 class="rv d1" style="margin:14px 0 18px">Seguro de condomínio, <em>com quem mais entende.</em></h2>
+    <div class="tag rv">Condomínios</div>
+    <h2 class="rv d1" style="margin:14px 0 18px">Seguro de condomínio, <em>sem complicação.</em></h2>
     <p class="lead rv d2">O seguro do prédio é obrigatório e é responsabilidade do síndico. A gente cuida da parte difícil: cotar, comparar, explicar para o conselho e lembrar da renovação antes do vencimento.</p>
     <div class="aud">
       <div class="glass rv d1"><b>Para síndicos</b><span>Comparativo pronto para a assembleia e renovação acompanhada todo ano.</span></div>
