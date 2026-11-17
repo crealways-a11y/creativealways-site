@@ -590,7 +590,7 @@ function alignGrad(){document.querySelectorAll('h2 em').forEach(em=>{const ws=[.
 
 /* PARALLAX e alvos de rolagem */
 const phone=document.getElementById('phone');
-const pars=[...document.querySelectorAll('.card img,.wall img,.loja .ph img:not(.logo),.final .bg')];
+const pars=[...document.querySelectorAll('.card img,.wall img,.final .bg')];
 pars.forEach(p=>p.classList.add('par'));
 phone.classList.add('tilt');
 const proof=document.querySelector('.proof'),steps=document.getElementById('steps'),stepEls=[...steps.querySelectorAll('.step')];
