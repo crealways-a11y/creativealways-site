@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Grande Vitória Corretora de Seguros · Vitória, ES · Auto, vida, residencial e condomínio</title>
-<meta name="description" content="Corretora de seguros na Praia do Canto, em Vitória. O corretor Aloysio Monjardim, com mais de 20 anos de experiência, compara as seguradoras e acompanha você no sinistro. Especialistas em seguro de condomínio.">
+<meta name="description" content="Corretora de seguros na Praia do Canto, em Vitória. O corretor Aloysio Monjardim, com 26 anos de experiência, compara as seguradoras e acompanha você no sinistro. Especialistas em seguro de condomínio.">
 <meta name="theme-color" content="#06152B">
 <link rel="icon" href="img/emblema.png">
 <meta property="og:title" content="Grande Vitória Corretora de Seguros">
@@ -101,6 +101,7 @@ section{position:relative;padding:130px 0}
 .sgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
 .card{position:relative;border-radius:var(--r);overflow:hidden;aspect-ratio:3/4;background:var(--ink3);isolation:isolate;display:block}
 .card.big{grid-column:span 2;aspect-ratio:auto}
+.card.wide{grid-column:span 2;aspect-ratio:16/8}
 .card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .card:after{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(6,21,43,0) 30%,rgba(6,21,43,.94) 100%)}
 .card .tx{position:absolute;z-index:2;left:20px;right:20px;bottom:18px}
@@ -226,6 +227,7 @@ h2.in .sw>span{transform:none}
   .menu,.nav .btn{display:none}
   .sgrid{grid-template-columns:1fr 1fr}
   .card.big{grid-column:span 2;aspect-ratio:16/10}
+  .card.wide{aspect-ratio:16/10}
   .cg,.og,.team,.final .wrap{grid-template-columns:1fr}
   .steps{grid-template-columns:1fr 1fr}
   .pg{grid-template-columns:repeat(3,1fr)}
@@ -272,7 +274,7 @@ h2.in .sw>span{transform:none}
   <div class="hc"><div class="wrap">
     <div class="kick glass"><img src="img/emblema.png" alt="">Corretora de seguros · Praia do Canto, Vitória</div>
     <h1><span class="ln"><span>Proteção de verdade</span></span><span class="ln"><span><em>para quem você ama.</em></span></span></h1>
-    <p class="sub">O corretor Aloysio Monjardim, com mais de 20 anos de experiência, compara as seguradoras, explica cada cobertura e fica do seu lado na hora do sinistro.</p>
+    <p class="sub">O corretor Aloysio Monjardim, com 26 anos de experiência, compara as seguradoras, explica cada cobertura e fica do seu lado na hora do sinistro.</p>
     <div class="ctas">
       <a class="btn pri" href="#cotacao">Cotar meu seguro<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
       <a class="btn gl glass" href="#seguros">Ver os seguros</a>
@@ -282,10 +284,10 @@ h2.in .sw>span{transform:none}
 </section>
 
 <section class="proof"><div class="wrap">
-  <div><b><span data-to="20">20</span><i>+</i></b><span>anos de experiência do corretor</span></div>
-  <div><b><span data-to="9">9</span> tipos</b><span>de seguro e consórcio</span></div>
+  <div><b><span data-to="26">26</span> anos</b><span>de experiência do corretor Aloysio Monjardim</span></div>
+  <div><b>Todos</b><span>os seguros e consórcios</span></div>
   <div><b>Várias</b><span>seguradoras comparadas</span></div>
-  <div><b>1 corretor</b><span>do começo ao sinistro</span></div>
+  <div><b>Equipe</b><span>especializada do começo ao sinistro</span></div>
 </div></section>
 
 <section id="seguros"><div class="wrap">
@@ -301,6 +303,8 @@ h2.in .sw>span{transform:none}
     <a class="card rv d1" href="#cotacao" data-tipo="Saúde"><img src="img/saude.jpg" alt="Plano de saúde"><div class="shine"></div><div class="tx"><h3>Saúde</h3><p>Planos para família e empresa.</p><span class="go">Cotar →</span></div></a>
     <a class="card rv d2" href="#cotacao" data-tipo="Empresarial"><img src="img/empresa.jpg" alt="Seguro empresarial" style="object-position:35% center"><div class="shine"></div><div class="tx"><h3>Empresas</h3><p>Loja, escritório e responsabilidade civil.</p><span class="go">Cotar →</span></div></a>
     <a class="card rv d3" href="#cotacao" data-tipo="Consórcio"><img src="img/consorcio.jpg" alt="Consórcio"><div class="shine"></div><div class="tx"><h3>Consórcio</h3><p>Carro e imóvel, sem juros.</p><span class="go">Cotar →</span></div></a>
+    <a class="card wide rv" href="#cotacao" data-tipo="RC Profissional"><img src="img/rc-profissional.jpg" alt="Seguro de responsabilidade civil profissional"><div class="shine"></div><div class="tx"><h3>RC Profissional</h3><p>Para médicos, dentistas, engenheiros, advogados e outras profissões.</p><span class="go">Cotar →</span></div></a>
+    <a class="card wide rv d1" href="#cotacao" data-tipo="Engenharia e Obras"><img src="img/engenharia-obras.jpg" alt="Seguro de risco de engenharia e obras"><div class="shine"></div><div class="tx"><h3>Risco de Engenharia e Obras</h3><p>Proteção da obra do começo à entrega.</p><span class="go">Cotar →</span></div></a>
   </div>
 </div></section>
 
@@ -352,7 +356,7 @@ h2.in .sw>span{transform:none}
     <div>
       <div class="tag rv">Quem cuida de você</div>
       <h2 class="rv d1" style="margin:14px 0 18px">Aqui quem cota é quem atende, <em>e quem atende resolve.</em></h2>
-      <p class="lead rv d2">À frente da Grande Vitória está o corretor Aloysio Monjardim, com mais de 20 anos de experiência em seguros. Você fala com a equipe pelo nome, não com uma central, do primeiro contato à renovação.</p>
+      <p class="lead rv d2">À frente da Grande Vitória está o corretor Aloysio Monjardim, com 26 anos de experiência em seguros. Você fala com a equipe pelo nome, não com uma central, do primeiro contato à renovação.</p>
       <div class="office">
         <div class="ph rv d2"><img src="img/aloysio-escritorio.jpg" alt="Aloysio Monjardim no escritório"><span class="glass">Aloysio Monjardim · corretor</span></div>
         <div class="ph rv d3"><img src="img/fachada.jpg" alt="Prédio do escritório na Praia do Canto"><span class="glass">Praia do Canto · Vitória</span></div>
@@ -360,11 +364,11 @@ h2.in .sw>span{transform:none}
     </div>
   </div>
   <div class="pg">
-    <div class="person rv"><div class="ph"><img loading="lazy" src="img/aloysio.jpg" alt="Aloysio Monjardim"></div><b>Aloysio Monjardim</b><span>Corretor de seguros</span></div>
-    <div class="person rv d1"><div class="ph"><img loading="lazy" src="img/libia.jpg" alt="Líbia"></div><b>Líbia</b><span>Grande Vitória</span></div>
-    <div class="person rv d2"><div class="ph"><img loading="lazy" src="img/renata.jpg" alt="Renata Fernandes"></div><b>Renata Fernandes</b><span>Grande Vitória</span></div>
-    <div class="person rv d3"><div class="ph"><img loading="lazy" src="img/diego.jpg" alt="Diego Bitencourt"></div><b>Diego Bitencourt</b><span>Grande Vitória</span></div>
-    <div class="person rv d4"><div class="ph"><img loading="lazy" src="img/jheimyson.jpg" alt="Jheimyson Rodrigues"></div><b>Jheimyson Rodrigues</b><span>Grande Vitória</span></div>
+    <div class="person rv"><div class="ph"><img loading="lazy" src="img/aloysio.jpg" alt="Aloysio Monjardim"></div><b>Aloysio Monjardim</b><span>Corretor Master em Seguros</span></div>
+    <div class="person rv d1"><div class="ph"><img loading="lazy" src="img/libia.jpg" alt="Libia Monjardim"></div><b>Libia Monjardim</b><span>Gerente Comercial de Seguros e Consórcios</span></div>
+    <div class="person rv d2"><div class="ph"><img loading="lazy" src="img/renata.jpg" alt="Renata Fernandes"></div><b>Renata Fernandes</b><span>Especialista Patrimonial</span></div>
+    <div class="person rv d3"><div class="ph"><img loading="lazy" src="img/diego.jpg" alt="Diego Betencourt"></div><b>Diego Betencourt</b><span>Especialista em Auto e Ramos Elementares</span></div>
+    <div class="person rv d4"><div class="ph"><img loading="lazy" src="img/jheimyson.jpg" alt="Jheimyson Rodrigues"></div><b>Jheimyson Rodrigues</b><span>Supervisor de Cobrança e Sinistros</span></div>
   </div>
 </div></section>
 
@@ -428,7 +432,9 @@ const F={
  'Vida':[['Idade','ex.: 38'],['Para','sel:Só para mim|Para a família|Para a empresa (grupo)']],
  'Saúde':[['Quantas vidas','ex.: 3'],['Idades','ex.: 40, 38 e 9'],['Para','sel:Família|Empresa']],
  'Empresarial':[['Ramo da empresa','ex.: loja de roupas'],['Bairro / cidade','ex.: Centro, Vitória']],
- 'Consórcio':[['Para','sel:Carro|Imóvel|Outro'],['Valor da carta','ex.: R$ 80 mil']]
+ 'Consórcio':[['Para','sel:Carro|Imóvel|Outro'],['Valor da carta','ex.: R$ 80 mil']],
+ 'RC Profissional':[['Profissão','ex.: médico, dentista, engenheiro, advogado'],['Atua como','sel:Autônomo|Empresa / clínica / escritório'],['Cidade','ex.: Vitória']],
+ 'Engenharia e Obras':[['Tipo de obra','ex.: construção de prédio, reforma, instalação'],['Valor estimado da obra','ex.: R$ 2 milhões'],['Prazo da obra','ex.: 18 meses'],['Cidade','ex.: Vila Velha']]
 };
 const chips=document.getElementById('chips'),flds=document.getElementById('flds');let tipo='Auto';
 Object.keys(F).forEach(k=>{const b=document.createElement('button');b.type='button';b.textContent=k;b.onclick=()=>setTipo(k);chips.appendChild(b)});
@@ -441,7 +447,7 @@ setTipo('Auto');
 document.querySelectorAll('[data-tipo],[data-go]').forEach(a=>a.addEventListener('click',()=>setTipo(a.dataset.tipo||a.dataset.go)));
 document.getElementById('go').onclick=()=>{
   const parts=[...flds.querySelectorAll('input,select')].map(e=>e.value.trim()?e.dataset.l+': '+e.value.trim():null).filter(Boolean);
-  const NOME={'Auto':'seguro auto','Condomínio':'seguro de condomínio','Residencial':'seguro residencial','Vida':'seguro de vida','Saúde':'plano de saúde','Empresarial':'seguro empresarial','Consórcio':'consórcio'};
+  const NOME={'Auto':'seguro auto','Condomínio':'seguro de condomínio','Residencial':'seguro residencial','Vida':'seguro de vida','Saúde':'plano de saúde','Empresarial':'seguro empresarial','Consórcio':'consórcio','RC Profissional':'seguro de responsabilidade civil profissional','Engenharia e Obras':'seguro de risco de engenharia (obras)'};
   const m='Olá, Grande Vitória! Quero uma cotação de '+(NOME[tipo]||'seguro')+'.'+(parts.length?' '+parts.join(' · ')+'.':'')+' Vi no site.';
   document.getElementById('prevtx').textContent=m;document.getElementById('prev').classList.add('on');
   window.open('https://wa.me/'+ZAP+'?text='+encodeURIComponent(m),'_blank','noopener');
