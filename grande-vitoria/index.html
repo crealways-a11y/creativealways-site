@@ -425,7 +425,7 @@ h2.in .sw>span{transform:none}
 <section id="duvidas" style="padding-top:60px"><div class="wrap">
   <div style="text-align:center"><div class="tag rv">Dúvidas frequentes</div><h2 class="rv d1" style="margin-top:14px">Perguntas que a gente <em>sempre ouve.</em></h2></div>
   <div class="faq" id="faq">
-    <div class="fq rv"><button type="button">Por que contratar com um corretor e não direto na seguradora?<i>+</i></button><div class="a"><div><p>O corretor compara várias seguradoras, explica as coberturas e, principalmente, fica do seu lado na hora do sinistro. E você não paga a mais por isso.</p></div></div></div>
+    <div class="fq rv"><button type="button">Por que contratar com um corretor e não direto pela internet ou com o banco?<i>+</i></button><div class="a"><div><p>A seguradora não atende o público final: todo seguro passa por um corretor. A diferença é quem cuida de você. Pela internet ou no banco, você compra um produto pronto. Com o corretor, você tem várias seguradoras comparadas, as coberturas explicadas e alguém do seu lado na hora do sinistro. E você não paga a mais por isso.</p></div></div></div>
     <div class="fq rv"><button type="button">O seguro de condomínio é obrigatório?<i>+</i></button><div class="a"><div><p>Sim. O Código Civil exige o seguro de toda a edificação contra incêndio e destruição, total ou parcial (art. 1.346), e coloca a contratação entre as funções do síndico (art. 1.348).</p></div></div></div>
     <div class="fq rv"><button type="button">O seguro do condomínio cobre o meu apartamento por dentro?<i>+</i></button><div class="a"><div><p>Em geral, ele protege a estrutura e as áreas comuns. Móveis, eletrodomésticos e reformas do apartamento ficam com o seguro residencial de cada morador.</p></div></div></div>
     <div class="fq rv"><button type="button">Posso trocar de seguradora antes do vencimento?<i>+</i></button><div class="a"><div><p>Depende das condições da apólice atual. Analisamos o seu caso e mostramos se vale a pena trocar agora ou na renovação.</p></div></div></div>
@@ -475,7 +475,8 @@ const F={
  'Empresarial':[['Ramo da empresa','ex.: loja de roupas'],['Bairro / cidade','ex.: Centro, Vitória']],
  'Consórcio':[['Para','sel:Carro|Imóvel|Outro'],['Valor da carta','ex.: R$ 80 mil']],
  'RC Profissional':[['Profissão','ex.: médico, dentista, engenheiro, advogado'],['Atua como','sel:Autônomo|Empresa / clínica / escritório'],['Cidade','ex.: Vitória']],
- 'Engenharia e Obras':[['Tipo de obra','ex.: construção de prédio, reforma, instalação'],['Valor estimado da obra','ex.: R$ 2 milhões'],['Prazo da obra','ex.: 18 meses'],['Cidade','ex.: Vila Velha']]
+ 'Engenharia e Obras':[['Tipo de obra','ex.: construção de prédio, reforma, instalação'],['Valor estimado da obra','ex.: R$ 2 milhões'],['Prazo da obra','ex.: 18 meses'],['Cidade','ex.: Vila Velha']],
+ 'APP · Acidentes Pessoais':[['Para','sel:Só para mim|Para a família|Para a empresa (grupo)|Para um evento'],['Quantas pessoas','ex.: 1'],['Idade ou faixa de idade','ex.: 35'],['Profissão / atividade','ex.: motorista, estudante, atleta']]
 };
 const chips=document.getElementById('chips'),flds=document.getElementById('flds');let tipo='Auto';
 Object.keys(F).forEach(k=>{const b=document.createElement('button');b.type='button';b.textContent=k;b.onclick=()=>setTipo(k);chips.appendChild(b)});
@@ -488,7 +489,7 @@ setTipo('Auto');
 document.querySelectorAll('[data-tipo],[data-go]').forEach(a=>a.addEventListener('click',()=>setTipo(a.dataset.tipo||a.dataset.go)));
 document.getElementById('go').onclick=()=>{
   const parts=[...flds.querySelectorAll('input,select')].map(e=>e.value.trim()?e.dataset.l+': '+e.value.trim():null).filter(Boolean);
-  const NOME={'Auto':'seguro auto','Condomínio':'seguro de condomínio','Residencial':'seguro residencial','Vida':'seguro de vida','Saúde':'plano de saúde','Empresarial':'seguro empresarial','Consórcio':'consórcio','RC Profissional':'seguro de responsabilidade civil profissional','Engenharia e Obras':'seguro de risco de engenharia (obras)'};
+  const NOME={'Auto':'seguro auto','Condomínio':'seguro de condomínio','Residencial':'seguro residencial','Vida':'seguro de vida','Saúde':'plano de saúde','Empresarial':'seguro empresarial','Consórcio':'consórcio','RC Profissional':'seguro de responsabilidade civil profissional','Engenharia e Obras':'seguro de risco de engenharia (obras)','APP · Acidentes Pessoais':'seguro de acidentes pessoais (APP)'};
   const m='Olá, Grande Vitória! Quero uma cotação de '+(NOME[tipo]||'seguro')+'.'+(parts.length?' '+parts.join(' · ')+'.':'')+' Vi no site.';
   document.getElementById('prevtx').textContent=m;document.getElementById('prev').classList.add('on');
   window.open('https://wa.me/'+ZAP+'?text='+encodeURIComponent(m),'_blank','noopener');
