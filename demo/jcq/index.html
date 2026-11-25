@@ -15,153 +15,207 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
 <style>
-  :root { --bg:#14100d; --card:#1f1813; --line:rgba(250,246,239,.14); --gold:#e7cdac; --txt:#faf6ef; --mute:rgba(250,246,239,.62); }
+  :root { --bg:#14100d; --card:rgba(31,24,19,.92); --line:rgba(250,246,239,.14); --gold:#e7cdac; --txt:#faf6ef; --mute:rgba(250,246,239,.62); }
   * { box-sizing:border-box; margin:0; padding:0; -webkit-tap-highlight-color:transparent; }
-  html, body { background:var(--bg); color:var(--txt); font-family:'Plus Jakarta Sans', system-ui, sans-serif; overflow-x:hidden; }
-  body { min-height:100vh; min-height:100dvh; display:flex; flex-direction:column; align-items:center;
-    background: radial-gradient(ellipse 60% 42% at 50% 30%, rgba(150,112,82,.30), transparent 72%), linear-gradient(180deg,#1f1813,#14100d); }
-  body::before { content:'Jogou com Quem?'; position:fixed; left:50%; top:30%; transform:translate(-50%,-50%); font-family:Georgia, serif; font-style:italic;
-    font-size:clamp(64px, 17vw, 200px); color:rgba(235,210,181,.05); white-space:nowrap; pointer-events:none; z-index:0; }
-  header, main, footer { position:relative; z-index:1; }
-  header { width:100%; max-width:520px; padding:14px 16px 0; display:flex; justify-content:space-between; align-items:center; }
+  html, body { height:100%; overflow:hidden; background:var(--bg); color:var(--txt); font-family:'Plus Jakarta Sans', system-ui, sans-serif; }
+  body { display:flex; justify-content:center;
+    background: radial-gradient(ellipse 70% 45% at 50% 38%, rgba(150,112,82,.30), transparent 72%), linear-gradient(180deg,#1f1813,#14100d); }
+  .app { position:relative; width:100%; max-width:520px; height:100vh; height:100dvh; display:flex; flex-direction:column; }
+  .app::before { content:'Jogou com Quem?'; position:absolute; left:50%; top:34%; transform:translate(-50%,-50%); font-family:Georgia, serif; font-style:italic;
+    font-size:clamp(56px, 16vw, 110px); color:rgba(235,210,181,.05); white-space:nowrap; pointer-events:none; }
+  header { position:relative; flex:none; padding:12px 16px 4px; display:flex; justify-content:space-between; align-items:center; }
   .brand { font-weight:700; font-size:15px; }
-  .brand small { display:block; font-weight:500; font-size:10.5px; letter-spacing:.16em; text-transform:uppercase; color:var(--gold); }
+  .brand small { display:block; font-weight:500; font-size:10px; letter-spacing:.16em; text-transform:uppercase; color:var(--gold); }
   .tag { font-size:10px; letter-spacing:.14em; text-transform:uppercase; color:var(--mute); border:1px solid var(--line); padding:5px 9px; border-radius:99px; }
-  main { width:100%; max-width:520px; padding:0 16px 20px; display:flex; flex-direction:column; gap:12px; }
-  .stage { position:relative; width:min(100%, 46vh); aspect-ratio:760/1240; margin:0 auto; touch-action:none; cursor:grab; overflow:hidden; }
+
+  .stage { position:relative; flex:1 1 auto; min-height:200px; touch-action:none; cursor:grab; overflow:hidden; }
   .zoomwrap { position:absolute; inset:0; transform-origin:50% 50%; transition:scale .15s ease-out, translate .1s ease-out; }
-  .frame { position:absolute; inset:0; width:100%; height:100%; object-fit:contain; opacity:0; pointer-events:none; user-select:none; -webkit-user-drag:none; }
+  .fig { position:absolute; left:50%; top:0; transform:translateX(-50%); }
+  .frame, #pc { position:absolute; inset:0; width:100%; height:100%; pointer-events:none; user-select:none; -webkit-user-drag:none; }
+  .frame { opacity:0; }
   .frame.on { opacity:1; }
-  .print { position:absolute; transform-origin:50% 0; text-align:center; font-family:'Anton', Impact, sans-serif; text-transform:uppercase; line-height:1; pointer-events:none; white-space:nowrap; }
-  .print .n { display:block; letter-spacing:.05em; }
-  .print .k { display:block; letter-spacing:-.01em; }
-  .print.light { color:#fff; text-shadow:0 1px 0 rgba(0,0,0,.18); }
-  .print.dark { color:#161616; mix-blend-mode:multiply; }
+  #pc.dark { mix-blend-mode:multiply; }
+  .loading { position:absolute; left:50%; top:45%; transform:translate(-50%,-50%); font-size:12px; color:var(--mute); letter-spacing:.08em; }
   .zoom-reset { position:absolute; left:50%; top:8px; transform:translateX(-50%); z-index:5; display:none; padding:8px 14px; border-radius:99px;
     background:rgba(18,14,11,.85); border:1px solid rgba(235,210,181,.4); color:var(--gold); font-size:12px; font-weight:600; }
   .stage.zoomed .zoom-reset { display:block; }
-  .ctrl { display:flex; justify-content:center; align-items:center; gap:10px; margin-top:-2px; }
-  .ctrl button { width:40px; height:40px; border-radius:50%; border:1px solid var(--line); background:rgba(255,255,255,.04); color:var(--txt); font-size:18px; }
-  .ctrl span { font-size:12px; color:var(--mute); min-width:150px; text-align:center; }
-  .shirts { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:10px; }
-  .shirt { display:flex; gap:10px; align-items:center; padding:8px; border-radius:14px; border:1px solid var(--line); background:var(--card); text-align:left; color:var(--txt); min-width:0; }
-  .shirt img { width:42px; height:68px; object-fit:cover; border-radius:8px; background:#2a211b; }
+  .spin { position:absolute; inset:0; z-index:4; pointer-events:none; }
+  .spin button { position:absolute; top:46%; width:34px; height:34px; border-radius:50%; border:1px solid var(--line); background:rgba(18,14,11,.6); color:var(--txt); font-size:17px; line-height:1; pointer-events:auto; }
+  #prev { left:10px; } #next { right:10px; }
+  .spin span { position:absolute; left:50%; top:4px; transform:translateX(-50%); font-size:10.5px; color:var(--mute); white-space:nowrap; letter-spacing:.04em; transition:opacity .4s; }
+  .spin.used span { opacity:0; }
+  .stage.zoomed .spin { display:none; }
+
+  .panel { position:relative; flex:none; margin:0 10px calc(10px + env(safe-area-inset-bottom)); padding:10px; border-radius:18px; background:var(--card);
+    border:1px solid var(--line); display:flex; flex-direction:column; gap:8px; max-height:58vh; overflow:auto; }
+  .shirts { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:8px; }
+  .shirt { display:flex; gap:8px; align-items:center; padding:5px 8px 5px 5px; border-radius:12px; border:1px solid var(--line); background:rgba(255,255,255,.03); text-align:left; color:var(--txt); min-width:0; }
+  .shirt i { flex:none; width:34px; height:34px; border-radius:8px; background:#2a211b no-repeat 50% 24% / 230%; }
   .shirt > span { min-width:0; }
-  .shirt b { display:block; font-size:13px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
-  .shirt small { font-size:11.5px; color:var(--mute); }
+  .shirt b { display:block; font-size:12.5px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+  .shirt small { font-size:11px; color:var(--mute); }
   .shirt.on { border-color:var(--gold); box-shadow:0 0 0 1px var(--gold) inset; }
-  .fields { display:grid; grid-template-columns:minmax(0,1fr) 92px; gap:10px; }
-  label { font-size:11.5px; color:var(--mute); display:block; margin-bottom:6px; }
-  input { width:100%; padding:12px 14px; border-radius:12px; border:1px solid var(--line); background:#120e0b; color:var(--txt); font-size:16px; font-weight:600; text-transform:uppercase; }
+  .fields { display:grid; grid-template-columns:minmax(0,1fr) 74px; gap:8px; }
+  .fld { position:relative; }
+  .fld label { position:absolute; left:12px; top:6px; font-size:9.5px; letter-spacing:.1em; text-transform:uppercase; color:var(--mute); pointer-events:none; }
+  input { width:100%; padding:19px 12px 6px; border-radius:12px; border:1px solid var(--line); background:#120e0b; color:var(--txt); font-size:16px; font-weight:700; text-transform:uppercase; }
   input:focus { outline:none; border-color:var(--gold); }
-  .row { display:flex; gap:8px; flex-wrap:wrap; }
-  .chip { padding:9px 12px; border-radius:10px; border:1px solid var(--line); background:rgba(255,255,255,.04); color:var(--txt); font-weight:600; font-size:13px; }
+  .row { display:flex; gap:6px; align-items:center; }
+  .row.sp { justify-content:space-between; }
+  .chip { flex:1 1 0; padding:8px 4px; border-radius:10px; border:1px solid var(--line); background:rgba(255,255,255,.04); color:var(--txt); font-weight:600; font-size:12.5px; white-space:nowrap; }
   .chip.on { background:var(--gold); color:#191410; border-color:var(--gold); }
-  .price { display:flex; justify-content:space-between; align-items:center; padding:12px 14px; border-radius:14px; background:var(--card); border:1px solid var(--line); }
-  .price span { font-size:13px; color:var(--mute); }
-  .price b { font-size:20px; color:var(--gold); }
-  .cta { display:block; text-align:center; text-decoration:none; padding:15px; border-radius:99px; background:linear-gradient(135deg,#f1dcc0,#c9a07a); color:#191410; font-weight:700; font-size:15px; }
-  footer { font-size:10.5px; letter-spacing:.14em; text-transform:uppercase; color:var(--mute); text-align:center; padding:4px 0 18px; }
-  @media (pointer: coarse) { .frame { transition:none; } }
+  .ver { display:flex; gap:6px; flex:1 1 auto; }
+  .price { flex:none; text-align:right; padding-left:6px; }
+  .price b { display:block; font-size:18px; color:var(--gold); line-height:1.1; }
+  .price small { font-size:10.5px; color:var(--mute); }
+  .cta { display:block; text-align:center; text-decoration:none; padding:13px; border-radius:99px; background:linear-gradient(135deg,#f1dcc0,#c9a07a); color:#191410; font-weight:700; font-size:15px; }
+  .foot { text-align:center; font-size:9.5px; letter-spacing:.14em; text-transform:uppercase; color:var(--mute); }
+  @media (max-height:640px) { .foot { display:none; } .panel { gap:6px; } input { padding:17px 12px 5px; } .chip { padding:7px 4px; } .cta { padding:11px; } }
 </style>
 </head>
 <body>
+<div class="app">
 <header>
   <div class="brand">Jogou com Quem?<small>Provador 360°</small></div>
   <span class="tag">Prévia</span>
 </header>
-<main>
-  <div class="stage" id="stage">
-    <div class="zoomwrap" id="zw">
-      <div id="frames"></div>
-      <div class="print" id="print"><span class="n" id="pN"></span><span class="k" id="pK"></span></div>
-    </div>
-    <button class="zoom-reset" id="zr" type="button">Voltar ao tamanho normal</button>
+<div class="stage" id="stage">
+  <div class="zoomwrap" id="zw">
+    <div class="fig" id="fig"><div id="frames"></div><canvas id="pc" width="760" height="1240"></canvas></div>
   </div>
-  <div class="ctrl"><button type="button" id="prev" aria-label="Girar para a esquerda">‹</button><span id="hint">Arraste para girar · pinça para zoom</span><button type="button" id="next" aria-label="Girar para a direita">›</button></div>
+  <div class="loading" id="load">Carregando…</div>
+  <button class="zoom-reset" id="zr" type="button">Voltar ao tamanho normal</button>
+  <div class="spin" id="spin"><button type="button" id="prev" aria-label="Girar para a esquerda">‹</button><span>Arraste para girar · pinça = zoom</span><button type="button" id="next" aria-label="Girar para a direita">›</button></div>
+</div>
+<div class="panel">
   <div class="shirts" id="shirts"></div>
   <div class="fields">
-    <div><label for="iName">Nome nas costas</label><input id="iName" maxlength="12" placeholder="SEU NOME" autocomplete="off" /></div>
-    <div><label for="iNum">Número</label><input id="iNum" inputmode="numeric" maxlength="2" placeholder="10" autocomplete="off" /></div>
+    <div class="fld"><label for="iName">Nome nas costas</label><input id="iName" maxlength="12" placeholder="SEU NOME" autocomplete="off" enterkeyhint="done" /></div>
+    <div class="fld"><label for="iNum">Número</label><input id="iNum" inputmode="numeric" maxlength="2" placeholder="10" autocomplete="off" enterkeyhint="done" /></div>
   </div>
-  <div><label>Versão</label><div class="row" id="vers"></div></div>
-  <div><label>Tamanho</label><div class="row" id="sizes"></div></div>
-  <div class="price"><span id="sum"></span><b id="val"></b></div>
+  <div class="row sp"><div class="ver" id="vers"></div><div class="price"><b id="val"></b><small id="sum"></small></div></div>
+  <div class="row" id="sizes"></div>
   <a class="cta" id="cta" target="_blank" rel="noopener">Quero essa no WhatsApp</a>
-</main>
-<footer>Prévia · Creative Always</footer>
-<script src="print.js?v=1"></script>
+  <div class="foot">Prévia · Creative Always</div>
+</div>
+</div>
+<script src="print.js?v=2"></script>
 <script>
 (() => {
   const V = '?v=1';
   const KITS = [
-    { id: 'fla', name: 'Flamengo III 26/27', kit: 'camisa + calção', ink: 'light' },
-    { id: 'vasco', name: 'Vasco Círio de Nazaré 26', kit: 'camisa + calção', ink: 'dark' }
+    { id: 'fla', name: 'Flamengo III 26/27', short: 'Flamengo III', ink: 'light' },
+    { id: 'vasco', name: 'Vasco Círio de Nazaré 26', short: 'Vasco Círio', ink: 'dark' }
   ];
   const VERS = [{ id: 'Torcedor', price: 'R$ 179,90' }, { id: 'Jogador', price: 'R$ 199,90' }];
   const SIZES = ['P', 'M', 'G', 'GG', 'Infantil'];
   const WA = '5527988140076';
-  const N = 24;
+  const N = 24, IW = 760, IH = 1240;
   const $ = (s) => document.querySelector(s);
   const q = new URLSearchParams(location.search);
-  const st = { kit: KITS.find((k) => k.id === q.get('camisa')) || KITS[0], ver: VERS[0], size: 'M', deg: 0, target: 0, vel: 0, drag: false, auto: true };
+  const st = { kit: KITS.find((k) => k.id === q.get('camisa')) || KITS[0], ver: VERS[0], size: 'M', deg: 0, target: 0, vel: 0, drag: false, auto: true, ready: false };
   if (q.get('angulo')) { st.deg = st.target = Number(q.get('angulo')) || 0; st.auto = false; }
   $('#iName').value = (q.get('nome') || 'ELISEU').slice(0, 12);
   $('#iNum').value = (q.get('numero') || '10').replace(/\D/g, '').slice(0, 2);
+  const getName = () => $('#iName').value.trim().toUpperCase();
+  const getNum = () => $('#iNum').value.replace(/\D/g, '').slice(0, 2);
+
+  // a figura ocupa o maior tamanho possível dentro do palco, sem distorcer
+  const stage = $('#stage'), zw = $('#zw'), fig = $('#fig');
+  function fit() { const s = Math.min(stage.clientWidth / IW, stage.clientHeight / IH); fig.style.width = IW * s + 'px'; fig.style.height = IH * s + 'px'; }
+  addEventListener('resize', fit); fit();
 
   const src = (k, i) => `img/f/${k}_${String(i * 15).padStart(3, '0')}.webp${V}`;
-  let imgs = [];
+  let imgs = [], cur = -1, gen = 0;
   function mount() {
-    const box = $('#frames'); box.innerHTML = '';
-    imgs = Array.from({ length: N }, (_, i) => { const im = document.createElement('img'); im.className = 'frame'; im.alt = ''; im.decoding = 'async'; im.src = src(st.kit.id, i); box.appendChild(im); return im; });
-    cur = -1; draw();
+    const g = ++gen; st.ready = false; $('#load').style.display = 'block';
+    const box = $('#frames'); box.innerHTML = ''; cur = -1;
+    let left = N;
+    imgs = Array.from({ length: N }, (_, i) => {
+      const im = document.createElement('img'); im.className = 'frame'; im.alt = ''; im.decoding = 'async';
+      const done = () => { if (g !== gen) return; if (--left === 0) { st.ready = true; $('#load').style.display = 'none'; } cur = -1; draw(); };
+      im.onload = done; im.onerror = done; im.src = src(st.kit.id, i); box.appendChild(im); return im;
+    });
   }
-  // pré-carrega a outra camisa depois de um tempo, sem travar a abertura
-  setTimeout(() => KITS.forEach((k) => { if (k !== st.kit) for (let i = 0; i < N; i++) { const im = new Image(); im.src = src(k.id, i); } }), 3500);
+  setTimeout(() => KITS.forEach((k) => { if (k !== st.kit) for (let i = 0; i < N; i++) { const im = new Image(); im.src = src(k.id, i); } }), 4000);
 
-  let cur = -1;
   const norm = (d) => ((d % 360) + 360) % 360;
+  const ok = (im) => im && im.complete && im.naturalWidth > 0;
   function draw() {
-    const i = Math.round(norm(st.deg) / 15) % N;
-    if (i !== cur) { if (imgs[cur]) imgs[cur].classList.remove('on'); imgs[i].classList.add('on'); cur = i; placePrint(i); }
+    let i = Math.round(norm(st.deg) / 15) % N;
+    if (!ok(imgs[i])) { if (cur >= 0) return; i = imgs.findIndex(ok); if (i < 0) return; }
+    if (i !== cur) { if (imgs[cur]) imgs[cur].classList.remove('on'); imgs[i].classList.add('on'); cur = i; placePrint(); }
   }
-  function placePrint(i) {
-    const p = (window.PRINT && window.PRINT[st.kit.id] || [])[i];
-    const el = $('#print');
-    const name = $('#iName').value.trim().toUpperCase(), num = $('#iNum').value.replace(/\D/g, '').slice(0, 2);
-    el.className = 'print ' + st.kit.ink;
-    if (!p || p.o <= 0 || (!name && !num)) { el.style.display = 'none'; return; }
-    const W = $('#stage').clientWidth;
-    el.style.display = 'block'; el.className = 'print ' + st.kit.ink;
-    el.style.left = (p.x * 100) + '%'; el.style.top = (p.y * 100) + '%';
-    el.style.transform = `translateX(-50%) scaleX(${p.sx.toFixed(3)})`;
-    el.style.opacity = p.o.toFixed(2);
-    $('#pN').style.fontSize = (W * p.w * 0.16) + 'px';
-    $('#pK').style.fontSize = (W * p.w * 0.38) + 'px';
-    $('#pN').textContent = name; $('#pK').textContent = num;
+
+  // nome e número: desenhados no próprio quadro e recortados na cor da camisa (nunca saem do tecido)
+  const pc = $('#pc'), pctx = pc.getContext('2d');
+  const T = document.createElement('canvas'); T.width = IW; T.height = IH; const tctx = T.getContext('2d');
+  const masks = new Map();
+  function shirtMask(kit, i, im, r) {
+    const key = kit + i; if (masks.has(key)) return masks.get(key);
+    const x0 = Math.max(0, Math.floor(r.cx - r.a * 1.6)), x1 = Math.min(IW, Math.ceil(r.cx + r.a * 1.6));
+    const y0 = Math.max(0, Math.floor(r.ny - 20)), y1 = Math.min(IH, Math.ceil(r.ny + r.h * 0.2));
+    const c = document.createElement('canvas'); c.width = IW; c.height = IH; const x = c.getContext('2d', { willReadFrequently: true });
+    x.drawImage(im, 0, 0, IW, IH);
+    const d = x.getImageData(x0, y0, x1 - x0, y1 - y0), p = d.data;
+    for (let k = 0; k < p.length; k += 4) {
+      const R = p[k], G = p[k + 1], B = p[k + 2];
+      const s = kit === 'fla' ? (R > 90 && R > 1.6 * G && R > 1.4 * B) : ((R + G + B) / 3 > 140 && R - B < 55);
+      p[k + 3] = s && p[k + 3] > 128 ? 255 : 0;
+    }
+    x.clearRect(0, 0, IW, IH); x.putImageData(d, x0, y0);
+    masks.set(key, c); return c;
   }
+  function capFont(px) { // tamanho de fonte para uma altura de letra maiúscula de px
+    tctx.font = '100px Anton'; const m = tctx.measureText('E'); const cap = (m.actualBoundingBoxAscent || 73);
+    return 100 * px / cap;
+  }
+  function placePrint() {
+    pctx.clearRect(0, 0, IW, IH); pc.className = st.kit.ink;
+    const r = (window.PRINT && window.PRINT[st.kit.id] || [])[cur];
+    const name = getName(), num = getNum();
+    if (!r || !ok(imgs[cur]) || (!name && !num)) return;
+    const mask = shirtMask(st.kit.id, cur, imgs[cur], r);
+    const nameCap = r.h * 0.026, numCap = r.h * 0.10, gap = r.h * 0.014, maxW = r.a * 1.35;
+    tctx.setTransform(1, 0, 0, 1, 0, 0); tctx.globalCompositeOperation = 'source-over'; tctx.clearRect(0, 0, IW, IH);
+    tctx.fillStyle = st.kit.ink === 'light' ? 'rgba(255,255,255,.96)' : '#141414';
+    tctx.textAlign = 'center'; tctx.textBaseline = 'alphabetic';
+    tctx.translate(r.cx, r.ny); tctx.scale(r.c, 1);
+    let y = 0;
+    if (name) {
+      tctx.font = capFont(nameCap) + 'px Anton'; if ('letterSpacing' in tctx) tctx.letterSpacing = (nameCap * 0.12) + 'px';
+      const w = tctx.measureText(name).width, k = Math.min(1, maxW / w);
+      tctx.save(); tctx.scale(k, 1); tctx.fillText(name, 0, nameCap); tctx.restore(); y = nameCap + gap;
+    }
+    if (num) {
+      tctx.font = capFont(numCap) + 'px Anton'; if ('letterSpacing' in tctx) tctx.letterSpacing = '0px';
+      tctx.fillText(num, 0, y + numCap);
+    }
+    tctx.setTransform(1, 0, 0, 1, 0, 0); tctx.globalCompositeOperation = 'destination-in'; tctx.drawImage(mask, 0, 0);
+    pctx.drawImage(T, 0, 0);
+  }
+  if (document.fonts) document.fonts.load('100px Anton').then(() => placePrint());
 
   let lastT = 0;
   function loop(t) {
     const dt = lastT ? Math.min(6, (t - lastT) / 16.67) : 1; lastT = t;
-    if (st.auto && !st.drag) st.target += 0.45 * dt;
+    if (st.auto && st.ready && !st.drag) st.target += 0.45 * dt;
     else if (!st.drag && Math.abs(st.vel) > 0.05) { st.target += st.vel * dt; st.vel *= Math.pow(0.92, dt); }
     st.deg += (st.target - st.deg) * (1 - Math.pow(1 - (st.drag ? 0.35 : 0.14), dt));
     draw(); requestAnimationFrame(loop);
   }
 
   // toque: 1 dedo gira; 2 dedos = pinça (zoom); com zoom, 1 dedo move a imagem
-  const stage = $('#stage'), zw = $('#zw');
   const Z = { z: 1, x: 0, y: 0, p: new Map(), pinch: null, pan: null };
   const applyZ = () => { if (Z.z <= 1.02) { Z.z = 1; Z.x = 0; Z.y = 0; } zw.style.scale = String(Z.z); zw.style.translate = `${Z.x}px ${Z.y}px`; stage.classList.toggle('zoomed', Z.z > 1); };
   let lx = 0;
   stage.addEventListener('pointerdown', (e) => {
-    if (e.target.closest('.zoom-reset')) return;
+    if (e.target.closest('button')) return;
     Z.p.set(e.pointerId, { x: e.clientX, y: e.clientY }); try { stage.setPointerCapture(e.pointerId); } catch (_) {}
-    st.auto = false;
+    st.auto = false; if (document.activeElement && document.activeElement.blur) document.activeElement.blur();
     if (Z.p.size === 2) { const [a, b] = [...Z.p.values()]; Z.pinch = { d: Math.hypot(a.x - b.x, a.y - b.y), z: Z.z }; st.drag = false; return; }
     if (Z.z > 1) { Z.pan = { x: e.clientX, y: e.clientY, ox: Z.x, oy: Z.y }; return; }
-    st.drag = true; lx = e.clientX; st.vel = 0;
+    st.drag = true; lx = e.clientX; st.vel = 0; $('#spin').classList.add('used');
   });
   stage.addEventListener('pointermove', (e) => {
     if (!Z.p.has(e.pointerId)) return;
@@ -176,25 +230,27 @@
   $('#prev').addEventListener('click', () => { st.auto = false; st.target -= 30; });
   $('#next').addEventListener('click', () => { st.auto = false; st.target += 30; });
 
+  const showBack = () => { st.auto = false; st.vel = 0; const k = Math.round((st.target - 180) / 360); st.target = 180 + 360 * k; };
   function render() {
     document.querySelectorAll('.shirt').forEach((b) => b.classList.toggle('on', b.dataset.id === st.kit.id));
     document.querySelectorAll('#vers .chip').forEach((b) => b.classList.toggle('on', b.dataset.v === st.ver.id));
     document.querySelectorAll('#sizes .chip').forEach((b) => b.classList.toggle('on', b.dataset.s === st.size));
-    const name = $('#iName').value.trim().toUpperCase(), num = $('#iNum').value.replace(/\D/g, '').slice(0, 2);
-    $('#sum').textContent = 'Camisa ' + st.ver.id.toLowerCase() + (name || num ? ' · ' + [name, num].filter(Boolean).join(' ') : '');
-    $('#val').textContent = st.ver.price;
+    const name = getName(), num = getNum();
+    $('#val').textContent = st.ver.price; $('#sum').textContent = 'camisa ' + st.ver.id.toLowerCase();
     const msg = 'Oi! Montei minha camisa no provador:\n• ' + st.kit.name + ' (' + st.ver.id + ')\n• Tamanho: ' + st.size + (name ? '\n• Nome: ' + name : '') + (num ? '\n• Número: ' + num : '') + '\nTem disponível?';
     $('#cta').href = 'https://wa.me/' + WA + '?text=' + encodeURIComponent(msg);
-    if (cur >= 0) placePrint(cur);
+    if (cur >= 0) placePrint();
   }
-  $('#shirts').innerHTML = KITS.map((k) => `<button class="shirt" type="button" data-id="${k.id}"><img src="img/f/${k.id}_000.webp${V}" alt=""><span><b>${k.name}</b><small>${k.kit} · R$ 179,90</small></span></button>`).join('');
+  $('#shirts').innerHTML = KITS.map((k) => `<button class="shirt" type="button" data-id="${k.id}"><i style="background-image:url(img/f/${k.id}_000.webp${V})"></i><span><b>${k.short}</b><small>camisa + calção</small></span></button>`).join('');
   $('#vers').innerHTML = VERS.map((v) => `<button class="chip" type="button" data-v="${v.id}">${v.id}</button>`).join('');
   $('#sizes').innerHTML = SIZES.map((s) => `<button class="chip" type="button" data-s="${s}">${s}</button>`).join('');
   document.querySelectorAll('.shirt').forEach((b) => b.addEventListener('click', () => { const k = KITS.find((x) => x.id === b.dataset.id); if (k !== st.kit) { st.kit = k; Z.z = 1; applyZ(); mount(); } render(); }));
   document.querySelectorAll('#vers .chip').forEach((b) => b.addEventListener('click', () => { st.ver = VERS.find((v) => v.id === b.dataset.v); render(); }));
   document.querySelectorAll('#sizes .chip').forEach((b) => b.addEventListener('click', () => { st.size = b.dataset.s; render(); }));
-  // ao digitar, gira a camisa para mostrar as costas
-  ['#iName', '#iNum'].forEach((s) => $(s).addEventListener('input', () => { st.auto = false; const k = Math.round((st.target - 180) / 360); st.target = 180 + 360 * k; render(); }));
+  // ao tocar ou digitar no nome/número, o modelo vira de costas
+  ['#iName', '#iNum'].forEach((s) => { $(s).addEventListener('input', () => { showBack(); render(); }); $(s).addEventListener('focus', showBack); });
+  document.querySelectorAll('input').forEach((i) => i.addEventListener('keydown', (e) => { if (e.key === 'Enter') i.blur(); }));
+  addEventListener('resize', () => { fit(); });
   mount(); render(); requestAnimationFrame(loop);
 })();
 </script>
