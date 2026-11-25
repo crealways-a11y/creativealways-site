@@ -13,14 +13,23 @@
 <meta property="og:image:height" content="630" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Anton&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@800&family=Chakra+Petch:wght@700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
 <style>
-  :root { --bg:#14100d; --card:rgba(31,24,19,.92); --line:rgba(250,246,239,.14); --gold:#e7cdac; --txt:#faf6ef; --mute:rgba(250,246,239,.62); }
+  :root { --bg:#14100d; --card:rgba(16,14,13,.88); --line:rgba(250,246,239,.14); --gold:#e7cdac; --txt:#faf6ef; --mute:rgba(250,246,239,.62); }
   * { box-sizing:border-box; margin:0; padding:0; -webkit-tap-highlight-color:transparent; }
   html, body { height:100%; overflow:hidden; background:var(--bg); color:var(--txt); font-family:'Plus Jakarta Sans', system-ui, sans-serif; }
-  body { display:flex; justify-content:center;
-    background: radial-gradient(ellipse 70% 45% at 50% 38%, rgba(150,112,82,.30), transparent 72%), linear-gradient(180deg,#1f1813,#14100d); }
-  .app { position:relative; width:100%; max-width:520px; height:100vh; height:100dvh; display:flex; flex-direction:column; }
+  body { display:flex; justify-content:center; background:#0b0808; }
+  .bg { position:fixed; inset:0; z-index:0; opacity:0; transition:opacity .5s ease; pointer-events:none; }
+  .bg.on { opacity:1; }
+  .bg-fla { background:
+      radial-gradient(ellipse 60% 42% at 50% 36%, rgba(220,24,32,.42), transparent 70%),
+      repeating-linear-gradient(180deg, rgba(196,18,26,.20) 0 54px, rgba(0,0,0,.25) 54px 108px),
+      linear-gradient(180deg,#1c0a0a,#0b0707); }
+  .bg-vasco { background:
+      radial-gradient(ellipse 60% 42% at 50% 36%, rgba(240,228,205,.16), transparent 70%),
+      linear-gradient(45deg, transparent 0 41%, rgba(255,255,255,.11) 41% 59%, transparent 59%),
+      linear-gradient(180deg,#161616,#090909); }
+  .app { z-index:1; position:relative; width:100%; max-width:520px; height:100vh; height:100dvh; display:flex; flex-direction:column; }
   .app::before { content:'Jogou com Quem?'; position:absolute; left:50%; top:34%; transform:translate(-50%,-50%); font-family:Georgia, serif; font-style:italic;
     font-size:clamp(56px, 16vw, 110px); color:rgba(235,210,181,.05); white-space:nowrap; pointer-events:none; }
   header { position:relative; flex:none; padding:12px 16px 4px; display:flex; justify-content:space-between; align-items:center; }
@@ -74,6 +83,7 @@
 </style>
 </head>
 <body>
+<div class="bg bg-fla" id="bgfla"></div><div class="bg bg-vasco" id="bgvasco"></div>
 <div class="app">
 <header>
   <div class="brand">Jogou com Quem?<small>Provador 360°</small></div>
@@ -144,7 +154,7 @@
   function draw() {
     let i = Math.round(norm(st.deg) / 15) % N;
     if (!ok(imgs[i])) { if (cur >= 0) return; i = imgs.findIndex(ok); if (i < 0) return; }
-    if (i !== cur) { if (imgs[cur]) imgs[cur].classList.remove('on'); imgs[i].classList.add('on'); cur = i; placePrint(); }
+    if (i !== cur) { imgs.forEach((im, j) => im.classList.toggle('on', j === i)); cur = i; placePrint(); }
   }
 
   // nome e número: desenhados no próprio quadro e recortados na cor da camisa (nunca saem do tecido)
@@ -166,35 +176,44 @@
     x.clearRect(0, 0, IW, IH); x.putImageData(d, x0, y0);
     masks.set(key, c); return c;
   }
-  function capFont(px) { // tamanho de fonte para uma altura de letra maiúscula de px
-    tctx.font = '100px Anton'; const m = tctx.measureText('E'); const cap = (m.actualBoundingBoxAscent || 73);
-    return 100 * px / cap;
+  // estilo de cada camisa: Flamengo = branco alto e estreito com filete vermelho por dentro; Vasco = estreito com cantos cortados, preto com filete dourado
+  const STYLE = {
+    fla: { font: '800 100px "Big Shoulders Display"', sx: 1, fill: '#ffffff', edge: '#d0151d', outer: 0.05, line: 0.016, nameSp: 0.10 },
+    vasco: { font: '700 100px "Chakra Petch"', sx: 0.74, fill: '#151515', edge: '#b8924a', outer: 0, line: 0.022, nameSp: 0.06 }
+  };
+  function sized(sty, capPx, sample) { // fonte com a altura de maiúscula pedida
+    tctx.font = sty.font; const m = tctx.measureText(sample); const cap = m.actualBoundingBoxAscent || 72;
+    const size = 100 * capPx / cap; tctx.font = sty.font.replace('100px', size.toFixed(2) + 'px'); return size;
+  }
+  function glyphs(sty, text, capPx, y, sp, maxW) {
+    sized(sty, capPx, /\d/.test(text) ? '0' : 'E');
+    if ('letterSpacing' in tctx) tctx.letterSpacing = (capPx * sp) + 'px';
+    const w = tctx.measureText(text).width * sty.sx, k = Math.min(1, maxW / w);
+    tctx.save(); tctx.scale(sty.sx * k, 1); tctx.lineJoin = 'miter';
+    const base = y + capPx;
+    if (sty.outer) { tctx.strokeStyle = sty.fill; tctx.lineWidth = capPx * sty.outer * 2; tctx.strokeText(text, 0, base); }
+    tctx.fillStyle = sty.fill; tctx.fillText(text, 0, base);
+    if (sty.line) { tctx.strokeStyle = sty.edge; tctx.lineWidth = capPx * sty.line * 2; tctx.strokeText(text, 0, base); }
+    tctx.restore();
   }
   function placePrint() {
     pctx.clearRect(0, 0, IW, IH); pc.className = st.kit.ink;
     const r = (window.PRINT && window.PRINT[st.kit.id] || [])[cur];
     const name = getName(), num = getNum();
     if (!r || !ok(imgs[cur]) || (!name && !num)) return;
+    const sty = STYLE[st.kit.id];
     const mask = shirtMask(st.kit.id, cur, imgs[cur], r);
-    const nameCap = r.h * 0.026, numCap = r.h * 0.10, gap = r.h * 0.014, maxW = r.a * 1.35;
+    const nameCap = r.h * 0.026, numCap = r.h * 0.105, gap = r.h * 0.016;
     tctx.setTransform(1, 0, 0, 1, 0, 0); tctx.globalCompositeOperation = 'source-over'; tctx.clearRect(0, 0, IW, IH);
-    tctx.fillStyle = st.kit.ink === 'light' ? 'rgba(255,255,255,.96)' : '#141414';
     tctx.textAlign = 'center'; tctx.textBaseline = 'alphabetic';
     tctx.translate(r.cx, r.ny); tctx.scale(r.c, 1);
     let y = 0;
-    if (name) {
-      tctx.font = capFont(nameCap) + 'px Anton'; if ('letterSpacing' in tctx) tctx.letterSpacing = (nameCap * 0.12) + 'px';
-      const w = tctx.measureText(name).width, k = Math.min(1, maxW / w);
-      tctx.save(); tctx.scale(k, 1); tctx.fillText(name, 0, nameCap); tctx.restore(); y = nameCap + gap;
-    }
-    if (num) {
-      tctx.font = capFont(numCap) + 'px Anton'; if ('letterSpacing' in tctx) tctx.letterSpacing = '0px';
-      tctx.fillText(num, 0, y + numCap);
-    }
+    if (name) { glyphs({ ...sty, outer: 0, line: 0 }, name, nameCap, 0, sty.nameSp, r.a * 1.35); y = nameCap + gap; }
+    if (num) glyphs(sty, num, numCap, y, 0.02, r.a * 1.5);
     tctx.setTransform(1, 0, 0, 1, 0, 0); tctx.globalCompositeOperation = 'destination-in'; tctx.drawImage(mask, 0, 0);
     pctx.drawImage(T, 0, 0);
   }
-  if (document.fonts) document.fonts.load('100px Anton').then(() => placePrint());
+  if (document.fonts) Promise.all([document.fonts.load('800 100px "Big Shoulders Display"'), document.fonts.load('700 100px "Chakra Petch"')]).then(() => placePrint());
 
   let lastT = 0;
   function loop(t) {
@@ -236,6 +255,7 @@
     document.querySelectorAll('#vers .chip').forEach((b) => b.classList.toggle('on', b.dataset.v === st.ver.id));
     document.querySelectorAll('#sizes .chip').forEach((b) => b.classList.toggle('on', b.dataset.s === st.size));
     const name = getName(), num = getNum();
+    $('#bgfla').classList.toggle('on', st.kit.id === 'fla'); $('#bgvasco').classList.toggle('on', st.kit.id === 'vasco');
     $('#val').textContent = st.ver.price; $('#sum').textContent = 'camisa ' + st.ver.id.toLowerCase();
     const msg = 'Oi! Montei minha camisa no provador:\n• ' + st.kit.name + ' (' + st.ver.id + ')\n• Tamanho: ' + st.size + (name ? '\n• Nome: ' + name : '') + (num ? '\n• Número: ' + num : '') + '\nTem disponível?';
     $('#cta').href = 'https://wa.me/' + WA + '?text=' + encodeURIComponent(msg);
