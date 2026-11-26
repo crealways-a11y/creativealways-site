@@ -119,6 +119,34 @@ section{padding-block:clamp(56px,9vw,104px)}
 .seg p{margin:0;color:var(--muted);font-size:14.5px}
 .seg a{margin-top:auto;font-size:14px;font-weight:600;color:var(--gold);text-decoration:none}
 
+/* entradas + clínicas */
+.entries{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+@media (max-width:900px){.entries{grid-template-columns:1fr}}
+.entry{border:1px solid var(--line);border-radius:14px;padding:24px;background:var(--surface);display:flex;flex-direction:column;gap:10px}
+.entry .n{font-family:var(--f-mono);font-size:12px;color:var(--gold);letter-spacing:.08em}
+.entry h3{font-size:24px}
+.entry .for{margin:0;color:var(--muted);font-size:14.5px}
+.entry ul{margin:6px 0 0;padding:0;list-style:none;display:grid;gap:8px;border-top:1px solid var(--line);padding-top:14px}
+.entry li{display:flex;gap:10px;font-size:15px}
+.entry li::before{content:"";flex:0 0 6px;height:6px;margin-top:9px;border-radius:50%;background:#E3A23F}
+.entry li.all{color:var(--muted)}
+.entry li.all::before{background:transparent;border:1px solid #E3A23F}
+.entry.hi{border-color:rgba(227,162,63,.6);background:linear-gradient(160deg,rgba(227,162,63,.13),var(--surface) 60%)}
+.entry .badge{align-self:flex-start;font-family:var(--f-mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:#17120A;background:#E3A23F;border-radius:99px;padding:4px 9px}
+#entradas,#clinicas{scroll-margin-top:84px}
+.clin-head{display:grid;gap:10px;margin:56px 0 22px;max-width:760px}
+.clin-head h3{font-size:clamp(22px,3vw,28px);font-weight:800}
+.clin{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+@media (max-width:900px){.clin{grid-template-columns:1fr}}
+.cl{border:1px solid var(--line);border-radius:14px;padding:22px;background:var(--surface);display:flex;flex-direction:column;gap:8px}
+.cl .tag{font-family:var(--f-mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--faint)}
+.cl h3{font-size:24px}
+.cl p{margin:0;color:var(--muted);font-size:14.5px}
+.cl .dl{display:grid;gap:6px;margin-top:10px}
+.cl .dl a{display:flex;justify-content:space-between;gap:10px;padding:10px 12px;border-radius:9px;background:var(--sunk);text-decoration:none;font-size:14px;font-weight:500;border:1px solid transparent}
+.cl .dl a:hover{border-color:#E3A23F}
+.cl .dl a span{color:#E3A23F}
+
 /* steps */
 .steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;counter-reset:s}
 @media (max-width:900px){.steps{grid-template-columns:1fr 1fr;gap:24px 0}}
@@ -255,7 +283,44 @@ footer .legal{margin-top:28px;font-size:12.5px;color:var(--faint)}
     </div>
   </section>
 
-  <section class="wrap" id="segmentos">
+  <section class="wrap" id="entradas">
+    <div class="sec-head">
+      <div class="eyebrow">Como você pode entrar</div>
+      <h2>Comece pelo que mais faz falta. O ciclo cresce com você.</h2>
+      <p class="lead">Três formas de entrar no Ciclo. O diagnóstico gratuito mostra qual delas faz sentido para a sua empresa agora.</p>
+    </div>
+    <div class="entries">
+      <div class="entry">
+        <div class="n">01</div><h3>Start</h3>
+        <p class="for">Para quem precisa, antes de tudo, ser encontrado no Google.</p>
+        <ul><li>Perfil do Google Meu Negócio completo e otimizado</li><li>Pedido de avaliação organizado para os clientes</li><li>Convite para indicar amigos e conhecidos</li></ul>
+      </div>
+      <div class="entry">
+        <div class="n">02</div><h3>Presença Digital</h3>
+        <p class="for">Para quem quer ser encontrado e passar confiança logo no primeiro clique.</p>
+        <ul><li class="all">Tudo do Start</li><li>Site rápido, bonito e pensado para converter</li><li>Botões de WhatsApp e ligação em todo lugar</li></ul>
+      </div>
+      <div class="entry hi">
+        <span class="badge">As 5 engrenagens</span>
+        <div class="n">03</div><h3>Ciclo completo</h3>
+        <p class="for">Para quem quer o ciclo inteiro rodando, com IA no atendimento.</p>
+        <ul><li class="all">Tudo da Presença Digital</li><li>Atendente de IA no WhatsApp, 24 horas</li><li>Funil de contatos com alerta de quem ficou parado</li><li>Autoridade em IA: aparecer no ChatGPT e no Gemini</li></ul>
+      </div>
+    </div>
+
+    <div class="clin-head" id="clinicas">
+      <div class="eyebrow">Versões prontas para clínicas</div>
+      <h3>O Ciclo completo, já ajustado para a sua especialidade.</h3>
+      <p class="lead">Cada versão tem uma clínica de demonstração com site e atendente de IA para você testar.</p>
+    </div>
+    <div class="clin">
+      <div class="cl"><div class="tag">Odontologia</div><h3>SorrIA</h3><p>Atende no WhatsApp, agenda consultas e traz o paciente de volta.</p><div class="dl"><a href="https://sorriso-vivo.creativealways.workers.dev" target="_blank" rel="noopener">Site da clínica (demonstração) <span>↗</span></a><a href="https://sorria-backend-production.up.railway.app/demo" target="_blank" rel="noopener">Conversar com a SorrIA <span>↗</span></a></div></div>
+      <div class="cl"><div class="tag">Fisioterapia</div><h3>FísIA</h3><p>Responde na hora, marca as sessões e acompanha cada paciente.</p><div class="dl"><a href="https://movimento-vivo.creativealways.workers.dev" target="_blank" rel="noopener">Site da clínica (demonstração) <span>↗</span></a><a href="https://sorria-backend-production.up.railway.app/demo/movimento-vivo" target="_blank" rel="noopener">Conversar com a FísIA <span>↗</span></a></div></div>
+      <div class="cl"><div class="tag">Clínicas médicas</div><h3>MediA</h3><p>Triagem, convênio ou particular e agenda confirmada, sem fila no telefone.</p><div class="dl"><a href="https://saude-integrada.creativealways.workers.dev" target="_blank" rel="noopener">Site da clínica (demonstração) <span>↗</span></a><a href="https://sorria-backend-production.up.railway.app/demo/saude-integrada" target="_blank" rel="noopener">Conversar com a MediA <span>↗</span></a></div></div>
+    </div>
+  </section>
+
+  <section class="wrap" id="segmentos" style="padding-top:0">
     <div class="sec-head">
       <div class="eyebrow">Para quem é</div>
       <h2>O mesmo ciclo, ajustado ao seu tipo de negócio.</h2>
@@ -264,7 +329,7 @@ footer .legal{margin-top:28px;font-size:12.5px;color:var(--faint)}
       <div class="seg"><div class="tag">Comércio local</div><h3>Lojas, restaurantes, beleza, pet</h3><p>Quem pesquisa "perto de mim" precisa achar você, ver boas avaliações e ser atendido na hora.</p></div>
       <div class="seg"><div class="tag">Serviços</div><h3>Profissionais liberais e prestadores</h3><p>Advogados, contadores, arquitetos, oficinas: a confiança começa no Google e se confirma no atendimento.</p></div>
       <div class="seg"><div class="tag">B2B</div><h3>Logística, indústria e serviços para empresas</h3><p>Orçamentos chegam por vários canais. O Ciclo organiza, responde rápido e não deixa proposta esfriar.</p></div>
-      <div class="seg"><div class="tag">Saúde</div><h3>Clínicas e consultórios</h3><p>Temos versões prontas para odontologia, fisioterapia e medicina, com demonstração completa.</p><a href="/solucoes/#saude">Ver as versões para clínicas →</a></div>
+      <div class="seg"><div class="tag">Saúde</div><h3>Clínicas e consultórios</h3><p>Temos versões prontas para odontologia, fisioterapia e medicina, com demonstração completa.</p><a href="#clinicas">Ver as versões para clínicas →</a></div>
     </div>
   </section>
 
@@ -301,7 +366,7 @@ footer .legal{margin-top:28px;font-size:12.5px;color:var(--faint)}
       <details><summary>Eu já tenho site. Preciso fazer outro?</summary><p>Não necessariamente. No diagnóstico vemos se o seu site ajuda ou atrapalha. Se ele funciona, só ajustamos o que falta para converter melhor.</p></details>
       <details><summary>A atendente de IA substitui a minha equipe?</summary><p>Não. Ela cuida do que é repetitivo e do horário em que ninguém está disponível, e passa para a sua equipe tudo o que precisa de uma pessoa.</p></details>
       <details><summary>Usa o WhatsApp oficial?</summary><p>Sim. Trabalhamos só com a API oficial do WhatsApp Business. Nada de ferramenta não oficial, que coloca o seu número em risco de bloqueio.</p></details>
-      <details><summary>Preciso contratar os cinco pilares?</summary><p>O Ciclo funciona melhor completo, porque uma etapa alimenta a outra. Mas o plano é montado a partir do diagnóstico, começando pelo que mais faz falta para você.</p></details>
+      <details><summary>Preciso contratar os cinco pilares?</summary><p>Não. Dá para começar pelo Start ou pela Presença Digital e chegar ao Ciclo completo depois. O Ciclo funciona melhor completo, porque uma etapa alimenta a outra, mas o plano é montado a partir do diagnóstico, começando pelo que mais faz falta para você.</p></details>
       <details><summary>Quanto custa?</summary><p>Depende do tamanho da sua empresa e do que o diagnóstico mostrar. O diagnóstico é gratuito e sem compromisso, e você recebe a proposta com tudo detalhado.</p></details>
       <details><summary>Funciona para o meu segmento?</summary><p>O Ciclo foi pensado para qualquer negócio que depende de ser encontrado e de atender bem: comércio, serviços, B2B e saúde. Se tiver dúvida, chame a gente que respondemos com sinceridade.</p></details>
     </div>
