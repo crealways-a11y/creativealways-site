@@ -128,7 +128,56 @@ header.top.hide{transform:translateY(-100%)}
 @keyframes eq{from{height:3px}to{height:14px}}
 #snd.hint::after{content:"";position:absolute;inset:-5px;border-radius:999px;border:2px solid var(--gold);animation:ping 1.8s ease-out infinite}
 @keyframes ping{from{transform:scale(.9);opacity:.9}to{transform:scale(1.25);opacity:0}}
-.each .swap span.more{color:var(--ink)}
+
+/* SOLUÇÕES: Ciclo como guarda-chuva + grade */
+#cards{grid-template-columns:repeat(6,minmax(0,1fr))}
+#cards .card{grid-column:span 2}
+#cards .card.half{grid-column:span 3}
+#cards .card h3{font-size:clamp(26px,2.5vw,32px)}
+.feat{grid-column:1/-1;position:relative;border-radius:26px;border:1px solid rgba(227,162,63,.38);background:radial-gradient(900px 420px at 88% -10%,rgba(227,162,63,.20),transparent 60%),linear-gradient(160deg,#1A1813,#121317 55%);overflow:hidden;margin-bottom:4px}
+.feat::after{content:"";position:absolute;right:-90px;top:-110px;width:380px;height:380px;border-radius:50%;border:2px solid rgba(227,162,63,.16);pointer-events:none}
+.feat-head{cursor:pointer;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:32px;align-items:end;width:100%;padding:clamp(26px,3.4vw,44px);position:relative;z-index:1}
+.feat-go{border:0;font-family:inherit;cursor:pointer}.feat-go:focus-visible{outline:2px solid #fff;outline-offset:3px}
+.feat .tag{font-family:var(--m);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}
+.feat h3{font-family:var(--d);font-weight:800;font-size:clamp(34px,4.6vw,64px);letter-spacing:-.035em;line-height:1;margin:14px 0 14px}
+.feat h3 em{font-style:normal;color:var(--gold)}
+.feat-head p{color:#C9C7C0;max-width:640px;margin:0}
+.pills{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
+.pills span{font-family:var(--m);font-size:11.5px;letter-spacing:.04em;padding:6px 11px;border-radius:99px;border:1px solid rgba(227,162,63,.32);color:#E9D9BC;background:rgba(227,162,63,.07)}
+.pills span b{color:var(--gold);font-weight:500;margin-right:5px}
+.feat-go{display:inline-flex;align-items:center;gap:12px;white-space:nowrap;font-weight:600;font-size:15px;background:var(--gold);color:#17120A;border-radius:999px;padding:14px 18px 14px 22px;box-shadow:0 14px 40px -14px rgba(227,162,63,.7);transition:transform .25s}
+.feat-head:hover .feat-go{transform:translateY(-2px)}
+.feat-go i{font-style:normal;display:grid;place-items:center;width:26px;height:26px;border-radius:50%;background:#17120A;color:var(--gold);font-size:18px;line-height:1;transition:transform .45s cubic-bezier(.2,.7,.2,1)}
+.feat.open .feat-go i{transform:rotate(45deg)}
+.feat-go .lc{display:none}.feat.open .feat-go .lo{display:none}.feat.open .feat-go .lc{display:inline}
+.feat-body{display:grid;grid-template-rows:0fr;transition:grid-template-rows .65s cubic-bezier(.2,.7,.2,1);position:relative;z-index:1}
+.feat.open .feat-body{grid-template-rows:1fr}
+.feat-in{min-height:0;overflow:hidden}
+.feat-pad{padding:0 clamp(26px,3.4vw,44px) clamp(26px,3.4vw,44px);border-top:1px solid rgba(243,240,234,.10);padding-top:30px}
+.feat-pad>.eyebrow{margin:0 0 14px}
+.opts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-bottom:30px}
+.opt{border:1px solid var(--line);border-radius:18px;padding:20px;background:rgba(11,12,15,.55)}
+.opt .n{font-family:var(--m);font-size:11px;color:var(--gold);letter-spacing:.1em}
+.opt h4,.cl h4{font-family:var(--d);font-weight:700;font-size:24px;letter-spacing:-.02em;margin:8px 0 6px}
+.opt p,.cl p{color:#B9B7B0;font-size:15px;margin:0}
+.opt.hi{border-color:rgba(227,162,63,.55);background:linear-gradient(160deg,rgba(227,162,63,.13),rgba(11,12,15,.55))}
+.clin{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.cl{border:1px solid var(--line);border-radius:18px;padding:20px;background:var(--surface);display:flex;flex-direction:column}
+.cl .tag{font-size:10.5px}
+.cl .dl2{display:flex;flex-direction:column;gap:6px;margin-top:16px}
+.cl .dl2 a{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:10px 12px;border-radius:10px;background:var(--surface2);font-size:14px;font-weight:500;border:1px solid transparent;transition:border-color .25s}
+.cl .dl2 a:hover{border-color:rgba(227,162,63,.6)}
+.cl .dl2 a span{color:var(--gold)}
+.feat-cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+@media (max-width:980px){
+  #cards{grid-template-columns:1fr 1fr}#cards .card,#cards .card.half{grid-column:span 1}
+  .feat-head{grid-template-columns:1fr;gap:22px}.feat-go{justify-self:start}
+  .opts,.clin{grid-template-columns:1fr}
+}
+@media (max-width:640px){
+  #cards{grid-template-columns:1fr}
+  .feat h3{font-size:clamp(32px,10vw,44px)}
+}
 /* NÚMEROS */
 .nums{position:relative;height:100svh;display:grid;place-items:center;text-align:center;overflow:hidden}
 .nums .chart{position:absolute;left:0;right:0;bottom:0;height:46%;opacity:.9}
@@ -151,15 +200,6 @@ header.top.hide{transform:translateY(-100%)}
 .bens .dots i{width:34px;height:4px;border-radius:3px;background:var(--line)}
 .bens .dots i.on{background:var(--gold)}
 @media (max-width:640px){.bens .dots i{width:22px}.bens .bwords span{font-size:11vw}.bens .bwords{height:34vw;top:48%}}
-/* PARA CADA */
-.each{height:100svh;position:relative;overflow:hidden;display:grid;place-items:center;background:var(--bg)}
-.each .floaty{animation:fl var(--fd,6s) ease-in-out infinite alternate;animation-delay:var(--fdl,0s);position:absolute;width:clamp(150px,19vw,280px);aspect-ratio:4/3;border-radius:18px;border:1px solid var(--line);padding:16px;display:flex;align-items:flex-end;font-family:var(--d);font-weight:700;font-size:clamp(16px,1.7vw,24px);letter-spacing:-.02em;box-shadow:0 30px 70px -30px #000;opacity:.9}
-.each .floaty small{display:block;font-family:var(--m);font-size:10px;letter-spacing:.14em;color:rgba(255,255,255,.65);font-weight:500;text-transform:uppercase}
-.each .center{position:relative;z-index:2;text-align:center;padding:0 24px}
-.each .lbl{font-family:var(--d);font-size:clamp(28px,4.4vw,64px);font-weight:600;color:#C9C7C0}
-.each .swap{position:relative;display:block;height:clamp(60px,10vw,150px);margin-top:6px}
-.each .swap span{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:var(--d);font-weight:800;font-size:clamp(26px,7.6vw,140px);letter-spacing:-.045em;color:var(--gold);white-space:nowrap}
-.each::after{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(11,12,15,.86) 18%,rgba(11,12,15,0) 62%);z-index:1;pointer-events:none}
 
 /* SOLUÇÕES */
 section.pad{padding:clamp(80px,12vw,160px) 0}
@@ -261,7 +301,6 @@ footer a:hover{color:var(--ink)}
   .brand{font-size:17px}.brand svg{width:26px;height:26px}
   .ciclo>.eyebrow{font-size:10px!important;letter-spacing:.1em!important;top:78px!important}
   .how .list{padding-left:64px}.how .item .dot{left:-64px;width:42px;height:42px}.how .line{left:20px}
-  .each .floaty{opacity:.5}
 }
 @media (prefers-reduced-motion:reduce){
   .manifesto .w{opacity:1}.marq .t{animation:none}.scroll i{animation:none}
@@ -324,44 +363,49 @@ footer a:hover{color:var(--ink)}
   </div>
 </section>
 
-<!-- 5 · PARA CADA -->
-<section class="each" id="each">
-  <div class="floaty" data-y="-90" style="left:5%;top:12%;background:linear-gradient(135deg,#1c3a4a,#0f1d26);transform:rotate(-7deg);--fd:5.5s;--fdl:0s;--fx:10px;--fy:-18px"><div><small>Odontologia</small>SorrIA</div></div>
-  <div class="floaty" data-y="-130" style="right:6%;top:9%;background:linear-gradient(135deg,#3b2b4f,#1a1326);transform:rotate(6deg);--fd:6.5s;--fdl:-1s;--fx:-12px;--fy:-14px"><div><small>Clínicas médicas</small>MediA</div></div>
-  <div class="floaty" data-y="-60" style="left:9%;bottom:10%;background:linear-gradient(135deg,#1f4a3a,#0e231c);transform:rotate(5deg);--fd:7s;--fdl:-2s;--fx:14px;--fy:-16px"><div><small>Fisioterapia</small>FísIA</div></div>
-  <div class="floaty" data-y="-110" style="right:8%;bottom:8%;background:linear-gradient(135deg,#4f3a1b,#241a0a);transform:rotate(-5deg);--fd:6s;--fdl:-3s;--fx:-10px;--fy:-20px"><div><small>Corretoras de seguros</small>SeguroFlow</div></div>
-  <div class="floaty" data-y="-150" style="left:36%;top:3%;background:linear-gradient(135deg,#2c2f3d,#14151c);transform:rotate(3deg);--fd:5s;--fdl:-1.5s;--fx:16px;--fy:-12px"><div><small>Agências de viagem</small>Vivant IA</div></div>
-  <div class="floaty" data-y="-70" style="left:40%;bottom:2%;background:linear-gradient(135deg,#4a2b2b,#231414);transform:rotate(-4deg);--fd:6.8s;--fdl:-4s;--fx:-14px;--fy:-18px"><div><small>Receptivos</small>Vivant Pass</div></div>
-  <div class="floaty" data-y="-40" style="left:23%;top:2%;background:linear-gradient(135deg,#1b3350,#0b1626);transform:rotate(4deg);--fd:7.2s;--fdl:-2.5s;--fx:12px;--fy:-22px"><div><small>Jurídico e cobrança</small>RecuperIA</div></div>
-  <div class="floaty" data-y="-100" style="left:58%;bottom:3%;background:linear-gradient(135deg,#2a4a2f,#101e12);transform:rotate(-6deg);--fd:5.8s;--fdl:-3.5s;--fx:-16px;--fy:-16px"><div><small>Google e ChatGPT</small>GeoPulse</div></div>
-  <div class="floaty" data-y="-170" style="right:30%;top:2%;background:linear-gradient(135deg,#4a3a14,#241c08);transform:rotate(5deg);--fd:6.2s;--fdl:-0.5s;--fx:10px;--fy:-14px"><div><small>Time de IA</small>ColaborIA</div></div>
-  <div class="center">
-    <div class="lbl">Uma solução para</div>
-    <div class="lbl">cada</div>
-    <div class="swap" id="swap">
-      <span>clínica odontológica</span><span>consultório médico</span><span>estúdio de fisioterapia</span><span>corretora de seguros</span><span>agência de viagens</span><span>receptivo de passeios</span><span class="more">micro e pequena empresa.</span>
-    </div>
-  </div>
-</section>
-
-<!-- 6 · SOLUÇÕES -->
+<!-- 3 · SOLUÇÕES (o Ciclo é o guarda-chuva) -->
 <section class="pad" id="solucoes">
   <div class="wrap">
     <div class="sec-h reveal">
       <div class="eyebrow">Soluções</div>
       <h2>Soluções de IA <em>prontas para o seu segmento.</em></h2>
-      <p>Cada solução nasceu para um tipo de negócio. Abra a demonstração, converse com o atendente de IA e veja o painel por dentro.</p>
+      <p>Do site e do Google aos agentes de IA, CRM e sistemas sob medida. Tudo começa no Ciclo de Excelência Digital, e cada solução nasceu para um tipo de negócio. Abra a demonstração e veja funcionando.</p>
     </div>
     <div class="grid" id="cards">
-      <a class="card" href="/solucoes/#saude"><div class="tag">Odontologia</div><h3>SorrIA</h3><p>Atende no WhatsApp, agenda consultas e traz o paciente de volta.</p><div class="go">Ver demonstração <i>→</i></div></a>
-      <a class="card" href="/solucoes/#saude"><div class="tag">Fisioterapia</div><h3>FísIA</h3><p>Responde na hora, marca as sessões e acompanha cada paciente.</p><div class="go">Ver demonstração <i>→</i></div></a>
-      <a class="card" href="/solucoes/#saude"><div class="tag">Clínicas médicas</div><h3>MediA</h3><p>Triagem, convênio ou particular e agenda confirmada, sem fila no telefone.</p><div class="go">Ver demonstração <i>→</i></div></a>
-      <a class="card" href="/solucoes/#seguros"><div class="tag">Corretoras de seguros</div><h3>SeguroFlow</h3><p>Renovações, cobrança e pedidos num só painel, com alerta antes do atraso.</p><div class="go">Ver demonstração <i>→</i></div></a>
-      <a class="card" href="/solucoes/#turismo"><div class="tag">Agências de viagem</div><h3>Vivant IA</h3><p>Propostas de viagem bonitas e rápidas, no lugar do PDF.</p><div class="go">Ver demonstração <i>→</i></div></a>
-      <a class="card" href="/solucoes/#turismo"><div class="tag">Receptivos e passeios</div><h3>Vivant Pass</h3><p>Vagas em tempo real, Pix na hora e voucher com QR Code.</p><div class="go">Ver demonstração <i>→</i></div></a>
-      <a class="card" href="/solucoes/#juridico"><div class="tag">Jurídico e cobrança</div><h3>RecuperIA</h3><p>Organiza e conduz a cobrança de forma estruturada e dentro da lei.</p><div class="go">Ver demonstração <i>→</i></div></a>
-      <a class="card" href="/solucoes/#busca"><div class="tag">Google e ChatGPT</div><h3>GeoPulse</h3><p>Acompanha como a sua marca aparece nas buscas e nas respostas das IAs.</p><div class="go">Ver demonstração <i>→</i></div></a>
-      <a class="card" href="/ciclo-de-excelencia/"><div class="tag">Todos os segmentos</div><h3>Ciclo de Excelência</h3><p>As cinco engrenagens juntas, montadas para o seu negócio.</p><div class="go">Conhecer o ciclo <i>→</i></div></a>
+      <div class="feat" id="feat">
+        <div class="feat-head" id="featHead">
+          <div>
+            <div class="tag">Carro-chefe · para qualquer empresa</div>
+            <h3>Ciclo de Excelência <em>Digital</em></h3>
+            <p>Seja encontrado no Google, atenda na hora com IA e vire indicação. Cinco engrenagens trabalhando juntas, montadas para o seu negócio.</p>
+            <span class="pills"><span><b>01</b>Atração</span><span><b>02</b>Atendimento</span><span><b>03</b>Gestão</span><span><b>04</b>Reputação</span><span><b>05</b>Autoridade em IA</span></span>
+          </div>
+          <button class="feat-go" id="featBtn" type="button" aria-expanded="false" aria-controls="featBody"><span class="lo">Ver as opções</span><span class="lc">Fechar</span><i aria-hidden="true">+</i></button>
+        </div>
+        <div class="feat-body" id="featBody" role="region" aria-label="Opções do Ciclo de Excelência Digital"><div class="feat-in"><div class="feat-pad">
+          <div class="eyebrow">Como você pode entrar</div>
+          <div class="opts">
+            <div class="opt"><span class="n">01</span><h4>Start</h4><p>Google Meu Negócio otimizado, avaliação e indicação. O primeiro passo para ser encontrado.</p></div>
+            <div class="opt"><span class="n">02</span><h4>Presença Digital</h4><p>Site, Google e reputação. Quem procura encontra, confia e chama.</p></div>
+            <div class="opt hi"><span class="n">03</span><h4>Ciclo completo</h4><p>As cinco engrenagens, com a IA que atende e agenda no WhatsApp 24 horas.</p></div>
+          </div>
+          <div class="eyebrow">Versões prontas para clínicas · com demonstração</div>
+          <div class="clin">
+          <div class="cl"><div class="tag">Odontologia</div><h4>SorrIA</h4><p>Atende no WhatsApp, agenda consultas e traz o paciente de volta.</p><div class="dl2"><a href="https://sorriso-vivo.creativealways.workers.dev" target="_blank" rel="noopener">Site da clínica (demonstração) <span>↗</span></a><a href="https://sorria-backend-production.up.railway.app/demo" target="_blank" rel="noopener">Conversar com a SorrIA <span>↗</span></a></div></div>
+          <div class="cl"><div class="tag">Fisioterapia</div><h4>FísIA</h4><p>Responde na hora, marca as sessões e acompanha cada paciente.</p><div class="dl2"><a href="https://movimento-vivo.creativealways.workers.dev" target="_blank" rel="noopener">Site da clínica (demonstração) <span>↗</span></a><a href="https://sorria-backend-production.up.railway.app/demo/movimento-vivo" target="_blank" rel="noopener">Conversar com a FísIA <span>↗</span></a></div></div>
+          <div class="cl"><div class="tag">Clínicas médicas</div><h4>MediA</h4><p>Triagem, convênio ou particular e agenda confirmada, sem fila no telefone.</p><div class="dl2"><a href="https://saude-integrada.creativealways.workers.dev" target="_blank" rel="noopener">Site da clínica (demonstração) <span>↗</span></a><a href="https://sorria-backend-production.up.railway.app/demo/saude-integrada" target="_blank" rel="noopener">Conversar com a MediA <span>↗</span></a></div></div>
+          </div>
+          <div class="feat-cta"><a class="btn" href="/ciclo-de-excelencia/">Conhecer o Ciclo →</a><a class="btn ghost" href="/diagnostico/?interesse=ciclo">Quero meu diagnóstico gratuito</a></div>
+        </div></div></div>
+      </div>
+      <a class="card half" href="/colaboria/"><div class="tag">Time de IA · toda empresa</div><h3>ColaborIA</h3><p>Colaboradores de IA no seu time: atendimento, vendas, marketing e operação rodando com agentes, por etapas.</p><div class="go">Conhecer a ColaborIA <i>→</i></div></a>
+      <a class="card half" href="/consultoria-ia/"><div class="tag">Estratégia · toda empresa</div><h3>Consultoria em IA</h3><p>A gente aponta onde a IA devolve tempo e dinheiro no seu processo e implanta junto com você.</p><div class="go">Ver a consultoria <i>→</i></div></a>
+      <a class="card" href="/solucoes/#vivant-ia"><div class="tag">Agências de viagem</div><h3>Vivant IA</h3><p>Propostas de viagem bonitas e rápidas, no lugar do PDF.</p><div class="go">Ver demonstração <i>→</i></div></a>
+      <a class="card" href="/solucoes/#vivant-pass"><div class="tag">Receptivos e passeios</div><h3>Vivant Pass</h3><p>Vagas em tempo real, Pix na hora e voucher com QR Code.</p><div class="go">Ver demonstração <i>→</i></div></a>
+      <a class="card" href="/solucoes/#recuperia"><div class="tag">Jurídico e cobrança</div><h3>RecuperIA</h3><p>Organiza e conduz a cobrança de forma estruturada e dentro da lei.</p><div class="go">Ver demonstração <i>→</i></div></a>
+      <a class="card" href="/solucoes/#geopulse"><div class="tag">Google e ChatGPT</div><h3>GeoPulse</h3><p>Acompanha como a sua marca aparece nas buscas e nas respostas das IAs.</p><div class="go">Ver demonstração <i>→</i></div></a>
+      <a class="card" href="/solucoes/#seguroflow"><div class="tag">Corretoras de seguros</div><h3>SeguroFlow</h3><p>Renovações, cobrança e pedidos num só painel, com alerta antes do atraso.</p><div class="go">Ver demonstração <i>→</i></div></a>
+      <a class="card" href="/provador/"><div class="tag">Lojas de moda</div><h3>Provador Virtual 360</h3><p>A cliente vê a roupa num corpo parecido com o dela, girando em 360°, e chama a loja com a peça e o tamanho.</p><div class="go">Experimentar o provador <i>→</i></div></a>
     </div>
   </div>
 </section>
@@ -460,7 +504,7 @@ footer a:hover{color:var(--ink)}
     <details><summary>Quanto custa?</summary><p>Depende do pacote. Cada solução tem planos pensados para PME, e a consultoria de IA é cobrada por projeto. No diagnóstico gratuito eu já saio com uma proposta de preço clara.</p></details>
     <details><summary>Preciso de contrato longo?</summary><p>Não. O contrato é mensal. Se não estiver funcionando para você, não faz sentido continuar.</p></details>
     <details><summary>Como a IA funciona, na prática?</summary><p>O atendente de IA é configurado com as informações do seu negócio: serviços, horários, regras e agenda. Ele responde no WhatsApp, agenda, registra cada contato no painel e passa para você o que precisa de atenção humana.</p></details>
-    <details><summary>Funciona para o meu segmento?</summary><p>Já temos soluções prontas para saúde, seguros, turismo e outros segmentos, e adaptamos para o seu negócio. No diagnóstico a gente valida o que faz sentido para o seu caso.</p></details>
+    <details><summary>Funciona para o meu segmento?</summary><p>Já temos soluções prontas para saúde, seguros, turismo, moda e outros segmentos, e adaptamos para o seu negócio. No diagnóstico a gente valida o que faz sentido para o seu caso.</p></details>
     <details><summary>Como eu começo?</summary><p>Agende o diagnóstico gratuito de 30 minutos. Sem compromisso: você sai com um plano claro.</p></details>
   </div>
 </section>
@@ -559,6 +603,21 @@ function splitWords(el){
 }
 $$('.sec-h h2,.hz h2').forEach(splitWords);
 
+/* CICLO: clique abre as opções */
+(function(){
+  var f=$('#feat'),b=$('#featBtn'),hd2=$('#featHead'),body=$('#featBody');
+  if(!f)return;
+  hd2.addEventListener('click',function(e){
+    if(e.target.closest('a'))return;
+    var op=!f.classList.contains('open');
+    f.classList.toggle('open',op);b.setAttribute('aria-expanded',op?'true':'false');
+    if(op&&window.gsap&&!reduce){gsap.fromTo($$('.opt,.cl,.feat-cta,.feat-pad>.eyebrow',f),{y:26,autoAlpha:0},{y:0,autoAlpha:1,duration:.6,stagger:.06,ease:'power3.out',delay:.1})}
+  });
+  var rt;function refresh(){clearTimeout(rt);rt=setTimeout(function(){if(window.ScrollTrigger)ScrollTrigger.refresh()},80)}
+  body.addEventListener('transitionend',function(e){if(e.target===body)refresh()});
+  hd2.addEventListener('click',function(){setTimeout(refresh,900)});
+})();
+
 if(!window.gsap||!window.ScrollTrigger||reduce){
   $$('.mask>span').forEach(function(e){e.style.transform='none'});
   $$('.step').forEach(function(s,i){s.style.visibility=i===0?'visible':'hidden'});
@@ -602,40 +661,13 @@ document.addEventListener('pointermove',function(e){var dx=e.clientX/innerWidth-
   bt.to({},{duration:.3});
 })();
 
-/* PARA CADA: peças voam para o lugar, flutuam e o título troca */
-var swapEl=$('#swap'),finalEl=$('#swap span.more');
-var many=['academia','salão de beleza','barbearia','pet shop','restaurante','escritório de advocacia','contabilidade','imobiliária','escola de idiomas','oficina mecânica','loja de roupas','farmácia','clínica de estética','psicólogo','nutricionista','laboratório','pousada','transportadora','construtora','loja virtual','estúdio de tatuagem','autoescola','floricultura','padaria','ótica','escola de dança'];
-var fast=many.map(function(t,i){var s=document.createElement('span');s.textContent=t;if(i%2)s.style.color='var(--ink)';swapEl.insertBefore(s,finalEl);return s});
-var main=$$('#swap span').filter(function(s){return fast.indexOf(s)<0&&s!==finalEl});
-var tiles=$$('.floaty');
-gsap.set($$('#swap span'),{autoAlpha:0,yPercent:60,scale:.92});
-var etl=gsap.timeline({scrollTrigger:{trigger:'#each',start:'top top',end:'+=1000%',pin:true,scrub:.6}});
-tiles.forEach(function(f,i){
-  var dir=i%2?1:-1;
-  etl.from(f,{xPercent:dir*(160+i*18),yPercent:(i%3-1)*220,scale:.25,autoAlpha:0,duration:1.4,ease:'power3.out'},i*.12);
-});
-var T0=1.5;
-main.forEach(function(s,i){
-  etl.to(s,{autoAlpha:1,yPercent:0,scale:1,duration:.5,ease:'back.out(1.5)'},T0+i);
-  etl.to(s,{autoAlpha:0,yPercent:-60,duration:.4,ease:'power3.in'},T0+i+.7);
-});
-var TF=T0+main.length+.2,ST=.2;
-fast.forEach(function(s,i){
-  var t=TF+i*ST;
-  etl.set(s,{yPercent:0,scale:1},t).to(s,{autoAlpha:1,duration:.03},t).to(s,{autoAlpha:0,duration:.03},t+ST-.04);
-});
-var TL=TF+fast.length*ST+.1;
-etl.to(finalEl,{autoAlpha:1,yPercent:0,scale:1,duration:.6,ease:'back.out(1.5)'},TL);
-etl.to(tiles,{scale:1.12,duration:.5,stagger:.05,yoyo:true,repeat:1,ease:'sine.inOut'},TL);
-etl.to({},{duration:.8});
-tiles.forEach(function(f){etl.to(f,{y:parseFloat(f.dataset.y)*2.2,rotation:'+='+(Math.random()*16-8),ease:'none',duration:TL+1},0)});
-
 /* SOLUÇÕES */
 $$('.sec-h').forEach(function(el){
   var t=gsap.timeline({scrollTrigger:{trigger:el,start:'top 82%'}});
   t.from($$('.sw>span',el),{yPercent:115,duration:.9,stagger:.06,ease:'power4.out'})
    .from($$('.eyebrow,p',el),{y:24,autoAlpha:0,duration:.7,stagger:.1},.1);
 });
+gsap.from('#feat',{y:70,autoAlpha:0,scale:.97,duration:1,ease:'power3.out',scrollTrigger:{trigger:'#feat',start:'top 88%',once:true}});
 ScrollTrigger.batch('#cards .card',{start:'top 92%',onEnter:function(b){gsap.from(b,{y:80,autoAlpha:0,scale:.94,duration:.9,stagger:.09,ease:'power3.out'})},once:true});
 $$('.card').forEach(function(c){
   c.style.transition='border-color .3s';
